@@ -1,0 +1,25 @@
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Editors
+.vscode/
+.idea/
+*.swp
+
+# Local backups (kept outside repo anyway, but just in case)
+*.local-backup
+*-backup/
+
+# Stray top-level font duplicates (the real ones live in /fonts)
+/AeonikTRIAL-*.otf
+/AeonikTRIAL-* (*.otf
+
+# Logs / env
+*.log
+.env
+.env.*
+!.env.example
+
+# Node (in case we add tooling later)
+node_modules/
