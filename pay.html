@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rayl Pay — Accept payments. Anywhere.</title>
+  <meta name="description" content="Rayl Pay is a modern payment system. Accept Visa, Mastercard, Apple Pay and Google Pay with a single integration." />
+  <meta name="theme-color" content="#0a0a0a" />
+  <meta name="color-scheme" content="dark" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <header class="nav">
+    <div class="nav__inner">
+      <a href="#" class="nav__logo" aria-label="Rayl Pay">
+        <span class="logo__mark">Rayl</span><span class="logo__sub">Pay</span>
+      </a>
+
+      <nav class="nav__links" aria-label="Primary">
+        <a href="#product" class="nav__link">Product</a>
+        <a href="#methods" class="nav__link">Payment methods</a>
+        <a href="#integrate" class="nav__link">Integrate</a>
+        <a href="#contact" class="nav__link">Contact</a>
+
+        <span class="nav__divider" aria-hidden="true"></span>
+
+        <a href="/" class="nav__link nav__link--external">← Back to Rayl</a>
+
+        <a href="#contact" class="btn btn--primary btn--sm">Get started →</a>
+      </nav>
+
+      <button class="nav__menu" aria-label="Open menu" id="menuBtn">
+        <span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <p class="eyebrow">Rayl Pay — Payments</p>
+      <h1 class="hero__title">
+        Accept payments.<br />
+        <em>Anywhere.</em>
+      </h1>
+      <p class="hero__sub">
+        One integration. Every method your customers actually use.
+        Built for businesses that want to move money — not manuals.
+      </p>
+
+      <div class="hero__cta">
+        <a href="#integrate" class="btn btn--primary">Start integrating</a>
+        <a href="#methods" class="btn btn--ghost">See payment methods →</a>
+      </div>
+
+      <!-- Payment method strip -->
+      <div class="methods-strip" aria-label="Supported payment methods">
+        <span class="methods-strip__label">Accepts</span>
+        <div class="methods-strip__row">
+          <span class="method-chip">
+            <svg viewBox="0 0 48 16" aria-hidden="true"><text x="0" y="13" font-family="Helvetica, Arial" font-weight="900" font-style="italic" font-size="15" fill="currentColor" letter-spacing="0.5">VISA</text></svg>
+          </span>
+          <span class="method-chip">
+            <svg viewBox="0 0 36 22" aria-hidden="true">
+              <circle cx="14" cy="11" r="9" fill="#ff5f00" opacity=".95"/>
+              <circle cx="22" cy="11" r="9" fill="#fff" opacity=".55"/>
+            </svg>
+            <span class="method-chip__text">Mastercard</span>
+          </span>
+          <span class="method-chip">
+            <svg viewBox="0 0 22 22" aria-hidden="true" fill="currentColor">
+              <path d="M16.4 11.6c0-2.6 2.1-3.9 2.2-3.9-1.2-1.7-3-2-3.7-2-1.6-.2-3 .9-3.8.9-.8 0-2-.9-3.3-.9-1.7 0-3.3 1-4.2 2.5-1.8 3.1-.5 7.7 1.3 10.2.9 1.2 1.9 2.6 3.2 2.5 1.3-.1 1.8-.8 3.3-.8s2 .8 3.3.8c1.4 0 2.3-1.2 3.1-2.5.5-.7 1.1-1.7 1.5-2.7-1-.4-2.9-1.4-2.9-4.1zm-2.4-7.4c.7-.8 1.2-2 1-3.2-1 .1-2.3.7-3 1.6-.7.7-1.3 1.9-1.1 3.1 1.1.1 2.3-.6 3.1-1.5z"/>
+            </svg>
+            <span class="method-chip__text">Apple&nbsp;Pay</span>
+          </span>
+          <span class="method-chip">
+            <svg viewBox="0 0 22 22" aria-hidden="true">
+              <path d="M11 10.2v2.2h3.1c-.1.8-.9 2.4-3.1 2.4-1.9 0-3.4-1.5-3.4-3.5s1.5-3.5 3.4-3.5c1.1 0 1.8.5 2.2.9l1.5-1.5C13.7 6.4 12.4 6 11 6c-3 0-5.4 2.4-5.4 5.4S8 16.8 11 16.8c3.1 0 5.2-2.2 5.2-5.3 0-.4 0-.7-.1-1H11z" fill="currentColor"/>
+            </svg>
+            <span class="method-chip__text">Google&nbsp;Pay</span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCT / WHY -->
+  <section class="section" id="product">
+    <div class="container grid grid--split">
+      <div class="grid__left">
+        <p class="section__tag">01 — Why Rayl Pay</p>
+        <h2 class="section__title"><em>One</em> stack.<br />Every method.</h2>
+      </div>
+      <div class="grid__right">
+        <p class="lead">
+          Rayl Pay gives you a single integration that quietly handles cards,
+          wallets, and the moving parts behind them. Drop it in, ship it,
+          and stop thinking about payments.
+        </p>
+        <ul class="bullets">
+          <li>Built for web, mobile, and in-person checkout.</li>
+          <li>One API. One dashboard. One reconciliation.</li>
+          <li>3D Secure, tokenisation, and PCI scope reduction handled for you.</li>
+          <li>Designed to fit any product — not the other way around.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- PAYMENT METHODS -->
+  <section class="section section--dark-rule" id="methods">
+    <div class="container">
+      <div class="section__head">
+        <p class="section__tag">02 — Payment methods</p>
+        <h2 class="section__title">Everything your<br />customers carry.</h2>
+      </div>
+
+      <div class="methods-grid">
+
+        <article class="method-card">
+          <div class="method-card__logo method-card__logo--visa">
+            <svg viewBox="0 0 100 32" aria-hidden="true"><text x="0" y="24" font-family="Helvetica, Arial" font-weight="900" font-style="italic" font-size="28" fill="currentColor" letter-spacing="1">VISA</text></svg>
+          </div>
+          <h3 class="method-card__title">Visa</h3>
+          <p class="method-card__desc">
+            Credit, debit, and prepaid Visa cards from every issuing region.
+          </p>
+        </article>
+
+        <article class="method-card">
+          <div class="method-card__logo">
+            <svg viewBox="0 0 60 36" aria-hidden="true">
+              <circle cx="22" cy="18" r="14" fill="#eb001b"/>
+              <circle cx="38" cy="18" r="14" fill="#f79e1b"/>
+              <path d="M30 8a14 14 0 010 20 14 14 0 010-20z" fill="#ff5f00"/>
+            </svg>
+          </div>
+          <h3 class="method-card__title">Mastercard</h3>
+          <p class="method-card__desc">
+            Mastercard credit, debit, and Maestro — across every supported geography.
+          </p>
+        </article>
+
+        <article class="method-card">
+          <div class="method-card__logo">
+            <svg viewBox="0 0 60 36" aria-hidden="true" fill="currentColor">
+              <path d="M44.3 27.8c-1.4 2-2.8 3.9-5.2 3.9s-3-1.2-5.5-1.2-3.3 1.2-5.5 1.3c-2.2.1-3.9-2.1-5.3-4-2.9-4.1-5.1-11.6-2.1-16.7 1.5-2.5 4.2-4.1 7.1-4.2 2.1 0 4.1 1.4 5.5 1.4 1.3 0 3.8-1.7 6.4-1.5 1.1.1 4.1.5 6.1 3.3-.2.1-3.6 2.2-3.5 6.4 0 5.1 4.4 6.7 4.5 6.8-.1.1-.7 2.3-2.5 4.5zM35.6 4.5c1.2-1.4 2-3.3 1.8-5.2-1.7.1-3.7 1.1-5 2.4-1.1 1.2-2.1 3.2-1.8 5 1.9.1 3.8-1 5-2.2z"/>
+            </svg>
+          </div>
+          <h3 class="method-card__title">Apple Pay</h3>
+          <p class="method-card__desc">
+            One-tap checkout on iPhone, iPad, Mac, and Apple Watch with Face ID
+            or Touch ID confirmation.
+          </p>
+        </article>
+
+        <article class="method-card">
+          <div class="method-card__logo">
+            <svg viewBox="0 0 60 36" aria-hidden="true">
+              <path d="M30 17.5v4.4h6.1c-.2 1.6-1.7 4.7-6.1 4.7a6.8 6.8 0 010-13.6c2.1 0 3.6 1 4.4 1.8l3-2.9C35.5 10.3 33 9 30 9a11 11 0 100 22c6.4 0 10.6-4.5 10.6-10.8 0-.7 0-1.3-.2-2H30z" fill="#4285f4"/>
+              <path d="M30 17.5v4.4h6.1c-.2 1.6-1.7 4.7-6.1 4.7v4.4c6.4 0 10.6-4.5 10.6-10.8 0-.7 0-1.3-.2-2H30z" fill="#34a853"/>
+              <path d="M30 26.6c-2.7 0-5-1.8-5.8-4.3l-3.8 2.9A11 11 0 0030 31v-4.4z" fill="#fbbc04"/>
+              <path d="M30 13c1.5 0 2.9.5 4 1.5l3-2.9C35.5 10.3 33 9 30 9a11 11 0 00-9.6 5.7l3.8 2.9c.8-2.5 3.1-4.6 5.8-4.6z" fill="#ea4335"/>
+            </svg>
+          </div>
+          <h3 class="method-card__title">Google Pay</h3>
+          <p class="method-card__desc">
+            Frictionless wallet checkout on Android, Chrome, and across the web.
+          </p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- INTEGRATE -->
+  <section class="section" id="integrate">
+    <div class="container grid grid--split">
+      <div class="grid__left">
+        <p class="section__tag">03 — Integrate</p>
+        <h2 class="section__title">Live in<br /><em>minutes.</em></h2>
+        <p class="grid__left-note">
+          Drop a script tag, mount a button, take payments.
+          That's the entire flow.
+        </p>
+      </div>
+      <div class="grid__right">
+
+        <div class="code">
+          <div class="code__bar">
+            <span class="code__dot"></span>
+            <span class="code__dot"></span>
+            <span class="code__dot"></span>
+            <span class="code__file">checkout.html</span>
+          </div>
+<pre class="code__body"><span class="c-c">&lt;!-- 1. Drop in Rayl Pay --&gt;</span>
+<span class="c-t">&lt;script</span> <span class="c-a">src</span>=<span class="c-s">"https://js.raylpay.io/v1"</span><span class="c-t">&gt;&lt;/script&gt;</span>
+
+<span class="c-c">&lt;!-- 2. Mount a checkout button --&gt;</span>
+<span class="c-t">&lt;div</span> <span class="c-a">id</span>=<span class="c-s">"pay"</span><span class="c-t">&gt;&lt;/div&gt;</span>
+
+<span class="c-t">&lt;script&gt;</span>
+  <span class="c-k">const</span> rayl = <span class="c-k">new</span> <span class="c-f">RaylPay</span>({
+    <span class="c-p">publicKey</span>: <span class="c-s">"pk_live_..."</span>,
+    <span class="c-p">methods</span>: [<span class="c-s">"card"</span>, <span class="c-s">"apple_pay"</span>, <span class="c-s">"google_pay"</span>],
+    <span class="c-p">amount</span>: <span class="c-n">4900</span>,        <span class="c-c">// in cents</span>
+    <span class="c-p">currency</span>: <span class="c-s">"EUR"</span>,
+    <span class="c-p">onSuccess</span>: (tx) =&gt; <span class="c-f">console</span>.<span class="c-f">log</span>(<span class="c-s">"paid"</span>, tx.id),
+  });
+
+  rayl.<span class="c-f">mount</span>(<span class="c-s">"#pay"</span>);
+<span class="c-t">&lt;/script&gt;</span></pre>
+        </div>
+
+        <div class="features">
+          <div class="feature">
+            <div class="feature__num">01</div>
+            <div>
+              <h4>Drop-in checkout</h4>
+              <p>A prebuilt, theme-aware payment element. No design work required.</p>
+            </div>
+          </div>
+          <div class="feature">
+            <div class="feature__num">02</div>
+            <div>
+              <h4>Native wallets, native UX</h4>
+              <p>Apple Pay and Google Pay render where they should — and only where they should.</p>
+            </div>
+          </div>
+          <div class="feature">
+            <div class="feature__num">03</div>
+            <div>
+              <h4>SDKs for everything</h4>
+              <p>Web, iOS, Android, server-side. Plus a stable REST API.</p>
+            </div>
+          </div>
+          <div class="feature">
+            <div class="feature__num">04</div>
+            <div>
+              <h4>Webhooks &amp; events</h4>
+              <p>Signed, replay-safe, and idempotent by default. Build on top with confidence.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- MANIFESTO -->
+  <section class="manifesto">
+    <div class="container">
+      <p class="manifesto__text">
+        Payments should feel <em>invisible.</em><br />
+        Rayl Pay is the layer that makes them so.
+      </p>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section" id="contact">
+    <div class="container grid grid--split">
+      <div class="grid__left">
+        <p class="section__tag">04 — Get in touch</p>
+        <h2 class="section__title">Start <em>accepting.</em></h2>
+      </div>
+      <div class="grid__right contact">
+        <div class="contact__row">
+          <span class="contact__label">Sales</span>
+          <a href="mailto:sales@raylpay.io" class="contact__value">sales@raylpay.io</a>
+        </div>
+        <div class="contact__row">
+          <span class="contact__label">Support</span>
+          <a href="mailto:support@raylpay.io" class="contact__value">support@raylpay.io</a>
+        </div>
+        <div class="contact__row">
+          <span class="contact__label">Partnerships</span>
+          <a href="mailto:partners@raylpay.io" class="contact__value">partners@raylpay.io</a>
+        </div>
+        <div class="contact__row">
+          <span class="contact__label">Parent company</span>
+          <span class="contact__value contact__value--muted">
+            <a href="/">Rayl ↗</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <a href="#" class="footer__logo">
+        <span>Rayl</span><span class="footer__logo-sub">Pay</span>
+      </a>
+      <div class="footer__cols">
+        <div>
+          <p class="footer__h">Product</p>
+          <a href="#product">Why Rayl Pay</a>
+          <a href="#methods">Payment methods</a>
+          <a href="#integrate">Integrate</a>
+        </div>
+        <div>
+          <p class="footer__h">Company</p>
+          <a href="/">Rayl</a>
+          <a href="mailto:sales@raylpay.io">Contact</a>
+          <a href="mailto:careers@rayl.be">Careers</a>
+        </div>
+        <div>
+          <p class="footer__h">Legal</p>
+          <a href="#" onclick="event.preventDefault();">Privacy</a>
+          <a href="#" onclick="event.preventDefault();">Terms</a>
+        </div>
+      </div>
+      <p class="footer__copy">
+        © <span id="yr"></span> Rayl Pay. A product of Rayl.
+        <span class="footer__sep">·</span>
+        Rayl BV <span class="footer__sep">·</span>
+        BE 0717.928.771 <span class="footer__sep">·</span>
+        BTW BE 0717.928.771
+      </p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

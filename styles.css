@@ -620,6 +620,216 @@ em {
 .footer__sep { color: var(--muted-2); }
 
 /* ============================================================
+   RAYL PAY — additions on top of the base system
+   ============================================================ */
+
+/* Logo with "Pay" sublabel */
+.nav__logo {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+}
+.nav__logo .logo__mark {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 700;
+}
+.nav__logo .logo__sub {
+  font-family: var(--font-body);
+  font-style: normal;
+  font-weight: 300;
+  letter-spacing: -0.01em;
+  color: var(--ink-2);
+  font-size: 20px;
+}
+
+.btn--sm { padding: 9px 16px; font-size: 12.5px; }
+
+/* Methods strip under hero */
+.methods-strip {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+  padding-top: 32px;
+  border-top: 1px solid var(--line);
+  max-width: 760px;
+}
+.methods-strip__label {
+  font-size: 11px;
+  letter-spacing: .26em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.methods-strip__row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.method-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(255,255,255,0.02);
+  color: var(--ink-2);
+  transition: border-color .25s ease, background .25s ease;
+}
+.method-chip:hover { border-color: rgba(255,255,255,0.18); background: rgba(255,255,255,0.04); }
+.method-chip svg { height: 16px; width: auto; display: block; }
+.method-chip__text {
+  font-size: 12.5px;
+  letter-spacing: .02em;
+}
+
+/* Methods grid */
+.methods-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+}
+.method-card {
+  padding: 36px;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transition: background .3s ease;
+  position: relative;
+}
+.method-card:hover { background: rgba(255,255,255,0.02); }
+.method-card__logo {
+  height: 36px;
+  display: flex;
+  align-items: center;
+  color: var(--ink);
+}
+.method-card__logo svg { height: 30px; width: auto; display: block; }
+.method-card__logo--visa svg { height: 22px; }
+.method-card__title {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 22px;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+}
+.method-card__desc {
+  font-size: 14.5px;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+/* Integrate — left column note */
+.grid__left-note {
+  margin-top: 24px;
+  color: var(--muted);
+  font-size: 15px;
+  max-width: 32ch;
+}
+
+/* Code block */
+.code {
+  background: #050505;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  overflow: hidden;
+  margin-bottom: 40px;
+  box-shadow: 0 30px 80px -40px rgba(0,0,0,0.6);
+}
+.code__bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--line);
+  background: rgba(255,255,255,0.015);
+}
+.code__dot {
+  width: 10px; height: 10px; border-radius: 50%;
+  background: rgba(255,255,255,0.16);
+}
+.code__file {
+  margin-left: 10px;
+  font-size: 11px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--muted-2);
+}
+.code__body {
+  font-family: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, monospace;
+  font-size: 13px;
+  line-height: 1.75;
+  padding: 20px 22px 24px;
+  color: var(--ink-2);
+  overflow-x: auto;
+  white-space: pre;
+}
+.code__body .c-c { color: var(--muted-2); }
+.code__body .c-t { color: #7aa2ff; }
+.code__body .c-a { color: #b48cff; }
+.code__body .c-s { color: #7ee2b8; }
+.code__body .c-k { color: #ff9aa2; }
+.code__body .c-f { color: #ffd479; }
+.code__body .c-p { color: #a0c4ff; }
+.code__body .c-n { color: #f5b8ff; }
+
+/* Feature list */
+.features {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+}
+.feature {
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  gap: 16px;
+  padding: 26px 28px;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.feature__num {
+  font-family: var(--font-display);
+  font-size: 13px;
+  color: var(--muted);
+  letter-spacing: .08em;
+  padding-top: 4px;
+}
+.feature h4 {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 17px;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+.feature p {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+/* Footer logo with sublabel */
+.footer__logo {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 8px;
+}
+.footer__logo-sub {
+  font-family: var(--font-body);
+  font-style: normal;
+  font-weight: 300;
+  font-size: 32px;
+  letter-spacing: -0.015em;
+  color: var(--muted);
+}
+/* ============================================================
    RESPONSIVE
    ============================================================ */
 @media (max-width: 900px) {
@@ -630,7 +840,10 @@ em {
   .footer__inner { grid-template-columns: 1fr; }
   .footer__cols { grid-template-columns: repeat(2, 1fr); }
   .footer__logo { font-size: 48px; }
+  .footer__logo-sub { font-size: 26px; }
   .contact__row { grid-template-columns: 1fr; gap: 4px; }
+  .methods-grid { grid-template-columns: repeat(2, 1fr); }
+  .features { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 720px) {
@@ -652,4 +865,6 @@ em {
   .nav__menu { display: inline-flex; }
   .hero__meta { grid-template-columns: 1fr; gap: 16px; }
   .footer__cols { grid-template-columns: 1fr; }
+  .methods-grid { grid-template-columns: 1fr; }
+  .code__body { font-size: 12px; }
 }
