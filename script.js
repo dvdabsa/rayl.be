@@ -1,5 +1,6 @@
 // Year
-document.getElementById("yr").textContent = new Date().getFullYear();
+const yr = document.getElementById("yr");
+if (yr) yr.textContent = new Date().getFullYear();
 
 // Mobile menu
 const menuBtn = document.getElementById("menuBtn");
@@ -12,6 +13,19 @@ if (menuBtn && navLinks) {
     a.addEventListener("click", () => navLinks.classList.remove("is-open"))
   );
 }
+
+// FAQ accordion — single-open behavior
+document.querySelectorAll(".faq__item").forEach((item) => {
+  const q = item.querySelector(".faq__q");
+  if (!q) return;
+  q.addEventListener("click", () => {
+    const wasOpen = item.classList.contains("is-open");
+    // close all
+    document.querySelectorAll(".faq__item").forEach((i) => i.classList.remove("is-open"));
+    // re-open if it was closed
+    if (!wasOpen) item.classList.add("is-open");
+  });
+});
 
 // Subtle reveal on scroll
 const io = new IntersectionObserver(
@@ -28,7 +42,10 @@ const io = new IntersectionObserver(
 );
 
 document
-  .querySelectorAll(".section, .hero__title, .hero__sub, .hero__cta, .venture, .principle, .manifesto__text")
+  .querySelectorAll(
+    ".section, .hero__title, .hero__sub, .hero__cta, .venture, .principle, .manifesto__text, " +
+    ".stat, .surface-card, .method-card, .security-card, .step, .compare__col, .bigcta__inner"
+  )
   .forEach((el) => {
     el.style.opacity = 0;
     el.style.transform = "translateY(18px)";
