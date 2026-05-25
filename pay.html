@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Rayl Pay — Accept payments. Anywhere.</title>
-  <meta name="description" content="Rayl Pay is a modern payment system. Accept Visa, Mastercard, Apple Pay and Google Pay with a single integration." />
+  <title>Rayl Pay — One integration. Every payment.</title>
+  <meta name="description" content="Rayl Pay is the payment infrastructure for ambitious businesses. Accept Visa, Mastercard, American Express, Apple Pay, and Google Pay through a single integration." />
   <meta name="theme-color" content="#0a0a0a" />
   <meta name="color-scheme" content="dark" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -14,7 +14,9 @@
 </head>
 <body>
 
-  <!-- NAV -->
+  <!-- =====================================================
+       NAV
+       ===================================================== -->
   <header class="nav">
     <div class="nav__inner">
       <a href="#" class="nav__logo" aria-label="Rayl Pay">
@@ -22,16 +24,13 @@
       </a>
 
       <nav class="nav__links" aria-label="Primary">
-        <a href="#methods" class="nav__link">Methods</a>
+        <a href="#product" class="nav__link">Product</a>
         <a href="#developers" class="nav__link">Developers</a>
         <a href="#security" class="nav__link">Security</a>
-        <a href="#how" class="nav__link">How it works</a>
         <a href="#faq" class="nav__link">FAQ</a>
-
         <span class="nav__divider" aria-hidden="true"></span>
-
-        <a href="/" class="nav__link nav__link--external">← Rayl</a>
-        <a href="#cta" class="btn btn--primary btn--sm">Get started →</a>
+        <a href="/" class="nav__link nav__link--external">Rayl</a>
+        <a href="#cta" class="btn btn--primary btn--sm">Get started</a>
       </nav>
 
       <button class="nav__menu" aria-label="Open menu" id="menuBtn">
@@ -40,1121 +39,581 @@
     </div>
   </header>
 
-  <!-- HERO -->
-  <section class="hero hero--pay">
-    <div class="container">
-      <div>
-        <span class="badge">Live preview</span>
-        <h1 class="hero__title">
-          Accept payments.<br />
-          <em class="accent">Anywhere.</em>
+  <!-- =====================================================
+       HERO
+       ===================================================== -->
+  <section class="hero hero--v2">
+    <div class="container hero__grid">
+      <div class="hero__copy">
+        <span class="status-pill">
+          <span class="status-pill__dot"></span>
+          Now in private preview
+        </span>
+
+        <h1 class="display">
+          Payments,<br />
+          built for ambition.
         </h1>
-        <p class="hero__sub">
-          One integration. Every method your customers actually use.
-          Built for businesses that want to move money — not manuals.
+
+        <p class="lead lead--hero">
+          One integration. Every method your customers carry. The same
+          infrastructure ambitious teams use to move money — without the
+          decade of legacy that usually comes with it.
         </p>
+
         <div class="hero__cta">
-          <a href="#cta" class="btn btn--primary">Start integrating →</a>
-          <a href="#methods" class="btn btn--ghost">See payment methods</a>
+          <a href="#cta" class="btn btn--primary">Get started</a>
+          <a href="#developers" class="btn btn--ghost">Read the docs →</a>
         </div>
       </div>
 
-      <div class="hero__visual" aria-hidden="true">
-        <div class="checkout-card">
-          <div class="checkout-card__bar">
-            <span class="checkout-card__brand">Rayl<span class="sub">Pay</span></span>
-            <span class="checkout-card__lock">Secure</span>
+      <div class="hero__viz" aria-hidden="true">
+        <!-- Terminal-style product preview -->
+        <div class="terminal">
+          <div class="terminal__bar">
+            <span class="terminal__dot"></span>
+            <span class="terminal__dot"></span>
+            <span class="terminal__dot"></span>
+            <span class="terminal__title">raylpay.checkout</span>
           </div>
+          <div class="terminal__body">
+            <div class="terminal__head">
+              <div>
+                <p class="terminal__label">Charge amount</p>
+                <p class="terminal__amount"><span class="mono">€</span>1,249<span class="cents mono">.00</span></p>
+              </div>
+              <span class="terminal__chip">EUR</span>
+            </div>
 
-          <div class="checkout-card__row">
-            <span class="checkout-card__label">Email</span>
-            <div class="checkout-card__field">customer@rayl.be</div>
-          </div>
-
-          <div class="checkout-card__row">
-            <span class="checkout-card__label">Card</span>
-            <div class="checkout-card__field">
-              <span>4242 4242 4242 4242</span>
-              <span class="checkout-card__cards">
-                <span></span><span></span><span></span>
+            <div class="terminal__row">
+              <span class="terminal__row-label">Customer</span>
+              <span class="terminal__row-val mono">sara@studio.be</span>
+            </div>
+            <div class="terminal__row">
+              <span class="terminal__row-label">Card</span>
+              <span class="terminal__row-val mono">•••• 4242</span>
+            </div>
+            <div class="terminal__row">
+              <span class="terminal__row-label">Method</span>
+              <span class="terminal__row-val">Apple Pay</span>
+            </div>
+            <div class="terminal__row terminal__row--status">
+              <span class="terminal__row-label">Status</span>
+              <span class="status-tag status-tag--ok">
+                <span class="status-pill__dot"></span>
+                Authorized
               </span>
             </div>
+
+            <div class="terminal__hint">
+              <span class="mono">200 OK</span> · 184&nbsp;ms · charge_3Nq…
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================
+       ACCEPTED METHODS — real brand logos
+       ===================================================== -->
+  <section class="logos">
+    <div class="container">
+      <p class="logos__label">Accepting</p>
+      <div class="logos__row">
+
+        <!-- VISA -->
+        <div class="brand">
+          <svg class="brand__svg" viewBox="0 0 96 32" xmlns="http://www.w3.org/2000/svg" aria-label="Visa">
+            <rect width="96" height="32" rx="4" fill="#1434CB"/>
+            <text x="48" y="22" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-style="italic" font-weight="900" font-size="15" fill="#ffffff" letter-spacing="2">VISA</text>
+          </svg>
+        </div>
+
+        <!-- MASTERCARD -->
+        <div class="brand">
+          <svg class="brand__svg" viewBox="0 0 96 32" xmlns="http://www.w3.org/2000/svg" aria-label="Mastercard">
+            <rect width="96" height="32" rx="4" fill="#16191E"/>
+            <circle cx="40" cy="16" r="9" fill="#EB001B"/>
+            <circle cx="56" cy="16" r="9" fill="#F79E1B"/>
+            <path d="M48 9.4a9 9 0 010 13.2 9 9 0 010-13.2z" fill="#FF5F00"/>
+          </svg>
+        </div>
+
+        <!-- AMEX -->
+        <div class="brand">
+          <svg class="brand__svg" viewBox="0 0 96 32" xmlns="http://www.w3.org/2000/svg" aria-label="American Express">
+            <rect width="96" height="32" rx="4" fill="#006FCF"/>
+            <text x="48" y="14" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-weight="900" font-size="7" fill="#ffffff" letter-spacing="0.7">AMERICAN</text>
+            <text x="48" y="24" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-weight="900" font-size="7" fill="#ffffff" letter-spacing="0.7">EXPRESS</text>
+          </svg>
+        </div>
+
+        <!-- APPLE PAY -->
+        <div class="brand">
+          <svg class="brand__svg" viewBox="0 0 96 32" xmlns="http://www.w3.org/2000/svg" aria-label="Apple Pay">
+            <rect width="96" height="32" rx="4" fill="#000000"/>
+            <!-- Apple glyph -->
+            <path d="M30.4 12.6c.4-.5.7-1.2.6-1.9-.6 0-1.3.4-1.7.9-.4.4-.7 1.1-.6 1.8.6.1 1.3-.3 1.7-.8zm.6.9c-.9 0-1.7.5-2.1.5-.5 0-1.1-.5-1.8-.5-.9 0-1.8.5-2.3 1.4-1 1.7-.2 4.2.7 5.6.5.7 1 1.4 1.7 1.4.7 0 1-.4 1.8-.4.8 0 1 .4 1.7.4.7 0 1.2-.7 1.6-1.3.5-.7.7-1.4.7-1.4-.5-.2-1.4-.7-1.4-2 0-1 .9-1.5.9-1.5-.5-.7-1.3-.8-1.5-.8z" fill="#ffffff"/>
+            <!-- "Pay" text -->
+            <text x="38" y="20" font-family="Helvetica, Arial, sans-serif" font-weight="500" font-size="12" fill="#ffffff" letter-spacing="-0.3">Pay</text>
+            <!-- 'P' wordmark stroke for Apple's classic feel -->
+            <text x="38" y="20" font-family="Helvetica, Arial, sans-serif" font-weight="600" font-size="12" fill="#ffffff" letter-spacing="-0.3" opacity="0">Pay</text>
+          </svg>
+        </div>
+
+        <!-- GOOGLE PAY -->
+        <div class="brand">
+          <svg class="brand__svg" viewBox="0 0 96 32" xmlns="http://www.w3.org/2000/svg" aria-label="Google Pay">
+            <rect width="96" height="32" rx="4" fill="#ffffff"/>
+            <!-- Google G (multicolor) -->
+            <g transform="translate(20, 8)">
+              <path d="M8 7.5v2.1h3c-.1.7-.5 1.3-1 1.7-.6.4-1.3.6-2 .6-1.5 0-2.8-1-3.2-2.4-.1-.4-.2-.7-.2-1.1 0-.4 0-.7.2-1.1.4-1.4 1.7-2.4 3.2-2.4.8 0 1.5.3 2.1.8l1.5-1.5C10.6 3.4 9.3 3 8 3 5.5 3 3.4 4.4 2.4 6.5c-.4.8-.6 1.7-.6 2.5 0 .9.2 1.7.6 2.5 1 2 3.1 3.5 5.6 3.5 1.7 0 3.1-.6 4.1-1.6 1.2-1.1 1.9-2.7 1.9-4.6 0-.4 0-.8-.1-1.2H8z" fill="#4285F4"/>
+            </g>
+            <text x="38" y="20" font-family="Helvetica, Arial, sans-serif" font-weight="500" font-size="12" fill="#5F6368" letter-spacing="-0.2">Pay</text>
+          </svg>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================
+       PITCH — three pillars
+       ===================================================== -->
+  <section class="section section--lg" id="product">
+    <div class="container">
+      <div class="section__head section__head--centered">
+        <p class="section__tag">The product</p>
+        <h2 class="display display--md">
+          One integration.<br />
+          Every <em class="accent">method.</em>
+        </h2>
+        <p class="section__sub">
+          The same set of APIs, dashboards, and SDKs that scale from your
+          first payment to your hundred-millionth.
+        </p>
+      </div>
+
+      <div class="pillars">
+        <article class="pillar">
+          <div class="pillar__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="6" width="18" height="13" rx="2.5"/><line x1="3" y1="11" x2="21" y2="11"/><line x1="7" y1="15" x2="11" y2="15"/></svg>
+          </div>
+          <h3>Cards &amp; wallets</h3>
+          <p>Visa, Mastercard, American Express, Apple Pay, Google Pay — through one drop-in element and one webhook stream.</p>
+        </article>
+        <article class="pillar">
+          <div class="pillar__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 17V7l4 5 4-5 4 5 4-5v10"/></svg>
+          </div>
+          <h3>Built to scale</h3>
+          <p>Idempotent APIs, signed webhooks, regional failover. The infrastructure choices you'd make on year three — shipped on day one.</p>
+        </article>
+        <article class="pillar">
+          <div class="pillar__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l9 5v6c0 5-3.5 8-9 9-5.5-1-9-4-9-9V7l9-5z"/></svg>
+          </div>
+          <h3>Secure by default</h3>
+          <p>3D Secure 2, browser-side tokenization, and PCI scope reduction — handled before you write a single line of code.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================
+       DASHBOARD SHOWCASE
+       ===================================================== -->
+  <section class="section section--lg">
+    <div class="container showcase">
+      <div class="showcase__copy">
+        <p class="section__tag">Dashboard</p>
+        <h2 class="display display--md">
+          See every euro,<br />the moment it moves.
+        </h2>
+        <p class="section__sub section__sub--left">
+          A real-time view of payments, payouts, refunds, and disputes —
+          searchable down to the transaction, exportable to anywhere your
+          finance team already lives.
+        </p>
+
+        <ul class="checks">
+          <li>Live transaction stream with full payload inspection.</li>
+          <li>Cohorted authorization analytics by issuer and region.</li>
+          <li>One-click CSV, plus a typed REST query API.</li>
+          <li>Role-based access for finance, ops, and engineering.</li>
+        </ul>
+      </div>
+
+      <div class="dashboard" aria-hidden="true">
+        <aside class="dashboard__side">
+          <div class="dashboard__brand">
+            <span class="logo__mark">Rayl</span><span class="logo__sub">Pay</span>
+          </div>
+          <nav class="dashboard__nav">
+            <a class="is-active">Overview</a>
+            <a>Payments</a>
+            <a>Customers</a>
+            <a>Disputes</a>
+            <a>Payouts</a>
+            <a>Reports</a>
+            <a>Settings</a>
+          </nav>
+        </aside>
+
+        <main class="dashboard__main">
+          <div class="dashboard__topbar">
+            <span>Overview <span class="dashboard__crumb">/ Last 7 days</span></span>
+            <span class="status-tag status-tag--live">
+              <span class="status-pill__dot"></span>
+              Live
+            </span>
           </div>
 
-          <div class="checkout-card__row">
-            <span class="checkout-card__label">Total</span>
-            <div class="checkout-card__field checkout-card__field--total">
-              <span>Order total</span>
-              <strong>€49.00</strong>
+          <div class="dashboard__metrics">
+            <div class="metric">
+              <span class="metric__label">Volume</span>
+              <span class="metric__val mono">€482,310</span>
+              <span class="metric__delta">↑ 12.4%</span>
+            </div>
+            <div class="metric">
+              <span class="metric__label">Auth rate</span>
+              <span class="metric__val mono">96.4%</span>
+              <span class="metric__delta">↑ 0.8%</span>
+            </div>
+            <div class="metric">
+              <span class="metric__label">Disputes</span>
+              <span class="metric__val mono">0.03%</span>
+              <span class="metric__delta metric__delta--down">↓ 0.01%</span>
             </div>
           </div>
 
-          <div class="checkout-card__pay">Pay €49.00</div>
-
-          <div class="checkout-card__methods">
-            <button type="button">  Pay</button>
-            <button type="button">G Pay</button>
+          <div class="dashboard__chart">
+            <div class="bar" style="height:32%"></div>
+            <div class="bar" style="height:48%"></div>
+            <div class="bar" style="height:40%"></div>
+            <div class="bar" style="height:62%"></div>
+            <div class="bar" style="height:54%"></div>
+            <div class="bar" style="height:74%"></div>
+            <div class="bar" style="height:66%"></div>
+            <div class="bar" style="height:82%"></div>
+            <div class="bar" style="height:70%"></div>
+            <div class="bar" style="height:88%"></div>
+            <div class="bar" style="height:78%"></div>
+            <div class="bar bar--accent" style="height:100%"></div>
           </div>
-        </div>
+
+          <div class="dashboard__table">
+            <div class="dashboard__row dashboard__row--head">
+              <span>Transaction</span><span>Method</span><span>Amount</span><span>Status</span>
+            </div>
+            <div class="dashboard__row">
+              <span class="mono">ch_3Nq8…</span>
+              <span>Visa · 4242</span>
+              <span class="mono">€129.00</span>
+              <span class="status-tag status-tag--ok">Paid</span>
+            </div>
+            <div class="dashboard__row">
+              <span class="mono">ch_2Lm0…</span>
+              <span>Apple Pay</span>
+              <span class="mono">€48.20</span>
+              <span class="status-tag status-tag--ok">Paid</span>
+            </div>
+            <div class="dashboard__row">
+              <span class="mono">ch_9Yt4…</span>
+              <span>Mastercard · 5454</span>
+              <span class="mono">€312.40</span>
+              <span class="status-tag status-tag--pending">Authorized</span>
+            </div>
+            <div class="dashboard__row">
+              <span class="mono">ch_1Rx7…</span>
+              <span>Google Pay</span>
+              <span class="mono">€24.50</span>
+              <span class="status-tag status-tag--ok">Paid</span>
+            </div>
+          </div>
+        </main>
       </div>
     </div>
   </section>
 
-  <!-- MARQUEE -->
-  <section class="marquee" aria-label="Supported payment networks">
-    <div class="marquee__track">
-      <span class="marquee__item"><svg viewBox="0 0 60 20"><text x="0" y="16" font-family="Helvetica" font-weight="900" font-style="italic" font-size="20" fill="currentColor" letter-spacing="1">VISA</text></svg></span>
-      <span class="marquee__item">
-        <svg viewBox="0 0 32 22"><circle cx="13" cy="11" r="9" fill="#eb001b"/><circle cx="22" cy="11" r="9" fill="#f79e1b"/><path d="M17.5 4a9 9 0 010 14 9 9 0 010-14z" fill="#ff5f00"/></svg>
-        Mastercard
-      </span>
-      <span class="marquee__item">
-        <svg viewBox="0 0 22 22" fill="currentColor"><path d="M16.4 11.6c0-2.6 2.1-3.9 2.2-3.9-1.2-1.7-3-2-3.7-2-1.6-.2-3 .9-3.8.9-.8 0-2-.9-3.3-.9-1.7 0-3.3 1-4.2 2.5-1.8 3.1-.5 7.7 1.3 10.2.9 1.2 1.9 2.6 3.2 2.5 1.3-.1 1.8-.8 3.3-.8s2 .8 3.3.8c1.4 0 2.3-1.2 3.1-2.5.5-.7 1.1-1.7 1.5-2.7-1-.4-2.9-1.4-2.9-4.1z"/></svg>
-        Apple&nbsp;Pay
-      </span>
-      <span class="marquee__item">
-        <svg viewBox="0 0 22 22"><path d="M11 10.2v2.2h3.1c-.1.8-.9 2.4-3.1 2.4-1.9 0-3.4-1.5-3.4-3.5s1.5-3.5 3.4-3.5c1.1 0 1.8.5 2.2.9l1.5-1.5C13.7 6.4 12.4 6 11 6c-3 0-5.4 2.4-5.4 5.4S8 16.8 11 16.8c3.1 0 5.2-2.2 5.2-5.3 0-.4 0-.7-.1-1H11z" fill="currentColor"/></svg>
-        Google&nbsp;Pay
-      </span>
-      <span class="marquee__item"><svg viewBox="0 0 80 22"><text x="0" y="17" font-family="Helvetica" font-weight="900" font-size="16" fill="currentColor" letter-spacing="0.5">AMEX</text></svg></span>
-      <span class="marquee__item"><svg viewBox="0 0 100 22"><text x="0" y="17" font-family="Helvetica" font-weight="700" font-size="15" fill="currentColor">DISCOVER</text></svg></span>
-      <span class="marquee__item"><svg viewBox="0 0 60 22"><text x="0" y="17" font-family="Helvetica" font-weight="700" font-size="15" fill="currentColor">Maestro</text></svg></span>
-      <span class="marquee__item">SEPA</span>
-      <span class="marquee__item">iDEAL</span>
-      <span class="marquee__item">Bancontact</span>
-
-      <!-- duplicate for seamless loop -->
-      <span class="marquee__item"><svg viewBox="0 0 60 20"><text x="0" y="16" font-family="Helvetica" font-weight="900" font-style="italic" font-size="20" fill="currentColor" letter-spacing="1">VISA</text></svg></span>
-      <span class="marquee__item">
-        <svg viewBox="0 0 32 22"><circle cx="13" cy="11" r="9" fill="#eb001b"/><circle cx="22" cy="11" r="9" fill="#f79e1b"/><path d="M17.5 4a9 9 0 010 14 9 9 0 010-14z" fill="#ff5f00"/></svg>
-        Mastercard
-      </span>
-      <span class="marquee__item">
-        <svg viewBox="0 0 22 22" fill="currentColor"><path d="M16.4 11.6c0-2.6 2.1-3.9 2.2-3.9-1.2-1.7-3-2-3.7-2-1.6-.2-3 .9-3.8.9-.8 0-2-.9-3.3-.9-1.7 0-3.3 1-4.2 2.5-1.8 3.1-.5 7.7 1.3 10.2.9 1.2 1.9 2.6 3.2 2.5 1.3-.1 1.8-.8 3.3-.8s2 .8 3.3.8c1.4 0 2.3-1.2 3.1-2.5.5-.7 1.1-1.7 1.5-2.7-1-.4-2.9-1.4-2.9-4.1z"/></svg>
-        Apple&nbsp;Pay
-      </span>
-      <span class="marquee__item">
-        <svg viewBox="0 0 22 22"><path d="M11 10.2v2.2h3.1c-.1.8-.9 2.4-3.1 2.4-1.9 0-3.4-1.5-3.4-3.5s1.5-3.5 3.4-3.5c1.1 0 1.8.5 2.2.9l1.5-1.5C13.7 6.4 12.4 6 11 6c-3 0-5.4 2.4-5.4 5.4S8 16.8 11 16.8c3.1 0 5.2-2.2 5.2-5.3 0-.4 0-.7-.1-1H11z" fill="currentColor"/></svg>
-        Google&nbsp;Pay
-      </span>
-      <span class="marquee__item"><svg viewBox="0 0 80 22"><text x="0" y="17" font-family="Helvetica" font-weight="900" font-size="16" fill="currentColor" letter-spacing="0.5">AMEX</text></svg></span>
-      <span class="marquee__item"><svg viewBox="0 0 100 22"><text x="0" y="17" font-family="Helvetica" font-weight="700" font-size="15" fill="currentColor">DISCOVER</text></svg></span>
-      <span class="marquee__item"><svg viewBox="0 0 60 22"><text x="0" y="17" font-family="Helvetica" font-weight="700" font-size="15" fill="currentColor">Maestro</text></svg></span>
-      <span class="marquee__item">SEPA</span>
-      <span class="marquee__item">iDEAL</span>
-      <span class="marquee__item">Bancontact</span>
-    </div>
-  </section>
-
-  <!-- GLOBAL COMMERCE -->
-  <section class="gcommerce" aria-label="Global commerce">
-    <div class="container">
-      <div class="gcommerce__head">
-        <p class="section__tag">Global commerce</p>
-        <h2>One platform. Every <em class="accent">payment rail.</em></h2>
-      </div>
-      <div class="gcommerce__grid">
-        <div class="gcommerce__cell">
-          <div class="gcommerce__num">160+</div>
-          <div class="gcommerce__label">Countries supported across cards, wallets, and local methods.</div>
-        </div>
-        <div class="gcommerce__cell">
-          <div class="gcommerce__num">30+</div>
-          <div class="gcommerce__label">Local currencies with smart routing to maximize acceptance.</div>
-        </div>
-        <div class="gcommerce__cell">
-          <div class="gcommerce__num">17+</div>
-          <div class="gcommerce__label">Languages in the hosted checkout, auto-detected per customer.</div>
-        </div>
-        <div class="gcommerce__cell">
-          <div class="gcommerce__num">20+</div>
-          <div class="gcommerce__label">Payment methods through a single API and one reconciliation.</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PRODUCT / WHY -->
-  <section class="section" id="product">
-    <div class="container grid grid--split">
-      <div class="grid__left">
-        <p class="section__tag">01 — Why Rayl Pay</p>
-        <h2 class="section__title"><em class="accent">One</em> stack.<br />Every method.</h2>
-      </div>
-      <div class="grid__right">
-        <p class="lead">
-          Rayl Pay gives you a single integration that quietly handles cards,
-          wallets, and the moving parts behind them. Drop it in, ship it,
-          and stop thinking about payments.
+  <!-- =====================================================
+       REAL-TIME RISK
+       ===================================================== -->
+  <section class="section section--lg section--rule">
+    <div class="container risk">
+      <div class="risk__copy">
+        <p class="section__tag">Real-time risk</p>
+        <h2 class="display display--md">
+          Every transaction,<br />
+          scored before it's <em class="accent">authorized.</em>
+        </h2>
+        <p class="section__sub section__sub--left">
+          Device fingerprinting, behavioral signals, and historical card
+          data flow through our model in milliseconds — and either let
+          the payment through, send it to review, or stop it cold.
         </p>
-        <ul class="bullets">
-          <li>Built for web, mobile, and in-person checkout.</li>
-          <li>One API. One dashboard. One reconciliation.</li>
-          <li>3D Secure, tokenisation, and PCI scope reduction handled for you.</li>
-          <li>Designed to fit any product — not the other way around.</li>
+
+        <ul class="checks checks--two">
+          <li>Device &amp; browser fingerprinting</li>
+          <li>Behavioral biometrics</li>
+          <li>Velocity &amp; geo intelligence</li>
+          <li>Issuer response modeling</li>
+          <li>BIN range patterns</li>
+          <li>Card-testing detection</li>
         </ul>
       </div>
-    </div>
-  </section>
 
-  <!-- PAYMENT METHODS -->
-  <section class="section section--dark-rule" id="methods">
-    <div class="container">
-      <div class="section__head">
-        <p class="section__tag">02 — Payment methods</p>
-        <h2 class="section__title">Everything your<br />customers <em class="accent">carry.</em></h2>
-      </div>
-
-      <div class="methods-grid methods-grid--wide">
-
-        <article class="method-card">
-          <div class="method-card__logo method-card__logo--visa">
-            <svg viewBox="0 0 100 32" aria-hidden="true"><text x="0" y="24" font-family="Helvetica" font-weight="900" font-style="italic" font-size="28" fill="currentColor" letter-spacing="1">VISA</text></svg>
-          </div>
-          <h3 class="method-card__title">Visa</h3>
-          <p class="method-card__desc">Credit, debit, and prepaid cards globally.</p>
-        </article>
-
-        <article class="method-card">
-          <div class="method-card__logo">
-            <svg viewBox="0 0 60 36" aria-hidden="true">
-              <circle cx="22" cy="18" r="14" fill="#eb001b"/>
-              <circle cx="38" cy="18" r="14" fill="#f79e1b"/>
-              <path d="M30 8a14 14 0 010 20 14 14 0 010-20z" fill="#ff5f00"/>
-            </svg>
-          </div>
-          <h3 class="method-card__title">Mastercard</h3>
-          <p class="method-card__desc">Credit, debit, and Maestro worldwide.</p>
-        </article>
-
-        <article class="method-card">
-          <div class="method-card__logo">
-            <svg viewBox="0 0 80 36" aria-hidden="true"><text x="0" y="26" font-family="Helvetica" font-weight="900" font-size="22" fill="currentColor" letter-spacing="1">AMEX</text></svg>
-          </div>
-          <h3 class="method-card__title">American Express</h3>
-          <p class="method-card__desc">Premium card support with reward optimization.</p>
-        </article>
-
-        <article class="method-card">
-          <div class="method-card__logo">
-            <svg viewBox="0 0 100 36" aria-hidden="true"><text x="0" y="26" font-family="Helvetica" font-weight="700" font-size="18" fill="currentColor">DISCOVER</text></svg>
-          </div>
-          <h3 class="method-card__title">Discover</h3>
-          <p class="method-card__desc">Network coverage across the US and partner regions.</p>
-        </article>
-
-        <article class="method-card">
-          <div class="method-card__logo">
-            <svg viewBox="0 0 60 36" aria-hidden="true"><text x="0" y="26" font-family="Helvetica" font-weight="700" font-size="18" fill="currentColor">Maestro</text></svg>
-          </div>
-          <h3 class="method-card__title">Maestro</h3>
-          <p class="method-card__desc">Debit card acceptance across European markets.</p>
-        </article>
-
-        <article class="method-card">
-          <div class="method-card__logo">
-            <svg viewBox="0 0 60 36" aria-hidden="true" fill="currentColor">
-              <path d="M44.3 27.8c-1.4 2-2.8 3.9-5.2 3.9s-3-1.2-5.5-1.2-3.3 1.2-5.5 1.3c-2.2.1-3.9-2.1-5.3-4-2.9-4.1-5.1-11.6-2.1-16.7 1.5-2.5 4.2-4.1 7.1-4.2 2.1 0 4.1 1.4 5.5 1.4 1.3 0 3.8-1.7 6.4-1.5 1.1.1 4.1.5 6.1 3.3-.2.1-3.6 2.2-3.5 6.4 0 5.1 4.4 6.7 4.5 6.8-.1.1-.7 2.3-2.5 4.5zM35.6 4.5c1.2-1.4 2-3.3 1.8-5.2-1.7.1-3.7 1.1-5 2.4-1.1 1.2-2.1 3.2-1.8 5 1.9.1 3.8-1 5-2.2z"/>
-            </svg>
-          </div>
-          <h3 class="method-card__title">Apple Pay</h3>
-          <p class="method-card__desc">One-tap checkout with Face ID and Touch ID.</p>
-        </article>
-
-        <article class="method-card">
-          <div class="method-card__logo">
-            <svg viewBox="0 0 60 36" aria-hidden="true">
-              <path d="M30 17.5v4.4h6.1c-.2 1.6-1.7 4.7-6.1 4.7a6.8 6.8 0 010-13.6c2.1 0 3.6 1 4.4 1.8l3-2.9C35.5 10.3 33 9 30 9a11 11 0 100 22c6.4 0 10.6-4.5 10.6-10.8 0-.7 0-1.3-.2-2H30z" fill="#4285f4"/>
-              <path d="M30 17.5v4.4h6.1c-.2 1.6-1.7 4.7-6.1 4.7v4.4c6.4 0 10.6-4.5 10.6-10.8 0-.7 0-1.3-.2-2H30z" fill="#34a853"/>
-              <path d="M30 26.6c-2.7 0-5-1.8-5.8-4.3l-3.8 2.9A11 11 0 0030 31v-4.4z" fill="#fbbc04"/>
-              <path d="M30 13c1.5 0 2.9.5 4 1.5l3-2.9C35.5 10.3 33 9 30 9a11 11 0 00-9.6 5.7l3.8 2.9c.8-2.5 3.1-4.6 5.8-4.6z" fill="#ea4335"/>
-            </svg>
-          </div>
-          <h3 class="method-card__title">Google Pay</h3>
-          <p class="method-card__desc">Frictionless wallet checkout on Android and Chrome.</p>
-        </article>
-
-        <article class="method-card">
-          <div class="method-card__logo">
-            <svg viewBox="0 0 80 36" aria-hidden="true"><text x="0" y="26" font-family="Helvetica" font-weight="900" font-size="22" fill="currentColor">JCB</text></svg>
-          </div>
-          <h3 class="method-card__title">JCB</h3>
-          <p class="method-card__desc">Japan's leading card brand with global acceptance.</p>
-        </article>
-
-        <article class="method-card">
-          <div class="method-card__logo">
-            <svg viewBox="0 0 100 36" aria-hidden="true"><text x="0" y="26" font-family="Helvetica" font-weight="700" font-size="16" fill="currentColor">UnionPay</text></svg>
-          </div>
-          <h3 class="method-card__title">UnionPay</h3>
-          <p class="method-card__desc">The largest card network in the world, by volume.</p>
-        </article>
-
-        <article class="method-card">
-          <div class="method-card__logo">
-            <svg viewBox="0 0 80 36" aria-hidden="true"><text x="0" y="26" font-family="Helvetica" font-weight="700" font-size="16" fill="currentColor">Diners</text></svg>
-          </div>
-          <h3 class="method-card__title">Diners Club</h3>
-          <p class="method-card__desc">Premium acceptance for international travelers.</p>
-        </article>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- COMPARISON: OLD WAY / RAYL WAY -->
-  <section class="section">
-    <div class="container">
-      <div class="section__head">
-        <p class="section__tag">03 — The difference</p>
-        <h2 class="section__title">The old way.<br />Then there's the <em class="accent">Rayl way.</em></h2>
-      </div>
-
-      <div class="compare">
-        <div class="compare__col compare__col--old">
-          <div class="compare__head">
-            <span class="compare__tag">The old way</span>
-          </div>
-          <p class="compare__title">Stitched together. Loud. Expensive to maintain.</p>
-          <ul class="compare__list">
-            <li>Three integrations to support Visa, Apple Pay, and Google Pay.</li>
-            <li>Months of paperwork before your first live transaction.</li>
-            <li>Webhooks that fire twice, then never again.</li>
-            <li>A dashboard you have to be trained to read.</li>
-            <li>Support that responds in business days, not minutes.</li>
-            <li>Pricing pages designed to confuse you.</li>
-          </ul>
+      <div class="risk__panel" aria-hidden="true">
+        <div class="risk__panel-head">
+          <h4>Live transactions</h4>
+          <span class="status-tag status-tag--live">
+            <span class="status-pill__dot"></span>
+            Streaming
+          </span>
         </div>
-        <div class="compare__col compare__col--new">
-          <div class="compare__head">
-            <span class="compare__tag">The Rayl way</span>
+        <div class="risk__row">
+          <div class="risk__id">
+            <strong>ch_8f2a · Visa · 4242</strong>
+            <small>Sara Lambrecht · BE</small>
           </div>
-          <p class="compare__title">One integration. Honest defaults. Built for builders.</p>
-          <ul class="compare__list">
-            <li>Cards and wallets through a single API and a single SDK.</li>
-            <li>Sandbox in minutes. Live mode the day you're ready.</li>
-            <li>Signed, idempotent webhooks with full replay history.</li>
-            <li>A dashboard that explains itself.</li>
-            <li>Real engineers on Telegram, Slack, and email.</li>
-            <li>Straight conversations on rates — no maze of footnotes.</li>
-          </ul>
+          <div class="risk__amt mono">€129.00</div>
+          <div class="status-tag status-tag--ok">Allowed</div>
+        </div>
+        <div class="risk__row">
+          <div class="risk__id">
+            <strong>ch_3b9c · Mastercard · 5454</strong>
+            <small>Tobias Klein · DE</small>
+          </div>
+          <div class="risk__amt mono">€49.99</div>
+          <div class="status-tag status-tag--ok">Allowed</div>
+        </div>
+        <div class="risk__row">
+          <div class="risk__id">
+            <strong>ch_a01f · Apple Pay</strong>
+            <small>Marie Dubois · FR</small>
+          </div>
+          <div class="risk__amt mono">€312.40</div>
+          <div class="status-tag status-tag--ok">Allowed</div>
+        </div>
+        <div class="risk__row">
+          <div class="risk__id">
+            <strong>ch_e5d7 · Visa · 4111</strong>
+            <small>Unknown device · NG</small>
+          </div>
+          <div class="risk__amt mono">€89.00</div>
+          <div class="status-tag status-tag--pending">Review</div>
+        </div>
+        <div class="risk__row">
+          <div class="risk__id">
+            <strong>ch_c3b1 · Mastercard · 5555</strong>
+            <small>Velocity 12/min · RU</small>
+          </div>
+          <div class="risk__amt mono">€1,200.00</div>
+          <div class="status-tag status-tag--block">Blocked</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- INTEGRATE -->
-  <section class="section" id="integrate">
-    <div class="container grid grid--split">
-      <div class="grid__left">
-        <p class="section__tag">04 — Integrate</p>
-        <h2 class="section__title">Live in<br /><em class="accent">minutes.</em></h2>
-        <p class="grid__left-note">
-          Drop a script tag, mount a button, take payments.
-          That's the entire flow.
+  <!-- =====================================================
+       DEVELOPERS — code block
+       ===================================================== -->
+  <section class="section section--lg" id="developers">
+    <div class="container devs">
+      <div class="devs__copy">
+        <p class="section__tag">Developers</p>
+        <h2 class="display display--md">
+          A REST API you can actually <em class="accent">read.</em>
+        </h2>
+        <p class="section__sub section__sub--left">
+          Clean SDKs in TypeScript, Python, Go, Ruby, PHP, and .NET.
+          Signed webhooks with idempotency keys. Versioned releases.
+          And a sandbox you can sign into right now.
         </p>
-      </div>
-      <div class="grid__right">
 
+        <div class="sdk-row">
+          <span class="sdk-pill">TypeScript</span>
+          <span class="sdk-pill">Python</span>
+          <span class="sdk-pill">Go</span>
+          <span class="sdk-pill">Ruby</span>
+          <span class="sdk-pill">PHP</span>
+          <span class="sdk-pill">.NET</span>
+          <span class="sdk-pill">iOS</span>
+          <span class="sdk-pill">Android</span>
+          <span class="sdk-pill">React Native</span>
+        </div>
+      </div>
+
+      <div class="devs__code">
         <div class="code">
           <div class="code__bar">
             <span class="code__dot"></span>
             <span class="code__dot"></span>
             <span class="code__dot"></span>
-            <span class="code__file">checkout.html</span>
+            <span class="code__file">create_charge.ts</span>
           </div>
-<pre class="code__body"><span class="c-c">&lt;!-- 1. Drop in Rayl Pay --&gt;</span>
-<span class="c-t">&lt;script</span> <span class="c-a">src</span>=<span class="c-s">"https://js.raylpay.io/v1"</span><span class="c-t">&gt;&lt;/script&gt;</span>
+<pre class="code__body"><span class="c-c">// 1. Create a charge</span>
+<span class="c-k">import</span> { <span class="c-f">Rayl</span> } <span class="c-k">from</span> <span class="c-s">"@raylpay/node"</span>;
 
-<span class="c-c">&lt;!-- 2. Mount a checkout button --&gt;</span>
-<span class="c-t">&lt;div</span> <span class="c-a">id</span>=<span class="c-s">"pay"</span><span class="c-t">&gt;&lt;/div&gt;</span>
+<span class="c-k">const</span> rayl = <span class="c-k">new</span> <span class="c-f">Rayl</span>(process.env.<span class="c-p">RAYL_SECRET_KEY</span>);
 
-<span class="c-t">&lt;script&gt;</span>
-  <span class="c-k">const</span> rayl = <span class="c-k">new</span> <span class="c-f">RaylPay</span>({
-    <span class="c-p">publicKey</span>: <span class="c-s">"pk_live_..."</span>,
-    <span class="c-p">methods</span>: [<span class="c-s">"card"</span>, <span class="c-s">"apple_pay"</span>, <span class="c-s">"google_pay"</span>],
-    <span class="c-p">amount</span>: <span class="c-n">4900</span>,        <span class="c-c">// in cents</span>
-    <span class="c-p">currency</span>: <span class="c-s">"EUR"</span>,
-    <span class="c-p">onSuccess</span>: (tx) =&gt; <span class="c-f">console</span>.<span class="c-f">log</span>(<span class="c-s">"paid"</span>, tx.id),
-  });
+<span class="c-k">const</span> charge = <span class="c-k">await</span> rayl.charges.<span class="c-f">create</span>({
+  <span class="c-p">amount</span>: <span class="c-n">4900</span>,             <span class="c-c">// €49.00</span>
+  <span class="c-p">currency</span>: <span class="c-s">"EUR"</span>,
+  <span class="c-p">methods</span>: [<span class="c-s">"card"</span>, <span class="c-s">"apple_pay"</span>, <span class="c-s">"google_pay"</span>],
+  <span class="c-p">customer</span>: <span class="c-s">"cus_2Nq…"</span>,
+  <span class="c-p">metadata</span>: { <span class="c-p">order_id</span>: <span class="c-s">"4821"</span> },
+});
 
-  rayl.<span class="c-f">mount</span>(<span class="c-s">"#pay"</span>);
-<span class="c-t">&lt;/script&gt;</span></pre>
+<span class="c-c">// 2. Webhook arrives signed and idempotent</span>
+<span class="c-c">// event.type === "charge.succeeded"</span></pre>
         </div>
-
       </div>
     </div>
   </section>
 
-  <!-- SURFACES -->
-  <section class="section" id="surfaces">
+  <!-- =====================================================
+       SECURITY — 3 cards
+       ===================================================== -->
+  <section class="section section--lg section--rule" id="security">
     <div class="container">
-      <div class="section__head">
-        <p class="section__tag">05 — Surfaces</p>
-        <h2 class="section__title">Drop in <em class="accent">anywhere</em><br />you take money.</h2>
+      <div class="section__head section__head--centered">
+        <p class="section__tag">Security</p>
+        <h2 class="display display--md">Designed to <em class="accent">protect.</em></h2>
       </div>
 
-      <div class="surfaces-grid">
-
-        <article class="surface-card">
-          <div class="surface-card__icon" aria-hidden="true">
-            <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.2">
-              <rect x="4" y="6" width="24" height="20" rx="2.5"/>
-              <line x1="4" y1="12" x2="28" y2="12"/>
-              <line x1="9" y1="18" x2="18" y2="18"/>
-              <line x1="9" y1="22" x2="14" y2="22"/>
-            </svg>
-          </div>
-          <h3 class="surface-card__title">Hosted checkout</h3>
-          <p class="surface-card__desc">A fully-managed payment page. Auto-localized, mobile-tuned, and ready to take cards and wallets on day one.</p>
+      <div class="security-row">
+        <article class="sec-card">
+          <span class="sec-card__num mono">01</span>
+          <h3>3D Secure 2</h3>
+          <p>Frictionless step-up authentication. Liability shift handled automatically wherever it's supported.</p>
         </article>
-
-        <article class="surface-card">
-          <div class="surface-card__icon" aria-hidden="true">
-            <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.2">
-              <rect x="4" y="8" width="24" height="16" rx="2"/>
-              <path d="M4 14h24"/>
-              <rect x="9" y="17" width="6" height="4" rx="1"/>
-            </svg>
-          </div>
-          <h3 class="surface-card__title">Drop-in element</h3>
-          <p class="surface-card__desc">Embed a single payment element inside your own UI. Themeable, tokenized, and PCI-scope reducing by design.</p>
+        <article class="sec-card">
+          <span class="sec-card__num mono">02</span>
+          <h3>Tokenization</h3>
+          <p>Card data is tokenized in the browser and never reaches your servers — only ours, in our PCI Level 1 environment.</p>
         </article>
-
-        <article class="surface-card">
-          <div class="surface-card__icon" aria-hidden="true">
-            <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.2">
-              <path d="M9 16h14"/>
-              <path d="M18 11l5 5-5 5"/>
-              <circle cx="6" cy="16" r="2.2"/>
-            </svg>
-          </div>
-          <h3 class="surface-card__title">Payment links</h3>
-          <p class="surface-card__desc">Generate a link in seconds. Send it by email, SMS, or chat — and let your customer pay from anywhere.</p>
+        <article class="sec-card">
+          <span class="sec-card__num mono">03</span>
+          <h3>PCI scope reduction</h3>
+          <p>Hosted fields and the drop-in element keep you out of the parts of PCI you don't want to manage in-house.</p>
         </article>
-
-        <article class="surface-card">
-          <div class="surface-card__icon" aria-hidden="true">
-            <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.2">
-              <rect x="5" y="5" width="9" height="9" rx="1"/>
-              <rect x="18" y="5" width="9" height="9" rx="1"/>
-              <rect x="5" y="18" width="9" height="9" rx="1"/>
-              <rect x="20" y="20" width="3" height="3"/>
-              <rect x="24" y="24" width="3" height="3"/>
-              <rect x="18" y="24" width="3" height="3"/>
-            </svg>
-          </div>
-          <h3 class="surface-card__title">QR codes</h3>
-          <p class="surface-card__desc">Print it, screen it, project it. Customers scan, pay, and you get notified the moment it clears.</p>
-        </article>
-
-        <article class="surface-card surface-card--wide">
-          <div class="surface-card__icon" aria-hidden="true">
-            <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.2">
-              <rect x="5" y="5" width="10" height="10" rx="2"/>
-              <rect x="17" y="5" width="10" height="10" rx="2"/>
-              <rect x="5" y="17" width="10" height="10" rx="2"/>
-              <rect x="17" y="17" width="10" height="10" rx="2"/>
-            </svg>
-          </div>
-          <div>
-            <h3 class="surface-card__title">Plugins for the tools you already use</h3>
-            <p class="surface-card__desc">
-              Native integrations for Shopify, WooCommerce, Magento, and the rest of the commerce stack — so you don't have to write code you've already written.
-            </p>
-            <div class="surface-card__chips">
-              <span class="chip">Shopify</span>
-              <span class="chip">WooCommerce</span>
-              <span class="chip">Magento</span>
-              <span class="chip">BigCommerce</span>
-              <span class="chip">Wix</span>
-            </div>
-          </div>
-        </article>
-
       </div>
     </div>
   </section>
 
-  <!-- DEVELOPERS -->
-  <section class="section" id="developers">
-    <div class="container grid grid--split">
-      <div class="grid__left">
-        <p class="section__tag">06 — Developers</p>
-        <h2 class="section__title">Built for<br /><em class="accent">builders.</em></h2>
-        <p class="grid__left-note">
-          Clean SDKs. Honest docs. A REST API you can actually read.
-          And webhooks that don't lie.
-        </p>
-      </div>
-      <div class="grid__right">
-        <div class="sdk-grid">
-          <div class="sdk-chip">TypeScript</div>
-          <div class="sdk-chip">JavaScript</div>
-          <div class="sdk-chip">Python</div>
-          <div class="sdk-chip">Go</div>
-          <div class="sdk-chip">Ruby</div>
-          <div class="sdk-chip">PHP</div>
-          <div class="sdk-chip">.NET</div>
-          <div class="sdk-chip">Java</div>
-          <div class="sdk-chip">iOS · Swift</div>
-          <div class="sdk-chip">Android · Kotlin</div>
-          <div class="sdk-chip">React Native</div>
-          <div class="sdk-chip">REST API</div>
-        </div>
-
-        <ul class="bullets">
-          <li>Signed webhooks with replay protection and idempotency keys.</li>
-          <li>Sandbox environment with realistic test cards and wallet flows.</li>
-          <li>Versioned API — breaking changes are announced, never sneaky.</li>
-          <li>Live logs and request inspectors inside the dashboard.</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- SECURITY -->
-  <section class="section section--dark-rule" id="security">
+  <!-- =====================================================
+       HOW IT WORKS
+       ===================================================== -->
+  <section class="section section--lg">
     <div class="container">
-      <div class="section__head">
-        <p class="section__tag">07 — Security</p>
-        <h2 class="section__title">Designed to <em class="accent">protect.</em></h2>
+      <div class="section__head section__head--centered">
+        <p class="section__tag">How it works</p>
+        <h2 class="display display--md">From key to <em class="accent">first payment.</em></h2>
       </div>
 
-      <div class="security-grid">
-        <div class="security-card">
-          <p class="security-card__num">/ 01</p>
-          <h4>3D Secure 2</h4>
-          <p>Frictionless step-up authentication built in. Liability shift handled automatically where supported.</p>
-        </div>
-        <div class="security-card">
-          <p class="security-card__num">/ 02</p>
-          <h4>Tokenization</h4>
-          <p>Card data never touches your servers. We exchange it for a token you can store, charge, and refund safely.</p>
-        </div>
-        <div class="security-card">
-          <p class="security-card__num">/ 03</p>
-          <h4>Real-time fraud scoring</h4>
-          <p>Every transaction is scored against device, network, and behavioral signals before it reaches the issuer.</p>
-        </div>
-        <div class="security-card">
-          <p class="security-card__num">/ 04</p>
-          <h4>PCI scope reduction</h4>
-          <p>Our hosted fields and drop-in element keep you out of the part of PCI compliance you don't want to be in.</p>
-        </div>
-        <div class="security-card">
-          <p class="security-card__num">/ 05</p>
-          <h4>Chargeback workflows</h4>
-          <p>Disputes surface in the dashboard with evidence templates, deadlines, and a one-click submit flow.</p>
-        </div>
-        <div class="security-card">
-          <p class="security-card__num">/ 06</p>
-          <h4>Encrypted end-to-end</h4>
-          <p>TLS in transit. AES-256 at rest. Keys rotated on a schedule, not on a hope.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SETTLEMENT -->
-  <section class="section">
-    <div class="container">
-      <div class="section__head">
-        <p class="section__tag">08 — Settlement</p>
-        <h2 class="section__title">Move money your <em class="accent">way.</em></h2>
-      </div>
-
-      <div class="settle-grid">
-        <article class="settle-card">
-          <div class="settle-card__icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <rect x="3" y="6" width="18" height="13" rx="2"/>
-              <line x1="3" y1="10" x2="21" y2="10"/>
-              <line x1="7" y1="15" x2="11" y2="15"/>
-            </svg>
-          </div>
-          <h3 class="settle-card__title">Bank transfer</h3>
-          <p class="settle-card__desc">Settle directly to your business bank account with full statement reconciliation.</p>
-          <span class="settle-card__time">T+2 by default</span>
+      <div class="how">
+        <article class="how__step">
+          <span class="how__num mono">01</span>
+          <h3>Create an account</h3>
+          <p>Sign up and unlock a sandbox you can build against the same minute.</p>
         </article>
-
-        <article class="settle-card">
-          <div class="settle-card__icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <circle cx="12" cy="12" r="9"/>
-              <path d="M12 7v10M9 10h6M9 14h6"/>
-            </svg>
-          </div>
-          <h3 class="settle-card__title">USDC on Solana</h3>
-          <p class="settle-card__desc">Receive payouts in regulated stablecoin on the fastest settlement layer available.</p>
-          <span class="settle-card__time">Same-day available</span>
+        <article class="how__step">
+          <span class="how__num mono">02</span>
+          <h3>Integrate</h3>
+          <p>Drop in the hosted checkout, embed the element, or call the API directly.</p>
         </article>
-
-        <article class="settle-card">
-          <div class="settle-card__icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <path d="M12 2v20M5 6h11a3 3 0 010 6H8a3 3 0 000 6h11"/>
-            </svg>
-          </div>
-          <h3 class="settle-card__title">USDT</h3>
-          <p class="settle-card__desc">Settle in tether across the major chains, with treasury-grade reporting.</p>
-          <span class="settle-card__time">Same-day available</span>
-        </article>
-
-        <article class="settle-card">
-          <div class="settle-card__icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/>
-            </svg>
-          </div>
-          <h3 class="settle-card__title">Instant payouts</h3>
-          <p class="settle-card__desc">For approved merchants — push earnings to a debit card within minutes, 24/7.</p>
-          <span class="settle-card__time">In minutes</span>
+        <article class="how__step">
+          <span class="how__num mono">03</span>
+          <h3>Go live</h3>
+          <p>Flip the key from test to live and start accepting real money — same day.</p>
         </article>
       </div>
     </div>
   </section>
 
-  <!-- REAL-TIME RISK -->
-  <section class="section section--dark-rule">
-    <div class="container">
-      <div class="section__head">
-        <p class="section__tag">09 — Real-time risk</p>
-        <h2 class="section__title">200+ signals.<br />Scored in <em class="accent">milliseconds.</em></h2>
+  <!-- =====================================================
+       FAQ
+       ===================================================== -->
+  <section class="section section--lg" id="faq">
+    <div class="container faq-wrap">
+      <div class="faq-wrap__head">
+        <p class="section__tag">FAQ</p>
+        <h2 class="display display--md">Questions, <em class="accent">answered.</em></h2>
       </div>
-
-      <div class="risk">
-        <div class="risk__copy">
-          <h3>Every transaction, inspected before it's authorized.</h3>
-          <p>
-            Rayl Pay's risk engine analyzes device fingerprints, network
-            patterns, behavioral signals, and historical card data against
-            an evolving model — and either lets it through, sends it to
-            review, or blocks it cold.
-          </p>
-          <ul class="risk__signals">
-            <li>Device fingerprinting</li>
-            <li>Behavioral biometrics</li>
-            <li>Velocity checks</li>
-            <li>Geo &amp; IP intelligence</li>
-            <li>Issuer response modeling</li>
-            <li>BIN range patterns</li>
-            <li>Chargeback history</li>
-            <li>Card testing detection</li>
-          </ul>
+      <div class="faq">
+        <div class="faq__item">
+          <button class="faq__q" type="button">
+            What does Rayl Pay actually do?
+            <span class="plus" aria-hidden="true">+</span>
+          </button>
+          <div class="faq__a">
+            Rayl Pay is a single integration that lets you accept Visa,
+            Mastercard, American Express, Apple Pay, and Google Pay across
+            web, mobile, and in-person checkout — with one API, one
+            dashboard, and one reconciliation flow.
+          </div>
         </div>
-
-        <div class="risk__panel" aria-hidden="true">
-          <div class="risk__panel-head">
-            <h4>Live transactions</h4>
-            <span class="risk__live">Streaming</span>
+        <div class="faq__item">
+          <button class="faq__q" type="button">
+            How long does integration take?
+            <span class="plus" aria-hidden="true">+</span>
+          </button>
+          <div class="faq__a">
+            Most teams take their first test payment inside an hour with
+            the hosted checkout. Custom integrations using the drop-in
+            element or REST API typically ship within a few days.
           </div>
-          <div class="risk__row">
-            <div class="risk__id">
-              <strong>txn_8f2a · Visa · 4242</strong>
-              <small>Sara Lambrecht · BE</small>
-            </div>
-            <div class="risk__amt">€129.00</div>
-            <div class="risk__status risk__status--ok">Allowed</div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__q" type="button">
+            Is my customer's card data safe?
+            <span class="plus" aria-hidden="true">+</span>
+          </button>
+          <div class="faq__a">
+            Card data is tokenized in the browser and never reaches your
+            servers. Combined with hosted fields and end-to-end encryption,
+            you stay out of the most expensive parts of PCI compliance.
           </div>
-          <div class="risk__row">
-            <div class="risk__id">
-              <strong>txn_3b9c · Mastercard · 5454</strong>
-              <small>Tobias Klein · DE</small>
-            </div>
-            <div class="risk__amt">€49.99</div>
-            <div class="risk__status risk__status--ok">Allowed</div>
-          </div>
-          <div class="risk__row">
-            <div class="risk__id">
-              <strong>txn_a01f · Apple Pay</strong>
-              <small>Marie Dubois · FR</small>
-            </div>
-            <div class="risk__amt">€312.40</div>
-            <div class="risk__status risk__status--ok">Allowed</div>
-          </div>
-          <div class="risk__row">
-            <div class="risk__id">
-              <strong>txn_e5d7 · Visa · 4111</strong>
-              <small>Unknown device · NG</small>
-            </div>
-            <div class="risk__amt">€89.00</div>
-            <div class="risk__status risk__status--review">Review</div>
-          </div>
-          <div class="risk__row">
-            <div class="risk__id">
-              <strong>txn_c3b1 · Mastercard · 5555</strong>
-              <small>Velocity 12/min · RU</small>
-            </div>
-            <div class="risk__amt">€1,200.00</div>
-            <div class="risk__status risk__status--block">Blocked</div>
-          </div>
-          <div class="risk__row">
-            <div class="risk__id">
-              <strong>txn_71fa · Google Pay</strong>
-              <small>Pieter De Smet · NL</small>
-            </div>
-            <div class="risk__amt">€24.50</div>
-            <div class="risk__status risk__status--ok">Allowed</div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__q" type="button">
+            Is Rayl Pay live today?
+            <span class="plus" aria-hidden="true">+</span>
+          </button>
+          <div class="faq__a">
+            Rayl Pay is in private preview. We're onboarding selected
+            partners ahead of general availability — drop us a line at
+            sales@raylpay.io and we'll get back to you the same day.
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- INDUSTRIES -->
-  <section class="section">
-    <div class="container">
-      <div class="section__head">
-        <p class="section__tag">10 — Built for</p>
-        <h2 class="section__title">Industries we <em class="accent">understand.</em></h2>
-      </div>
-
-      <div class="ind-grid">
-        <article class="ind-card">
-          <div class="ind-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="7" width="18" height="12" rx="3"/><path d="M8 12h2M9 11v2M14 11h.01M16 13h.01"/></svg></div>
-          <h3 class="ind-card__title">Gaming</h3>
-          <p class="ind-card__desc">Microtransactions, virtual goods, and high-frequency processing — without the friction that kills conversion.</p>
-        </article>
-        <article class="ind-card">
-          <div class="ind-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></div>
-          <h3 class="ind-card__title">Digital goods</h3>
-          <p class="ind-card__desc">Software licenses, downloads, and digital content delivery — instant, fraud-screened, and reconcilable.</p>
-        </article>
-        <article class="ind-card">
-          <div class="ind-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 12a9 9 0 1018 0 9 9 0 00-18 0z"/><path d="M3 12h18M12 3a14 14 0 010 18M12 3a14 14 0 000 18"/></svg></div>
-          <h3 class="ind-card__title">Subscriptions</h3>
-          <p class="ind-card__desc">Recurring billing, smart retries, dunning workflows, and customer-portal-ready APIs.</p>
-        </article>
-        <article class="ind-card">
-          <div class="ind-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="9" cy="9" r="4"/><circle cx="17" cy="15" r="4"/><line x1="9" y1="9" x2="17" y2="15"/></svg></div>
-          <h3 class="ind-card__title">Marketplaces</h3>
-          <p class="ind-card__desc">Split payments, escrow, multi-party payouts, and KYC for sellers — all on a single ledger.</p>
-        </article>
-        <article class="ind-card">
-          <div class="ind-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M9 9h6a2 2 0 010 4H9a2 2 0 000 4h6"/></svg></div>
-          <h3 class="ind-card__title">Crypto / FinTech</h3>
-          <p class="ind-card__desc">On-ramps, off-ramps, and stablecoin settlement built for regulated crypto operators.</p>
-        </article>
-        <article class="ind-card">
-          <div class="ind-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 7l1.5 11a2 2 0 002 1.7h11a2 2 0 002-1.7L21 7"/><path d="M9 7V5a3 3 0 016 0v2"/></svg></div>
-          <h3 class="ind-card__title">E-commerce</h3>
-          <p class="ind-card__desc">From single-store Shopify shops to multi-country enterprise commerce — same SDK, same dashboard.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- USE CASES / BENTO -->
-  <section class="section">
-    <div class="container">
-      <div class="section__head">
-        <p class="section__tag">11 — Use cases</p>
-        <h2 class="section__title">A flow for every <em class="accent">moment</em><br />money changes hands.</h2>
-      </div>
-
-      <div class="bento">
-        <article class="bento__card bento__card--span-3 bento__card--tall">
-          <p class="bento__eyebrow">In-store · QR</p>
-          <h3 class="bento__title">Tap, scan, paid — <em class="accent">no terminal.</em></h3>
-          <p class="bento__desc">Print a QR on the receipt, table, or window. Customers scan, pay with Apple Pay or any card, and you get a webhook the instant it settles.</p>
-
-          <div class="bento__receipt" aria-hidden="true">
-            <div class="bento__receipt-row"><span>Cappuccino</span><span>€3.20</span></div>
-            <div class="bento__receipt-row"><span>Croissant</span><span>€2.40</span></div>
-            <div class="bento__receipt-row"><span>Bottled water</span><span>€1.80</span></div>
-            <div class="bento__receipt-row total"><span>Total · paid</span><span>€7.40</span></div>
-          </div>
-        </article>
-
-        <article class="bento__card bento__card--span-3">
-          <p class="bento__eyebrow">Subscriptions</p>
-          <h3 class="bento__title">Recurring billing, <em class="accent">without</em> the drama.</h3>
-          <p class="bento__desc">Smart retries, dunning, customer portals — and a webhook stream you can actually depend on.</p>
-        </article>
-
-        <article class="bento__card bento__card--span-3">
-          <p class="bento__eyebrow">Marketplaces</p>
-          <h3 class="bento__title">Split payments to <em class="accent">many.</em></h3>
-          <p class="bento__desc">Multi-party payouts, seller KYC, escrow holds, and a single ledger that ties it all together.</p>
-        </article>
-
-        <article class="bento__card bento__card--span-2">
-          <p class="bento__eyebrow">Coverage</p>
-          <h3 class="bento__title">Built for <em class="accent">EU-first</em> commerce.</h3>
-          <div class="bento__taglist">
-            <span class="chip">SEPA</span>
-            <span class="chip">iDEAL</span>
-            <span class="chip">Bancontact</span>
-            <span class="chip">EUR</span>
-            <span class="chip">3DS2</span>
-            <span class="chip">PSD2</span>
-            <span class="chip">SCA</span>
-          </div>
-        </article>
-
-        <article class="bento__card bento__card--span-2">
-          <p class="bento__eyebrow">Authorization</p>
-          <div class="bento__stat">96.4<span style="font-size:.5em">%</span></div>
-          <p class="bento__stat-sub">Average authorization rate across cards and wallets in the last 24 hours.</p>
-        </article>
-
-        <article class="bento__card bento__card--span-2">
-          <p class="bento__eyebrow">Latency</p>
-          <div class="bento__stat">280<span style="font-size:.5em">ms</span></div>
-          <p class="bento__stat-sub">Median time from charge call to authorization across the global edge.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- CUSTOMER INTELLIGENCE -->
-  <section class="section">
-    <div class="container">
-      <div class="section__head">
-        <p class="section__tag">12 — Customer intelligence</p>
-        <h2 class="section__title">Know your <em class="accent">money.</em></h2>
-      </div>
-
-      <div class="intel">
-        <div class="intel__copy">
-          <h3>A dashboard that explains itself.</h3>
-          <p>
-            Acceptance rate by issuer. 3DS challenge funnels. Wallet-vs-card
-            mix. Refund cohorts. Failed-payment retry recovery. Everything
-            you'd otherwise build yourself — already there, already exportable.
-          </p>
-          <ul class="bullets">
-            <li>Real-time payment, refund, and dispute timelines.</li>
-            <li>Cohorted acceptance and decline analytics by region and issuer.</li>
-            <li>One-click CSV export and a typed REST query API.</li>
-          </ul>
-        </div>
-
-        <div class="intel__panel" aria-hidden="true">
-          <div class="intel__metric">
-            <span class="intel__metric-label">Authorization rate · 24h</span>
-            <span class="intel__metric-num">96.4%</span>
-            <span class="intel__metric-delta">↑ 0.8% vs. yesterday</span>
-          </div>
-          <div class="intel__chart">
-            <div class="intel__bar" style="height: 42%"></div>
-            <div class="intel__bar" style="height: 58%"></div>
-            <div class="intel__bar" style="height: 48%"></div>
-            <div class="intel__bar" style="height: 70%"></div>
-            <div class="intel__bar" style="height: 62%"></div>
-            <div class="intel__bar" style="height: 82%"></div>
-            <div class="intel__bar" style="height: 74%"></div>
-            <div class="intel__bar" style="height: 90%"></div>
-            <div class="intel__bar" style="height: 78%"></div>
-            <div class="intel__bar" style="height: 95%"></div>
-            <div class="intel__bar" style="height: 86%"></div>
-            <div class="intel__bar" style="height: 100%"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- MOBILE CHECKOUT -->
-  <section class="section section--dark-rule">
-    <div class="container">
-      <div class="mobile-checkout">
-        <div class="mobile-checkout__copy">
-          <p class="section__tag">Mobile-native</p>
-          <h3>A checkout that <em class="accent">feels</em> like the app it lives in.</h3>
-          <p>
-            Native iOS and Android SDKs. A web checkout that renders Apple Pay
-            and Google Pay where they belong. Theme tokens, dark mode, dynamic
-            type — all of it inherits from your product.
-          </p>
-          <ul class="bullets">
-            <li>Apple Pay with merchant tokens and PSD2-compliant SCA.</li>
-            <li>Google Pay with passkey support and one-tap re-auth.</li>
-            <li>Pre-built React Native and Flutter components.</li>
-          </ul>
-        </div>
-
-        <div class="phone" aria-hidden="true">
-          <div class="phone__screen">
-            <div class="phone__brand">Rayl<span class="sub">Pay</span></div>
-
-            <div class="phone__item">
-              <span>Order #4821</span>
-              <strong>€48.20</strong>
-            </div>
-            <div class="phone__item">
-              <span>Shipping</span>
-              <strong>€4.99</strong>
-            </div>
-            <div class="phone__item">
-              <span>VAT (21%)</span>
-              <strong>€11.16</strong>
-            </div>
-            <div class="phone__item">
-              <span>
-                Card<br /><small>•••• 4242</small>
-              </span>
-              <strong>VISA</strong>
-            </div>
-
-            <div class="phone__total">
-              <span>Total</span><strong>€64.35</strong>
-            </div>
-
-            <div class="phone__applepay">
-              <svg viewBox="0 0 22 22" fill="currentColor"><path d="M16.4 11.6c0-2.6 2.1-3.9 2.2-3.9-1.2-1.7-3-2-3.7-2-1.6-.2-3 .9-3.8.9-.8 0-2-.9-3.3-.9-1.7 0-3.3 1-4.2 2.5-1.8 3.1-.5 7.7 1.3 10.2.9 1.2 1.9 2.6 3.2 2.5z"/></svg>
-              Pay
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- LANGUAGES -->
-  <section class="section">
-    <div class="container">
-      <div class="section__head">
-        <p class="section__tag">13 — Localized</p>
-        <h2 class="section__title">Speaks your customer's <em class="accent">language.</em></h2>
-      </div>
-
-      <div class="langs">
-        <span class="lang"><span class="lang__code">EN</span> English</span>
-        <span class="lang"><span class="lang__code">FR</span> Français</span>
-        <span class="lang"><span class="lang__code">DE</span> Deutsch</span>
-        <span class="lang"><span class="lang__code">NL</span> Nederlands</span>
-        <span class="lang"><span class="lang__code">ES</span> Español</span>
-        <span class="lang"><span class="lang__code">IT</span> Italiano</span>
-        <span class="lang"><span class="lang__code">PT</span> Português</span>
-        <span class="lang"><span class="lang__code">PL</span> Polski</span>
-        <span class="lang"><span class="lang__code">CS</span> Čeština</span>
-        <span class="lang"><span class="lang__code">SV</span> Svenska</span>
-        <span class="lang"><span class="lang__code">TR</span> Türkçe</span>
-        <span class="lang"><span class="lang__code">RO</span> Română</span>
-        <span class="lang"><span class="lang__code">UK</span> Українська</span>
-        <span class="lang"><span class="lang__code">AR</span> العربية</span>
-        <span class="lang"><span class="lang__code">HE</span> עברית</span>
-        <span class="lang"><span class="lang__code">JA</span> 日本語</span>
-        <span class="lang"><span class="lang__code">ZH</span> 中文</span>
-        <span class="lang"><span class="lang__code">KO</span> 한국어</span>
-        <span class="lang"><span class="lang__code">VI</span> Tiếng Việt</span>
-        <span class="lang"><span class="lang__code">SW</span> Kiswahili</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- SUPPORT -->
-  <section class="section">
-    <div class="container">
-      <div class="section__head">
-        <p class="section__tag">14 — Support</p>
-        <h2 class="section__title">Real engineers.<br /><em class="accent">Real answers.</em></h2>
-      </div>
-
-      <div class="support-grid">
-        <article class="support-card">
-          <div class="support-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 6h16v10H8l-4 4V6z"/></svg></div>
-          <h4>Live chat</h4>
-          <p>In-dashboard chat, monitored 24/7 by the people who actually built the API.</p>
-          <a href="mailto:support@raylpay.io">Start a chat →</a>
-        </article>
-        <article class="support-card">
-          <div class="support-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 7 9-7"/></svg></div>
-          <h4>Email</h4>
-          <p>Same-business-day response from a real engineer, not a ticket triage bot.</p>
-          <a href="mailto:support@raylpay.io">support@raylpay.io →</a>
-        </article>
-        <article class="support-card">
-          <div class="support-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg></div>
-          <h4>Telegram</h4>
-          <p>Private group with your team and ours. Fastest path to a fix when latency matters.</p>
-          <a href="#" onclick="event.preventDefault();">Join channel →</a>
-        </article>
-        <article class="support-card">
-          <div class="support-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 6c-1.7-.8-3.5-1.3-5.4-1.6l-.3.5a14 14 0 00-4.6 0l-.3-.5C7.5 4.7 5.7 5.2 4 6c-3 4.6-4 9-3.5 13.4 2 1.5 3.9 2.3 5.7 3l.7-1.1c-1-.4-2-.9-3-1.5l.6-.5c4 1.9 8.4 1.9 12.4 0l.6.5c-1 .6-2 1.1-3 1.5l.7 1.1c1.8-.6 3.7-1.5 5.7-3 .6-5.1-.7-9.5-3.6-13.4zM8.5 16.5c-1 0-2-1-2-2.2 0-1.2.9-2.2 2-2.2 1 0 2 1 2 2.2 0 1.2-1 2.2-2 2.2zm7 0c-1 0-2-1-2-2.2 0-1.2.9-2.2 2-2.2s2 1 2 2.2c0 1.2-1 2.2-2 2.2z"/></svg></div>
-          <h4>Discord</h4>
-          <p>Community server for developers building on Rayl Pay — code samples, edge cases, all in the open.</p>
-          <a href="#" onclick="event.preventDefault();">Join server →</a>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- QUOTE -->
-  <section class="section">
-    <div class="container">
-      <div class="quote">
-        <p class="quote__text">
-          We didn't build Rayl Pay because the world needs another payment
-          processor. We built it because the ones we used kept getting in
-          the way.
-        </p>
-        <p class="quote__attr">— <strong>The Rayl team</strong> &nbsp;·&nbsp; Antwerp, Belgium</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- HOW IT WORKS -->
-  <section class="section" id="how">
-    <div class="container">
-      <div class="section__head">
-        <p class="section__tag">15 — How it works</p>
-        <h2 class="section__title">From idea to<br /><em class="accent">first payment.</em></h2>
-      </div>
-
-      <div class="steps">
-        <div class="step">
-          <p class="step__num">01</p>
-          <h4>Create your account</h4>
-          <p>Sign up, share a few details about your business, and unlock a sandbox you can build against immediately.</p>
-        </div>
-        <div class="step step--arrow"></div>
-        <div class="step">
-          <p class="step__num">02</p>
-          <h4>Integrate Rayl Pay</h4>
-          <p>Drop in the hosted checkout, embed the element, or call the API. Stay in test mode for as long as you want.</p>
-        </div>
-        <div class="step step--arrow"></div>
-        <div class="step">
-          <p class="step__num">03</p>
-          <h4>Go live</h4>
-          <p>Flip the key from test to live and start accepting real payments — cards, Apple Pay, Google Pay — from minute one.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FAQ -->
-  <section class="section" id="faq">
-    <div class="container grid grid--split">
-      <div class="grid__left">
-        <p class="section__tag">16 — FAQ</p>
-        <h2 class="section__title">Things people <em class="accent">ask.</em></h2>
-        <p class="grid__left-note">
-          Still curious? Reach us anytime at
-          <a class="accent-text" href="mailto:sales@raylpay.io">sales@raylpay.io</a>.
-        </p>
-      </div>
-      <div class="grid__right">
-        <div class="faq">
-          <div class="faq__item">
-            <button class="faq__q" type="button">
-              What does Rayl Pay actually do?
-              <span class="plus" aria-hidden="true">+</span>
-            </button>
-            <div class="faq__a">
-              Rayl Pay is a single integration that lets you accept Visa, Mastercard, Apple Pay, and Google Pay across web, mobile, and in-person checkout — with one API, one dashboard, and one reconciliation flow.
-            </div>
-          </div>
-          <div class="faq__item">
-            <button class="faq__q" type="button">
-              How long does integration take?
-              <span class="plus" aria-hidden="true">+</span>
-            </button>
-            <div class="faq__a">
-              Most teams are taking test-mode payments inside an hour with the hosted checkout. Custom integrations using the drop-in element or REST API typically ship within a few days.
-            </div>
-          </div>
-          <div class="faq__item">
-            <button class="faq__q" type="button">
-              Is my customer's card data safe?
-              <span class="plus" aria-hidden="true">+</span>
-            </button>
-            <div class="faq__a">
-              Card data is tokenized in the browser and never reaches your servers. Combined with our hosted fields and end-to-end encryption, you stay out of the parts of PCI compliance that are expensive to manage in-house.
-            </div>
-          </div>
-          <div class="faq__item">
-            <button class="faq__q" type="button">
-              Do you support Apple Pay and Google Pay out of the box?
-              <span class="plus" aria-hidden="true">+</span>
-            </button>
-            <div class="faq__a">
-              Yes. Both wallets render natively wherever they're supported, and they're available through the same checkout integration as our card flow — no separate setup or extra contracts.
-            </div>
-          </div>
-          <div class="faq__item">
-            <button class="faq__q" type="button">
-              What kind of support do you offer?
-              <span class="plus" aria-hidden="true">+</span>
-            </button>
-            <div class="faq__a">
-              Real engineers on email, Telegram, and shared Slack channels. Status pages, signed webhooks, and a request inspector inside the dashboard — so when something does go wrong, you can see it.
-            </div>
-          </div>
-          <div class="faq__item">
-            <button class="faq__q" type="button">
-              Is Rayl Pay live today?
-              <span class="plus" aria-hidden="true">+</span>
-            </button>
-            <div class="faq__a">
-              Rayl Pay is in preview. We're onboarding selected partners ahead of general availability — drop us a line at sales@raylpay.io and we'll get back to you the same day.
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- MANIFESTO -->
-  <section class="manifesto">
-    <div class="container">
-      <p class="manifesto__text">
-        Payments should feel <em class="accent">invisible.</em><br />
-        Rayl Pay is the layer that makes them so.
-      </p>
-    </div>
-  </section>
-
-  <!-- BIG CTA -->
+  <!-- =====================================================
+       BIG CTA
+       ===================================================== -->
   <section class="bigcta" id="cta">
     <div class="container bigcta__inner">
-      <span class="badge">Now in preview</span>
-      <h2 class="bigcta__title">Ready to <em class="accent">accept payments?</em></h2>
+      <h2 class="display display--lg">
+        Ready when <em class="accent">you</em> are.
+      </h2>
       <p class="bigcta__sub">
         Get a sandbox key, build against a real API, and go live the day
-        you're ready. We'll be here.
+        you're ready.
       </p>
       <div class="bigcta__row">
-        <a href="mailto:sales@raylpay.io" class="btn btn--primary">Talk to sales →</a>
-        <a href="#integrate" class="btn btn--ghost">View the docs</a>
+        <a href="mailto:sales@raylpay.io" class="btn btn--primary">Talk to sales</a>
+        <a href="#developers" class="btn btn--ghost">Read the docs →</a>
       </div>
     </div>
   </section>
 
-  <!-- CONTACT -->
-  <section class="section" id="contact">
-    <div class="container grid grid--split">
-      <div class="grid__left">
-        <p class="section__tag">17 — Get in touch</p>
-        <h2 class="section__title">Start <em class="accent">accepting.</em></h2>
-      </div>
-      <div class="grid__right contact">
-        <div class="contact__row">
-          <span class="contact__label">Sales</span>
-          <a href="mailto:sales@raylpay.io" class="contact__value">sales@raylpay.io</a>
-        </div>
-        <div class="contact__row">
-          <span class="contact__label">Support</span>
-          <a href="mailto:support@raylpay.io" class="contact__value">support@raylpay.io</a>
-        </div>
-        <div class="contact__row">
-          <span class="contact__label">Partnerships</span>
-          <a href="mailto:partners@raylpay.io" class="contact__value">partners@raylpay.io</a>
-        </div>
-        <div class="contact__row">
-          <span class="contact__label">Parent company</span>
-          <span class="contact__value contact__value--muted">
-            <a href="/">Rayl ↗</a>
-          </span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
+  <!-- =====================================================
+       FOOTER
+       ===================================================== -->
   <footer class="footer">
     <div class="container footer__inner">
       <a href="#" class="footer__logo">
@@ -1163,8 +622,7 @@
       <div class="footer__cols">
         <div>
           <p class="footer__h">Product</p>
-          <a href="#methods">Payment methods</a>
-          <a href="#surfaces">Surfaces</a>
+          <a href="#product">Product</a>
           <a href="#developers">Developers</a>
           <a href="#security">Security</a>
         </div>
