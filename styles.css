@@ -14,7 +14,7 @@
 @font-face {
   font-family: "Aeonik";
   src: url("fonts/AeonikTRIAL-Light.otf") format("opentype");
-  font-weight: 300;
+  font-weight: 100 600; /* use this single file across the whole light-to-medium range */
   font-style: normal;
   font-display: swap;
 }
@@ -168,14 +168,18 @@ body { padding-top: 72px; }
 
 /* ============================================================
    Rayl Pay wordmark — single unified treatment
-   "Rayl" = Aeonik Bold Italic, "Pay" = Aeonik Light
-   Same size, same color, same spacing — everywhere it appears.
+   "Rayl" = Aeonik Bold Italic, "Pay" = Aeonik (synthesized
+   medium weight). Both render in the SAME perceived white
+   despite the structural weight difference, thanks to a
+   tiny synthesized weight bump + a hairline currentColor
+   text-shadow that fattens "Pay" optically without changing
+   the font.
    ============================================================ */
 .nav__logo {
   display: inline-flex;
   align-items: baseline;
   gap: 6px;
-  color: var(--ink);
+  color: #ffffff;
   font-size: 22px;
   line-height: 1;
   letter-spacing: -0.025em;
@@ -190,12 +194,16 @@ body { padding-top: 72px; }
 }
 .nav__logo .logo__sub,
 .logo__sub {
-  font-family: var(--font-display);  /* Aeonik Light */
-  font-weight: 300;
+  font-family: var(--font-display);  /* Aeonik, used at medium */
+  font-weight: 500;                  /* synthesized — file is 300 baseline */
   font-style: normal;
   color: inherit;
   font-size: 1em;
   letter-spacing: -0.025em;
+  /* Optical balance with Bold Italic — adds ~0.4px of stroke
+     thickness so Pay reads the same brightness as Rayl. */
+  text-shadow: 0 0 0.5px currentColor;
+  -webkit-font-smoothing: antialiased;
 }
 
 .nav__links {
