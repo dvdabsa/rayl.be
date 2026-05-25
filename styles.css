@@ -114,11 +114,10 @@ em.accent, .accent-text {
   z-index: 50;
   padding: 0;
   background: transparent;
-  border-bottom: 1px solid transparent;
+  border: 0;
   transition:
     padding .35s cubic-bezier(.2, .8, .2, 1),
-    background .25s ease,
-    border-color .25s ease;
+    background .25s ease;
 }
 
 .nav__inner {
@@ -133,7 +132,6 @@ em.accent, .accent-text {
   backdrop-filter: saturate(160%) blur(18px);
   -webkit-backdrop-filter: saturate(160%) blur(18px);
   border: 1px solid transparent;
-  border-bottom-color: var(--line);
   border-radius: 0;
   transition:
     padding .35s cubic-bezier(.2, .8, .2, 1),
@@ -153,7 +151,6 @@ em.accent, .accent-text {
   padding: 12px 14px 12px 22px;
   background: rgba(14, 14, 14, 0.82);
   border-color: var(--line);
-  border-bottom-color: var(--line);
   border-radius: 999px;
   box-shadow:
     0 20px 50px -20px rgba(0, 0, 0, 0.6),
