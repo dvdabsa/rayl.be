@@ -14,6 +14,29 @@ if (menuBtn && navLinks) {
   );
 }
 
+// Floating nav on scroll
+const nav = document.querySelector(".nav");
+if (nav) {
+  const THRESHOLD = 24;
+  let ticking = false;
+  const update = () => {
+    if (window.scrollY > THRESHOLD) nav.classList.add("is-floating");
+    else nav.classList.remove("is-floating");
+    ticking = false;
+  };
+  window.addEventListener(
+    "scroll",
+    () => {
+      if (!ticking) {
+        window.requestAnimationFrame(update);
+        ticking = true;
+      }
+    },
+    { passive: true }
+  );
+  update();
+}
+
 // FAQ accordion — single-open behavior
 document.querySelectorAll(".faq__item").forEach((item) => {
   const q = item.querySelector(".faq__q");

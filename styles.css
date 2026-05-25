@@ -107,13 +107,18 @@ em.accent, .accent-text {
    NAV
    ============================================================ */
 .nav {
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 50;
-  background: rgba(10, 10, 10, 0.72);
-  backdrop-filter: saturate(160%) blur(18px);
-  -webkit-backdrop-filter: saturate(160%) blur(18px);
-  border-bottom: 1px solid var(--line);
+  padding: 0;
+  background: transparent;
+  border-bottom: 1px solid transparent;
+  transition:
+    padding .35s cubic-bezier(.2, .8, .2, 1),
+    background .25s ease,
+    border-color .25s ease;
 }
 
 .nav__inner {
@@ -124,7 +129,45 @@ em.accent, .accent-text {
   align-items: center;
   justify-content: space-between;
   gap: 32px;
+  background: rgba(10, 10, 10, 0.72);
+  backdrop-filter: saturate(160%) blur(18px);
+  -webkit-backdrop-filter: saturate(160%) blur(18px);
+  border: 1px solid transparent;
+  border-bottom-color: var(--line);
+  border-radius: 0;
+  transition:
+    padding .35s cubic-bezier(.2, .8, .2, 1),
+    border-radius .35s cubic-bezier(.2, .8, .2, 1),
+    border-color .25s ease,
+    background .25s ease,
+    box-shadow .35s ease,
+    max-width .35s cubic-bezier(.2, .8, .2, 1);
 }
+
+/* Detached / floating state — toggled by JS when scrolled past threshold */
+.nav.is-floating {
+  padding: 14px var(--pad);
+}
+.nav.is-floating .nav__inner {
+  max-width: 1080px;
+  padding: 12px 14px 12px 22px;
+  background: rgba(14, 14, 14, 0.82);
+  border-color: var(--line);
+  border-bottom-color: var(--line);
+  border-radius: 999px;
+  box-shadow:
+    0 20px 50px -20px rgba(0, 0, 0, 0.6),
+    0 8px 24px -10px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+@media (max-width: 720px) {
+  .nav.is-floating { padding: 10px var(--pad); }
+  .nav.is-floating .nav__inner { border-radius: 24px; padding: 10px 14px; }
+}
+
+/* Spacer to prevent content from jumping under the fixed nav */
+body { padding-top: 72px; }
+@media (max-width: 720px) { body { padding-top: 64px; } }
 
 .nav__logo {
   font-family: var(--font-display);
