@@ -128,9 +128,12 @@ em.accent, .accent-text {
   align-items: center;
   justify-content: space-between;
   gap: 32px;
-  background: rgba(10, 10, 10, 0.72);
-  backdrop-filter: saturate(160%) blur(18px);
-  -webkit-backdrop-filter: saturate(160%) blur(18px);
+  /* Resting state sits directly on the page — no band, no blur.
+     The floating pill state below adds backdrop blur as it
+     contracts so it stays legible over scrolled content. */
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
   border: 1px solid transparent;
   border-radius: 0;
   transition:
@@ -139,7 +142,8 @@ em.accent, .accent-text {
     border-color .25s ease,
     background .25s ease,
     box-shadow .35s ease,
-    max-width .35s cubic-bezier(.2, .8, .2, 1);
+    max-width .35s cubic-bezier(.2, .8, .2, 1),
+    backdrop-filter .25s ease;
 }
 
 /* Detached / floating state — toggled by JS when scrolled past threshold */
@@ -149,7 +153,9 @@ em.accent, .accent-text {
 .nav.is-floating .nav__inner {
   max-width: 1080px;
   padding: 12px 14px 12px 22px;
-  background: rgba(14, 14, 14, 0.82);
+  background: rgba(14, 14, 14, 0.72);
+  backdrop-filter: saturate(160%) blur(18px);
+  -webkit-backdrop-filter: saturate(160%) blur(18px);
   border-color: var(--line);
   border-radius: 999px;
   box-shadow:
