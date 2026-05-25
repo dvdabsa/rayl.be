@@ -236,12 +236,14 @@ body { padding-top: 72px; }
 
 .nav__divider {
   width: 1px;
-  height: 16px;
-  background: var(--line);
+  height: 14px;
+  background: rgba(255, 255, 255, 0.10);
   display: inline-block;
 }
 
-.nav__link--external { color: var(--muted); }
+/* External / sibling-site link sits next to primary nav links —
+   keep the same color so the row reads as one coordinated set. */
+.nav__link--external { color: var(--ink-2); }
 
 .is-disabled {
   color: var(--muted-2) !important;
