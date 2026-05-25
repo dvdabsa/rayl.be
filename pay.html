@@ -106,14 +106,15 @@
             </div>
             <div class="terminal__row terminal__row--status">
               <span class="terminal__row-label">Status</span>
-              <span class="status-tag status-tag--ok">
+              <span class="status-tag" data-cycle-status>
                 <span class="status-pill__dot"></span>
-                Authorized
+                <span data-cycle-text>Authorized</span>
               </span>
             </div>
 
             <div class="terminal__hint">
-              <span class="mono">200 OK</span> · 184&nbsp;ms · charge_3Nq…
+              <span class="mono" data-cycle-code>200 OK</span>
+              <span> · <span data-cycle-ms>184</span>&nbsp;ms · charge_3Nq…</span>
             </div>
           </div>
         </div>
@@ -240,7 +241,7 @@
           <span class="dash__row-val">€482,310<span class="cents">.40</span></span>
         </div>
 
-        <div class="dash__chart">
+        <div class="dash__chart" data-chart-anim>
           <svg viewBox="0 0 600 200" preserveAspectRatio="none" width="100%" height="100%">
             <defs>
               <linearGradient id="rgrad" x1="0" y1="0" x2="0" y2="1">
@@ -255,24 +256,24 @@
             </defs>
 
             <!-- Filled area beneath the main line -->
-            <path
+            <path class="dash__area"
               d="M0,165 C40,160 70,150 110,140 C160,128 200,118 250,98 C310,78 360,72 420,58 C460,48 510,40 560,32 L600,28 L600,200 L0,200 Z"
               fill="url(#rgrad)" />
 
             <!-- Secondary muted baseline -->
-            <path
+            <path class="dash__base"
               d="M0,178 C50,180 100,176 160,178 C220,180 280,177 340,178 C400,179 460,177 520,178 L600,178"
               fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="2" stroke-linecap="round"/>
 
             <!-- Main accent line, glowing -->
-            <path
+            <path class="dash__line"
               d="M0,165 C40,160 70,150 110,140 C160,128 200,118 250,98 C310,78 360,72 420,58 C460,48 510,40 560,32 L600,28"
               fill="none" stroke="#3FB8FF" stroke-width="3" stroke-linecap="round"
               filter="url(#rglow)" />
 
             <!-- Endpoint dot -->
-            <circle cx="600" cy="28" r="5" fill="#3FB8FF"/>
-            <circle cx="600" cy="28" r="9" fill="#3FB8FF" opacity="0.25"/>
+            <circle class="dash__dot dash__dot--halo" cx="600" cy="28" r="9" fill="#3FB8FF" opacity="0.25"/>
+            <circle class="dash__dot" cx="600" cy="28" r="5" fill="#3FB8FF"/>
           </svg>
         </div>
 
@@ -721,8 +722,8 @@
         </div>
         <div>
           <p class="footer__h">Legal</p>
-          <a href="#" onclick="event.preventDefault();">Privacy</a>
-          <a href="#" onclick="event.preventDefault();">Terms</a>
+          <a href="/privacy">Privacy</a>
+          <a href="/terms">Terms</a>
         </div>
       </div>
       <p class="footer__copy">

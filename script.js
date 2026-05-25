@@ -14,6 +14,52 @@ if (menuBtn && navLinks) {
   );
 }
 
+// Dashboard chart draw-in — toggles .is-visible when in view so
+// the SVG strokes draw themselves from left to right.
+(() => {
+  const chart = document.querySelector("[data-chart-anim]");
+  if (!chart) return;
+  const obs = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) {
+          chart.classList.add("is-visible");
+          obs.unobserve(chart);
+        }
+      });
+    },
+    { threshold: 0.25 }
+  );
+  obs.observe(chart);
+})();
+
+// Terminal status cycle — runs Authorizing → Authorized on a loop
+(() => {
+  const status = document.querySelector("[data-cycle-status]");
+  if (!status) return;
+  const label = status.querySelector("[data-cycle-text]");
+  const code = document.querySelector("[data-cycle-code]");
+  const ms = document.querySelector("[data-cycle-ms]");
+  if (!label) return;
+
+  const states = [
+    { cls: "status-tag--pending", text: "Authorizing…", code: "202 Accepted", ms: "42" },
+    { cls: "status-tag--ok",       text: "Authorized",   code: "200 OK",       ms: "184" },
+  ];
+  let i = 0;
+  const tick = () => {
+    const s = states[i];
+    status.classList.remove("status-tag--ok", "status-tag--pending", "status-tag--block");
+    status.classList.add(s.cls);
+    label.textContent = s.text;
+    if (code) code.textContent = s.code;
+    if (ms) ms.textContent = s.ms;
+    i = (i + 1) % states.length;
+  };
+  tick();
+  setInterval(tick, 2800);
+})();
+
 // Manifesto scroll-pin — light each word as the page scrolls
 // through the pinned section.
 (() => {
@@ -39,7 +85,10 @@ if (menuBtn && navLinks) {
 
     // Use 0–0.92 of the section so the last word fully lights
     // slightly before the section ends — feels less abrupt.
-    const eased = Math.min(1, progress / 0.92);
+    const raw = Math.min(1, progress / 0.92);
+    // Smoothstep ease so words feather in rather than landing
+    // with linear scroll velocity.
+    const eased = raw * raw * (3 - 2 * raw);
 
     const n = words.length;
     words.forEach((w, i) => {
