@@ -168,9 +168,11 @@ em.accent, .accent-text {
   .nav.is-floating .nav__inner { border-radius: 24px; padding: 10px 14px; }
 }
 
-/* Spacer to prevent content from jumping under the fixed nav */
-body { padding-top: 72px; }
-@media (max-width: 720px) { body { padding-top: 64px; } }
+/* No body padding — the hero (and every other top-of-page section)
+   uses its own top padding to clear the fixed nav. This way the
+   hero's radial gradients and ambient glows bleed all the way up
+   behind the transparent navbar instead of sitting below a plain
+   72px black band. */
 
 /* ============================================================
    Rayl Pay wordmark — single unified treatment
