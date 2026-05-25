@@ -169,13 +169,36 @@ em.accent, .accent-text {
 body { padding-top: 72px; }
 @media (max-width: 720px) { body { padding-top: 64px; } }
 
+/* ============================================================
+   Rayl Pay wordmark — single unified treatment
+   "Rayl" = Aeonik Bold Italic, "Pay" = Aeonik Light
+   Same size, same color, same spacing — everywhere it appears.
+   ============================================================ */
 .nav__logo {
-  font-family: var(--font-display);
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+  color: var(--ink);
+  font-size: 22px;
+  line-height: 1;
+  letter-spacing: -0.025em;
+}
+.nav__logo .logo__mark,
+.logo__mark {
+  font-family: var(--font-wordmark);
   font-weight: 700;
   font-style: italic;
-  font-size: 24px;
-  letter-spacing: -0.02em;
-  color: var(--ink);
+  color: inherit;
+  font-size: 1em;
+}
+.nav__logo .logo__sub,
+.logo__sub {
+  font-family: var(--font-display);  /* Aeonik Light */
+  font-weight: 300;
+  font-style: normal;
+  color: inherit;
+  font-size: 1em;
+  letter-spacing: -0.025em;
 }
 
 .nav__links {
@@ -364,12 +387,11 @@ body { padding-top: 72px; }
 .btn--primary {
   background: var(--accent);
   color: #fff;
-  box-shadow: 0 8px 28px -10px rgba(253, 94, 83, 0.55), inset 0 1px 0 rgba(255,255,255,0.18);
+  box-shadow: 0 6px 20px -8px rgba(253, 94, 83, 0.35), inset 0 1px 0 rgba(255,255,255,0.14);
 }
 .btn--primary:hover {
   background: var(--accent-strong);
-  transform: translateY(-1px);
-  box-shadow: 0 12px 36px -10px rgba(253, 94, 83, 0.7), inset 0 1px 0 rgba(255,255,255,0.22);
+  box-shadow: 0 8px 24px -8px rgba(253, 94, 83, 0.45), inset 0 1px 0 rgba(255,255,255,0.18);
 }
 
 .btn--ghost {
@@ -929,14 +951,22 @@ body { padding-top: 72px; }
   display: inline-flex;
   align-items: baseline;
   gap: 8px;
+  font-size: 44px;
+  line-height: 1;
+  color: var(--ink);
+  letter-spacing: -0.03em;
+}
+.footer__logo span:first-child {
+  font-family: var(--font-wordmark);
+  font-weight: 700;
+  font-style: italic;
 }
 .footer__logo-sub {
-  font-family: var(--font-body);
-  font-style: normal;
+  font-family: var(--font-display);
   font-weight: 300;
-  font-size: 32px;
-  letter-spacing: -0.015em;
-  color: var(--muted);
+  font-style: normal;
+  color: inherit;
+  letter-spacing: -0.03em;
 }
 /* ============================================================
    RAYL PAY — surfaces grid
@@ -1620,7 +1650,7 @@ body { padding-top: 72px; }
 }
 @keyframes pulse {
   0%, 100% { opacity: 1; }
-  50%      { opacity: 0.4; }
+  50%      { opacity: 0.55; }
 }
 
 /* ============================================================
@@ -2109,45 +2139,60 @@ body::before {
 .btn:hover svg { transform: translateX(2px); }
 
 /* ============================================================
-   LOGOS strip — uniform monochrome wordmarks
+   LOGOS strip — official brand logos in uniform tiles
    ============================================================ */
-.logos { padding: 56px 0; }
+.logos {
+  padding: 72px 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.logos__label {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-align: center;
+  margin-bottom: 32px;
+}
 .logos__row {
-  gap: 0;
-  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
   max-width: 920px;
   margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 .brand {
-  flex: 1;
-  min-width: 0;
-  padding: 0 clamp(12px, 2vw, 28px);
-  position: relative;
+  flex: 0 0 auto;
+  width: 96px;
+  height: 56px;
+  background: #ffffff;
+  border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--ink-2);
-  height: 36px;
-  transition: color .25s ease, opacity .25s ease, transform .25s ease;
-  opacity: 0.85;
+  padding: 10px 14px;
+  box-shadow:
+    0 1px 0 rgba(255,255,255,0.04),
+    0 10px 28px -16px rgba(0,0,0,0.6),
+    inset 0 0 0 1px rgba(255,255,255,0.05);
+  transition: transform .25s ease, box-shadow .25s ease;
 }
-.brand:hover { color: var(--ink); opacity: 1; transform: translateY(-1px); }
-.brand + .brand::before {
-  content: "";
-  position: absolute;
-  left: 0; top: 50%;
-  transform: translateY(-50%);
-  width: 1px;
-  height: 22px;
-  background: var(--line);
+.brand:hover {
+  box-shadow:
+    0 1px 0 rgba(255,255,255,0.08),
+    0 14px 32px -14px rgba(0,0,0,0.65);
 }
-.brand__svg {
-  height: 22px;
+.brand__img {
+  max-height: 28px;
+  max-width: 100%;
   width: auto;
+  height: auto;
   display: block;
+  object-fit: contain;
 }
 
 /* ============================================================
@@ -2213,7 +2258,6 @@ body::before {
 .flow__step:hover {
   border-color: rgba(255,255,255,0.18);
   background: rgba(255,255,255,0.028);
-  transform: translateY(-2px);
 }
 .flow__num {
   font-size: 11px;
@@ -2330,14 +2374,14 @@ body::before {
   display: inline-block;
 }
 .footer-wordmark__text .logo__sub {
-  font-family: var(--font-body);
+  font-family: var(--font-display);
   font-style: normal;
   font-weight: 300;
-  font-size: 0.45em;
+  font-size: 1em;
   color: transparent;
   -webkit-text-stroke: 1px rgba(255, 255, 255, 0.10);
-  margin-left: 12px;
-  letter-spacing: -0.02em;
+  margin-left: 0.18em;
+  letter-spacing: -0.05em;
 }
 
 /* ============================================================
@@ -2402,8 +2446,8 @@ body::before {
   width: 7px; height: 7px;
   border-radius: 50%;
   background: var(--accent);
-  box-shadow: 0 0 0 4px rgba(253, 94, 83, 0.12);
-  animation: pulse 2s ease-in-out infinite;
+  box-shadow: 0 0 0 3px rgba(253, 94, 83, 0.10);
+  animation: pulse 3.2s ease-in-out infinite;
 }
 
 /* Status tag — for table cells, terminal rows, etc. */
@@ -2662,19 +2706,15 @@ body::before {
   background: rgba(255,255,255,0.012);
 }
 .dashboard__brand {
-  font-family: var(--font-wordmark);
+  display: inline-flex;
+  align-items: baseline;
+  gap: 5px;
   font-size: 18px;
+  line-height: 1;
   color: var(--ink);
   padding: 8px 10px;
   margin-bottom: 18px;
-}
-.dashboard__brand .logo__sub {
-  font-family: var(--font-body);
-  font-style: normal;
-  font-weight: 300;
-  color: var(--muted);
-  margin-left: 4px;
-  font-size: 14px;
+  letter-spacing: -0.025em;
 }
 .dashboard__nav { display: flex; flex-direction: column; gap: 2px; }
 .dashboard__nav a {
