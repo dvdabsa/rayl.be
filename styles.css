@@ -2075,6 +2075,65 @@ body { padding-top: 72px; }
 .methods-grid--wide { grid-template-columns: repeat(5, 1fr); }
 
 /* ============================================================
+   v5 — Manifesto scroll-pin (word-by-word reveal)
+   ============================================================ */
+.manifest-scroll {
+  position: relative;
+  /* Total scrollable runway: ~2.2 viewports. Tweak to taste —
+     more height = slower per-word reveal. */
+  height: 220vh;
+  background: var(--bg);
+}
+.manifest-scroll__sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 var(--pad);
+  overflow: hidden;
+}
+.manifest-scroll__sticky::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(50% 60% at 50% 50%, rgba(63, 184, 255, 0.05), transparent 70%);
+}
+.manifest-scroll__text {
+  position: relative;
+  max-width: 22ch;
+  margin: 0 auto;
+  text-align: center;
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: clamp(32px, 5.4vw, 76px);
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+  color: var(--ink);
+  word-spacing: 0.04em;
+}
+.manifest-scroll__text span {
+  display: inline-block;
+  color: var(--ink);
+  opacity: 0.14;
+  transition: opacity .2s linear, color .25s ease;
+  will-change: opacity;
+}
+.manifest-scroll__text span.accent-em {
+  font-family: var(--font-serif);
+  font-style: italic;
+  color: var(--accent);
+}
+.manifest-scroll__text br { line-height: 0.4; }
+@media (max-width: 720px) {
+  .manifest-scroll { height: 260vh; }
+  .manifest-scroll__text { max-width: 16ch; }
+}
+
+/* ============================================================
    v4 — World map (Rayl coverage)
    ============================================================ */
 .worldmap {

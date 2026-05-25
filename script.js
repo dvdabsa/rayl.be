@@ -14,6 +14,64 @@ if (menuBtn && navLinks) {
   );
 }
 
+// Manifesto scroll-pin — light each word as the page scrolls
+// through the pinned section.
+(() => {
+  const section = document.querySelector(".manifest-scroll");
+  if (!section) return;
+  const textEl = section.querySelector("[data-manifest]");
+  if (!textEl) return;
+  const words = Array.from(textEl.querySelectorAll("span"));
+  if (!words.length) return;
+
+  const REST = 0.14; // resting opacity for un-revealed words
+  let ticking = false;
+
+  const update = () => {
+    const rect = section.getBoundingClientRect();
+    const sectionHeight = section.offsetHeight;
+    const viewHeight = window.innerHeight;
+    const scrollable = sectionHeight - viewHeight;
+
+    // How far the user has scrolled INTO the section (clamped 0..1)
+    let progress = (-rect.top) / scrollable;
+    progress = Math.max(0, Math.min(1, progress));
+
+    // Use 0–0.92 of the section so the last word fully lights
+    // slightly before the section ends — feels less abrupt.
+    const eased = Math.min(1, progress / 0.92);
+
+    const n = words.length;
+    words.forEach((w, i) => {
+      const wordStart = i / n;
+      const wordEnd = (i + 1) / n;
+      let op;
+      if (eased >= wordEnd) op = 1;
+      else if (eased <= wordStart) op = REST;
+      else {
+        const t = (eased - wordStart) / (wordEnd - wordStart);
+        op = REST + t * (1 - REST);
+      }
+      w.style.opacity = op.toFixed(3);
+    });
+
+    ticking = false;
+  };
+
+  window.addEventListener(
+    "scroll",
+    () => {
+      if (!ticking) {
+        window.requestAnimationFrame(update);
+        ticking = true;
+      }
+    },
+    { passive: true }
+  );
+  window.addEventListener("resize", update);
+  update();
+})();
+
 // Floating nav on scroll
 const nav = document.querySelector(".nav");
 if (nav) {
