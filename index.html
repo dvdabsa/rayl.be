@@ -45,11 +45,15 @@
   <!-- HERO -->
   <section class="hero">
     <div class="container">
-      <p class="eyebrow">Rayl — Est. 2024</p>
+      <span class="status-pill">
+        <span class="status-pill__dot"></span>
+        Rayl — Building since 2024
+      </span>
+
       <h1 class="hero__title">
         Building the<br />
         infrastructure of<br />
-        a <em>new</em> generation.
+        a <em class="accent">new</em> generation.
       </h1>
       <p class="hero__sub">
         Rayl is the parent company behind a portfolio of products in technology,
@@ -58,8 +62,14 @@
       </p>
 
       <div class="hero__cta">
-        <a href="#ventures" class="btn btn--primary">Explore the ecosystem</a>
-        <a href="#approach" class="btn btn--ghost">Our approach →</a>
+        <a href="#ventures" class="btn btn--primary">
+          Explore the ecosystem
+          <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+        </a>
+        <a href="#approach" class="btn btn--ghost">
+          Our approach
+          <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+        </a>
       </div>
 
       <div class="hero__meta">
@@ -77,7 +87,7 @@
     <div class="container grid grid--split">
       <div class="grid__left">
         <p class="section__tag">01 — Platform</p>
-        <h2 class="section__title"><em>One</em> company.<br />Many disciplines.</h2>
+        <h2 class="section__title"><em class="accent">One</em> company.<br />Many disciplines.</h2>
       </div>
       <div class="grid__right">
         <p class="lead">
@@ -108,7 +118,7 @@
         <article class="venture">
           <div class="venture__num">/ 01</div>
           <div class="venture__body">
-            <h3 class="venture__name"><em>Rayl</em> Technologies</h3>
+            <h3 class="venture__name"><em class="accent">Rayl</em> Technologies</h3>
             <p class="venture__desc">
               Software, systems, and engineering services. The technical
               backbone of the Rayl ecosystem — and a partner for organizations
@@ -132,7 +142,7 @@
         <article class="venture">
           <div class="venture__num">/ 02</div>
           <div class="venture__body">
-            <h3 class="venture__name"><em>Rayl</em> Pay</h3>
+            <h3 class="venture__name"><em class="accent">Rayl</em> Pay</h3>
             <p class="venture__desc">
               A modern payment system designed for the way money actually
               moves today — fast, transparent, and built for both individuals
@@ -154,7 +164,7 @@
         <article class="venture">
           <div class="venture__num">/ 03</div>
           <div class="venture__body">
-            <h3 class="venture__name"><em>Rayl</em> Youth</h3>
+            <h3 class="venture__name"><em class="accent">Rayl</em> Youth</h3>
             <p class="venture__desc">
               Programs, partnerships, and platforms supporting the next
               generation of builders, thinkers, and operators.
@@ -171,7 +181,7 @@
         <article class="venture">
           <div class="venture__num">/ 04</div>
           <div class="venture__body">
-            <h3 class="venture__name"><em>Rayl</em> Labs</h3>
+            <h3 class="venture__name"><em class="accent">Rayl</em> Labs</h3>
             <p class="venture__desc">
               Where new ideas get built and stress-tested. An internal studio
               for prototyping the products that haven't been named yet.
@@ -194,7 +204,7 @@
     <div class="container grid grid--split">
       <div class="grid__left">
         <p class="section__tag">03 — Approach</p>
-        <h2 class="section__title">How we<br /><em>operate.</em></h2>
+        <h2 class="section__title">How we<br /><em class="accent">operate.</em></h2>
       </div>
       <div class="grid__right">
         <div class="principles">
@@ -223,7 +233,7 @@
   <section class="manifesto">
     <div class="container">
       <p class="manifesto__text">
-        <em>Rayl</em> exists to build the technology, the systems, and the
+        <em class="accent">Rayl</em> exists to build the technology, the systems, and the
         opportunities that the next generation will inherit — and use.
       </p>
     </div>
@@ -234,7 +244,7 @@
     <div class="container grid grid--split">
       <div class="grid__left">
         <p class="section__tag">04 — Contact</p>
-        <h2 class="section__title">Get in <em>touch.</em></h2>
+        <h2 class="section__title">Get in <em class="accent">touch.</em></h2>
       </div>
       <div class="grid__right contact">
         <div class="contact__row">
@@ -252,9 +262,18 @@
         <div class="contact__row">
           <span class="contact__label">Ventures</span>
           <span class="contact__value contact__value--muted">
-            rayl.tech &nbsp;·&nbsp; raylpay.io &nbsp;<small>(coming soon)</small>
+            <a href="/pay">Rayl Pay</a> &nbsp;·&nbsp; <small>rayl.tech (coming soon)</small>
           </span>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER WORDMARK BANNER -->
+  <section class="footer-wordmark" aria-hidden="true">
+    <div class="container">
+      <div class="footer-wordmark__text">
+        <span class="logo__mark">Rayl</span>
       </div>
     </div>
   </section>
@@ -262,12 +281,12 @@
   <!-- FOOTER -->
   <footer class="footer">
     <div class="container footer__inner">
-      <a href="#" class="footer__logo">Rayl</a>
+      <a href="#" class="footer__logo"><span>Rayl</span></a>
       <div class="footer__cols">
         <div>
           <p class="footer__h">Ventures</p>
+          <a href="/pay">Rayl Pay</a>
           <a class="is-disabled" aria-disabled="true" onclick="event.preventDefault();" href="https://rayl.tech">rayl.tech</a>
-          <a class="is-disabled" aria-disabled="true" onclick="event.preventDefault();" href="https://raylpay.io">raylpay.io</a>
           <a class="is-muted" aria-disabled="true" onclick="event.preventDefault();" href="#">Rayl Youth</a>
           <a class="is-muted" aria-disabled="true" onclick="event.preventDefault();" href="#">Rayl Labs</a>
         </div>
