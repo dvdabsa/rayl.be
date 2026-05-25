@@ -20,9 +20,9 @@
 
       <nav class="nav__links" aria-label="Primary">
         <a href="#methods" class="nav__link">Methods</a>
-        <a href="#surfaces" class="nav__link">Surfaces</a>
         <a href="#developers" class="nav__link">Developers</a>
         <a href="#security" class="nav__link">Security</a>
+        <a href="#how" class="nav__link">How it works</a>
         <a href="#faq" class="nav__link">FAQ</a>
 
         <span class="nav__divider" aria-hidden="true"></span>
@@ -143,25 +143,29 @@
     </div>
   </section>
 
-  <!-- STATS -->
-  <section class="stats" aria-label="Platform capabilities">
+  <!-- GLOBAL COMMERCE -->
+  <section class="gcommerce" aria-label="Global commerce">
     <div class="container">
-      <div class="stats__grid">
-        <div class="stat">
-          <div class="stat__num">One</div>
-          <div class="stat__label">Integration to ship every payment method we support.</div>
+      <div class="gcommerce__head">
+        <p class="section__tag">Global commerce</p>
+        <h2>One platform. Every <em class="accent">payment rail.</em></h2>
+      </div>
+      <div class="gcommerce__grid">
+        <div class="gcommerce__cell">
+          <div class="gcommerce__num">160+</div>
+          <div class="gcommerce__label">Countries supported across cards, wallets, and local methods.</div>
         </div>
-        <div class="stat">
-          <div class="stat__num">24/7</div>
-          <div class="stat__label">Monitored infrastructure with a real human on call.</div>
+        <div class="gcommerce__cell">
+          <div class="gcommerce__num">30+</div>
+          <div class="gcommerce__label">Local currencies with smart routing to maximize acceptance.</div>
         </div>
-        <div class="stat">
-          <div class="stat__num">∞</div>
-          <div class="stat__label">Webhook retries with exponential back-off and replay safety.</div>
+        <div class="gcommerce__cell">
+          <div class="gcommerce__num">17+</div>
+          <div class="gcommerce__label">Languages in the hosted checkout, auto-detected per customer.</div>
         </div>
-        <div class="stat">
-          <div class="stat__num">0</div>
-          <div class="stat__label">Card numbers ever stored on your servers.</div>
+        <div class="gcommerce__cell">
+          <div class="gcommerce__num">20+</div>
+          <div class="gcommerce__label">Payment methods through a single API and one reconciliation.</div>
         </div>
       </div>
     </div>
@@ -198,14 +202,14 @@
         <h2 class="section__title">Everything your<br />customers <em class="accent">carry.</em></h2>
       </div>
 
-      <div class="methods-grid">
+      <div class="methods-grid methods-grid--wide">
 
         <article class="method-card">
           <div class="method-card__logo method-card__logo--visa">
             <svg viewBox="0 0 100 32" aria-hidden="true"><text x="0" y="24" font-family="Helvetica" font-weight="900" font-style="italic" font-size="28" fill="currentColor" letter-spacing="1">VISA</text></svg>
           </div>
           <h3 class="method-card__title">Visa</h3>
-          <p class="method-card__desc">Credit, debit, and prepaid Visa cards from every issuing region.</p>
+          <p class="method-card__desc">Credit, debit, and prepaid cards globally.</p>
         </article>
 
         <article class="method-card">
@@ -217,7 +221,31 @@
             </svg>
           </div>
           <h3 class="method-card__title">Mastercard</h3>
-          <p class="method-card__desc">Mastercard credit, debit, and Maestro — across every supported geography.</p>
+          <p class="method-card__desc">Credit, debit, and Maestro worldwide.</p>
+        </article>
+
+        <article class="method-card">
+          <div class="method-card__logo">
+            <svg viewBox="0 0 80 36" aria-hidden="true"><text x="0" y="26" font-family="Helvetica" font-weight="900" font-size="22" fill="currentColor" letter-spacing="1">AMEX</text></svg>
+          </div>
+          <h3 class="method-card__title">American Express</h3>
+          <p class="method-card__desc">Premium card support with reward optimization.</p>
+        </article>
+
+        <article class="method-card">
+          <div class="method-card__logo">
+            <svg viewBox="0 0 100 36" aria-hidden="true"><text x="0" y="26" font-family="Helvetica" font-weight="700" font-size="18" fill="currentColor">DISCOVER</text></svg>
+          </div>
+          <h3 class="method-card__title">Discover</h3>
+          <p class="method-card__desc">Network coverage across the US and partner regions.</p>
+        </article>
+
+        <article class="method-card">
+          <div class="method-card__logo">
+            <svg viewBox="0 0 60 36" aria-hidden="true"><text x="0" y="26" font-family="Helvetica" font-weight="700" font-size="18" fill="currentColor">Maestro</text></svg>
+          </div>
+          <h3 class="method-card__title">Maestro</h3>
+          <p class="method-card__desc">Debit card acceptance across European markets.</p>
         </article>
 
         <article class="method-card">
@@ -227,7 +255,7 @@
             </svg>
           </div>
           <h3 class="method-card__title">Apple Pay</h3>
-          <p class="method-card__desc">One-tap checkout on iPhone, iPad, Mac, and Apple Watch with Face ID or Touch ID.</p>
+          <p class="method-card__desc">One-tap checkout with Face ID and Touch ID.</p>
         </article>
 
         <article class="method-card">
@@ -240,7 +268,31 @@
             </svg>
           </div>
           <h3 class="method-card__title">Google Pay</h3>
-          <p class="method-card__desc">Frictionless wallet checkout on Android, Chrome, and across the web.</p>
+          <p class="method-card__desc">Frictionless wallet checkout on Android and Chrome.</p>
+        </article>
+
+        <article class="method-card">
+          <div class="method-card__logo">
+            <svg viewBox="0 0 80 36" aria-hidden="true"><text x="0" y="26" font-family="Helvetica" font-weight="900" font-size="22" fill="currentColor">JCB</text></svg>
+          </div>
+          <h3 class="method-card__title">JCB</h3>
+          <p class="method-card__desc">Japan's leading card brand with global acceptance.</p>
+        </article>
+
+        <article class="method-card">
+          <div class="method-card__logo">
+            <svg viewBox="0 0 100 36" aria-hidden="true"><text x="0" y="26" font-family="Helvetica" font-weight="700" font-size="16" fill="currentColor">UnionPay</text></svg>
+          </div>
+          <h3 class="method-card__title">UnionPay</h3>
+          <p class="method-card__desc">The largest card network in the world, by volume.</p>
+        </article>
+
+        <article class="method-card">
+          <div class="method-card__logo">
+            <svg viewBox="0 0 80 36" aria-hidden="true"><text x="0" y="26" font-family="Helvetica" font-weight="700" font-size="16" fill="currentColor">Diners</text></svg>
+          </div>
+          <h3 class="method-card__title">Diners Club</h3>
+          <p class="method-card__desc">Premium acceptance for international travelers.</p>
         </article>
 
       </div>
@@ -501,11 +553,318 @@
     </div>
   </section>
 
+  <!-- SETTLEMENT -->
+  <section class="section">
+    <div class="container">
+      <div class="section__head">
+        <p class="section__tag">08 — Settlement</p>
+        <h2 class="section__title">Move money your <em class="accent">way.</em></h2>
+      </div>
+
+      <div class="settle-grid">
+        <article class="settle-card">
+          <div class="settle-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="3" y="6" width="18" height="13" rx="2"/>
+              <line x1="3" y1="10" x2="21" y2="10"/>
+              <line x1="7" y1="15" x2="11" y2="15"/>
+            </svg>
+          </div>
+          <h3 class="settle-card__title">Bank transfer</h3>
+          <p class="settle-card__desc">Settle directly to your business bank account with full statement reconciliation.</p>
+          <span class="settle-card__time">T+2 by default</span>
+        </article>
+
+        <article class="settle-card">
+          <div class="settle-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="12" cy="12" r="9"/>
+              <path d="M12 7v10M9 10h6M9 14h6"/>
+            </svg>
+          </div>
+          <h3 class="settle-card__title">USDC on Solana</h3>
+          <p class="settle-card__desc">Receive payouts in regulated stablecoin on the fastest settlement layer available.</p>
+          <span class="settle-card__time">Same-day available</span>
+        </article>
+
+        <article class="settle-card">
+          <div class="settle-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M12 2v20M5 6h11a3 3 0 010 6H8a3 3 0 000 6h11"/>
+            </svg>
+          </div>
+          <h3 class="settle-card__title">USDT</h3>
+          <p class="settle-card__desc">Settle in tether across the major chains, with treasury-grade reporting.</p>
+          <span class="settle-card__time">Same-day available</span>
+        </article>
+
+        <article class="settle-card">
+          <div class="settle-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/>
+            </svg>
+          </div>
+          <h3 class="settle-card__title">Instant payouts</h3>
+          <p class="settle-card__desc">For approved merchants — push earnings to a debit card within minutes, 24/7.</p>
+          <span class="settle-card__time">In minutes</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- REAL-TIME RISK -->
+  <section class="section section--dark-rule">
+    <div class="container">
+      <div class="section__head">
+        <p class="section__tag">09 — Real-time risk</p>
+        <h2 class="section__title">200+ signals.<br />Scored in <em class="accent">milliseconds.</em></h2>
+      </div>
+
+      <div class="risk">
+        <div class="risk__copy">
+          <h3>Every transaction, inspected before it's authorized.</h3>
+          <p>
+            Rayl Pay's risk engine analyzes device fingerprints, network
+            patterns, behavioral signals, and historical card data against
+            an evolving model — and either lets it through, sends it to
+            review, or blocks it cold.
+          </p>
+          <ul class="risk__signals">
+            <li>Device fingerprinting</li>
+            <li>Behavioral biometrics</li>
+            <li>Velocity checks</li>
+            <li>Geo &amp; IP intelligence</li>
+            <li>Issuer response modeling</li>
+            <li>BIN range patterns</li>
+            <li>Chargeback history</li>
+            <li>Card testing detection</li>
+          </ul>
+        </div>
+
+        <div class="risk__panel" aria-hidden="true">
+          <div class="risk__panel-head">
+            <h4>Live transactions</h4>
+            <span class="risk__live">Streaming</span>
+          </div>
+          <div class="risk__row">
+            <div class="risk__id">
+              <strong>txn_8f2a · Visa · 4242</strong>
+              <small>Sara Lambrecht · BE</small>
+            </div>
+            <div class="risk__amt">€129.00</div>
+            <div class="risk__status risk__status--ok">Allowed</div>
+          </div>
+          <div class="risk__row">
+            <div class="risk__id">
+              <strong>txn_3b9c · Mastercard · 5454</strong>
+              <small>Tobias Klein · DE</small>
+            </div>
+            <div class="risk__amt">€49.99</div>
+            <div class="risk__status risk__status--ok">Allowed</div>
+          </div>
+          <div class="risk__row">
+            <div class="risk__id">
+              <strong>txn_a01f · Apple Pay</strong>
+              <small>Marie Dubois · FR</small>
+            </div>
+            <div class="risk__amt">€312.40</div>
+            <div class="risk__status risk__status--ok">Allowed</div>
+          </div>
+          <div class="risk__row">
+            <div class="risk__id">
+              <strong>txn_e5d7 · Visa · 4111</strong>
+              <small>Unknown device · NG</small>
+            </div>
+            <div class="risk__amt">€89.00</div>
+            <div class="risk__status risk__status--review">Review</div>
+          </div>
+          <div class="risk__row">
+            <div class="risk__id">
+              <strong>txn_c3b1 · Mastercard · 5555</strong>
+              <small>Velocity 12/min · RU</small>
+            </div>
+            <div class="risk__amt">€1,200.00</div>
+            <div class="risk__status risk__status--block">Blocked</div>
+          </div>
+          <div class="risk__row">
+            <div class="risk__id">
+              <strong>txn_71fa · Google Pay</strong>
+              <small>Pieter De Smet · NL</small>
+            </div>
+            <div class="risk__amt">€24.50</div>
+            <div class="risk__status risk__status--ok">Allowed</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INDUSTRIES -->
+  <section class="section">
+    <div class="container">
+      <div class="section__head">
+        <p class="section__tag">10 — Built for</p>
+        <h2 class="section__title">Industries we <em class="accent">understand.</em></h2>
+      </div>
+
+      <div class="ind-grid">
+        <article class="ind-card">
+          <div class="ind-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="7" width="18" height="12" rx="3"/><path d="M8 12h2M9 11v2M14 11h.01M16 13h.01"/></svg></div>
+          <h3 class="ind-card__title">Gaming</h3>
+          <p class="ind-card__desc">Microtransactions, virtual goods, and high-frequency processing — without the friction that kills conversion.</p>
+        </article>
+        <article class="ind-card">
+          <div class="ind-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></div>
+          <h3 class="ind-card__title">Digital goods</h3>
+          <p class="ind-card__desc">Software licenses, downloads, and digital content delivery — instant, fraud-screened, and reconcilable.</p>
+        </article>
+        <article class="ind-card">
+          <div class="ind-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 12a9 9 0 1018 0 9 9 0 00-18 0z"/><path d="M3 12h18M12 3a14 14 0 010 18M12 3a14 14 0 000 18"/></svg></div>
+          <h3 class="ind-card__title">Subscriptions</h3>
+          <p class="ind-card__desc">Recurring billing, smart retries, dunning workflows, and customer-portal-ready APIs.</p>
+        </article>
+        <article class="ind-card">
+          <div class="ind-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="9" cy="9" r="4"/><circle cx="17" cy="15" r="4"/><line x1="9" y1="9" x2="17" y2="15"/></svg></div>
+          <h3 class="ind-card__title">Marketplaces</h3>
+          <p class="ind-card__desc">Split payments, escrow, multi-party payouts, and KYC for sellers — all on a single ledger.</p>
+        </article>
+        <article class="ind-card">
+          <div class="ind-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M9 9h6a2 2 0 010 4H9a2 2 0 000 4h6"/></svg></div>
+          <h3 class="ind-card__title">Crypto / FinTech</h3>
+          <p class="ind-card__desc">On-ramps, off-ramps, and stablecoin settlement built for regulated crypto operators.</p>
+        </article>
+        <article class="ind-card">
+          <div class="ind-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 7l1.5 11a2 2 0 002 1.7h11a2 2 0 002-1.7L21 7"/><path d="M9 7V5a3 3 0 016 0v2"/></svg></div>
+          <h3 class="ind-card__title">E-commerce</h3>
+          <p class="ind-card__desc">From single-store Shopify shops to multi-country enterprise commerce — same SDK, same dashboard.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CUSTOMER INTELLIGENCE -->
+  <section class="section">
+    <div class="container">
+      <div class="section__head">
+        <p class="section__tag">11 — Customer intelligence</p>
+        <h2 class="section__title">Know your <em class="accent">money.</em></h2>
+      </div>
+
+      <div class="intel">
+        <div class="intel__copy">
+          <h3>A dashboard that explains itself.</h3>
+          <p>
+            Acceptance rate by issuer. 3DS challenge funnels. Wallet-vs-card
+            mix. Refund cohorts. Failed-payment retry recovery. Everything
+            you'd otherwise build yourself — already there, already exportable.
+          </p>
+          <ul class="bullets">
+            <li>Real-time payment, refund, and dispute timelines.</li>
+            <li>Cohorted acceptance and decline analytics by region and issuer.</li>
+            <li>One-click CSV export and a typed REST query API.</li>
+          </ul>
+        </div>
+
+        <div class="intel__panel" aria-hidden="true">
+          <div class="intel__metric">
+            <span class="intel__metric-label">Authorization rate · 24h</span>
+            <span class="intel__metric-num">96.4%</span>
+            <span class="intel__metric-delta">↑ 0.8% vs. yesterday</span>
+          </div>
+          <div class="intel__chart">
+            <div class="intel__bar" style="height: 42%"></div>
+            <div class="intel__bar" style="height: 58%"></div>
+            <div class="intel__bar" style="height: 48%"></div>
+            <div class="intel__bar" style="height: 70%"></div>
+            <div class="intel__bar" style="height: 62%"></div>
+            <div class="intel__bar" style="height: 82%"></div>
+            <div class="intel__bar" style="height: 74%"></div>
+            <div class="intel__bar" style="height: 90%"></div>
+            <div class="intel__bar" style="height: 78%"></div>
+            <div class="intel__bar" style="height: 95%"></div>
+            <div class="intel__bar" style="height: 86%"></div>
+            <div class="intel__bar" style="height: 100%"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LANGUAGES -->
+  <section class="section">
+    <div class="container">
+      <div class="section__head">
+        <p class="section__tag">12 — Localized</p>
+        <h2 class="section__title">Speaks your customer's <em class="accent">language.</em></h2>
+      </div>
+
+      <div class="langs">
+        <span class="lang"><span class="lang__code">EN</span> English</span>
+        <span class="lang"><span class="lang__code">FR</span> Français</span>
+        <span class="lang"><span class="lang__code">DE</span> Deutsch</span>
+        <span class="lang"><span class="lang__code">NL</span> Nederlands</span>
+        <span class="lang"><span class="lang__code">ES</span> Español</span>
+        <span class="lang"><span class="lang__code">IT</span> Italiano</span>
+        <span class="lang"><span class="lang__code">PT</span> Português</span>
+        <span class="lang"><span class="lang__code">PL</span> Polski</span>
+        <span class="lang"><span class="lang__code">CS</span> Čeština</span>
+        <span class="lang"><span class="lang__code">SV</span> Svenska</span>
+        <span class="lang"><span class="lang__code">TR</span> Türkçe</span>
+        <span class="lang"><span class="lang__code">RO</span> Română</span>
+        <span class="lang"><span class="lang__code">UK</span> Українська</span>
+        <span class="lang"><span class="lang__code">AR</span> العربية</span>
+        <span class="lang"><span class="lang__code">HE</span> עברית</span>
+        <span class="lang"><span class="lang__code">JA</span> 日本語</span>
+        <span class="lang"><span class="lang__code">ZH</span> 中文</span>
+        <span class="lang"><span class="lang__code">KO</span> 한국어</span>
+        <span class="lang"><span class="lang__code">VI</span> Tiếng Việt</span>
+        <span class="lang"><span class="lang__code">SW</span> Kiswahili</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- SUPPORT -->
+  <section class="section">
+    <div class="container">
+      <div class="section__head">
+        <p class="section__tag">13 — Support</p>
+        <h2 class="section__title">Real engineers.<br /><em class="accent">Real answers.</em></h2>
+      </div>
+
+      <div class="support-grid">
+        <article class="support-card">
+          <div class="support-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 6h16v10H8l-4 4V6z"/></svg></div>
+          <h4>Live chat</h4>
+          <p>In-dashboard chat, monitored 24/7 by the people who actually built the API.</p>
+          <a href="mailto:support@raylpay.io">Start a chat →</a>
+        </article>
+        <article class="support-card">
+          <div class="support-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 7 9-7"/></svg></div>
+          <h4>Email</h4>
+          <p>Same-business-day response from a real engineer, not a ticket triage bot.</p>
+          <a href="mailto:support@raylpay.io">support@raylpay.io →</a>
+        </article>
+        <article class="support-card">
+          <div class="support-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg></div>
+          <h4>Telegram</h4>
+          <p>Private group with your team and ours. Fastest path to a fix when latency matters.</p>
+          <a href="#" onclick="event.preventDefault();">Join channel →</a>
+        </article>
+        <article class="support-card">
+          <div class="support-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 6c-1.7-.8-3.5-1.3-5.4-1.6l-.3.5a14 14 0 00-4.6 0l-.3-.5C7.5 4.7 5.7 5.2 4 6c-3 4.6-4 9-3.5 13.4 2 1.5 3.9 2.3 5.7 3l.7-1.1c-1-.4-2-.9-3-1.5l.6-.5c4 1.9 8.4 1.9 12.4 0l.6.5c-1 .6-2 1.1-3 1.5l.7 1.1c1.8-.6 3.7-1.5 5.7-3 .6-5.1-.7-9.5-3.6-13.4zM8.5 16.5c-1 0-2-1-2-2.2 0-1.2.9-2.2 2-2.2 1 0 2 1 2 2.2 0 1.2-1 2.2-2 2.2zm7 0c-1 0-2-1-2-2.2 0-1.2.9-2.2 2-2.2s2 1 2 2.2c0 1.2-1 2.2-2 2.2z"/></svg></div>
+          <h4>Discord</h4>
+          <p>Community server for developers building on Rayl Pay — code samples, edge cases, all in the open.</p>
+          <a href="#" onclick="event.preventDefault();">Join server →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
   <!-- HOW IT WORKS -->
   <section class="section" id="how">
     <div class="container">
       <div class="section__head">
-        <p class="section__tag">08 — How it works</p>
+        <p class="section__tag">14 — How it works</p>
         <h2 class="section__title">From idea to<br /><em class="accent">first payment.</em></h2>
       </div>
 
@@ -535,7 +894,7 @@
   <section class="section" id="faq">
     <div class="container grid grid--split">
       <div class="grid__left">
-        <p class="section__tag">09 — FAQ</p>
+        <p class="section__tag">15 — FAQ</p>
         <h2 class="section__title">Things people <em class="accent">ask.</em></h2>
         <p class="grid__left-note">
           Still curious? Reach us anytime at
@@ -633,7 +992,7 @@
   <section class="section" id="contact">
     <div class="container grid grid--split">
       <div class="grid__left">
-        <p class="section__tag">10 — Get in touch</p>
+        <p class="section__tag">16 — Get in touch</p>
         <h2 class="section__title">Start <em class="accent">accepting.</em></h2>
       </div>
       <div class="grid__right contact">

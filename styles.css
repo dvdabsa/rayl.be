@@ -1536,6 +1536,449 @@ em.accent, .accent-text {
 }
 
 /* ============================================================
+   RAYL PAY — Global commerce stats (replaces simple stats)
+   ============================================================ */
+.gcommerce {
+  padding: clamp(72px, 10vh, 120px) 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  position: relative;
+  overflow: hidden;
+}
+.gcommerce::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(50% 100% at 50% 100%, rgba(253, 94, 83, 0.08), transparent 70%);
+  pointer-events: none;
+}
+.gcommerce__head { margin-bottom: 48px; text-align: center; }
+.gcommerce__head .section__tag { justify-content: center; }
+.gcommerce__head h2 {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: clamp(32px, 4.6vw, 56px);
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  margin: 0 auto;
+  max-width: 22ch;
+}
+.gcommerce__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  position: relative;
+}
+.gcommerce__cell {
+  padding: 0 28px;
+  border-left: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-align: left;
+}
+.gcommerce__cell:first-child { border-left: 0; padding-left: 0; }
+.gcommerce__num {
+  font-family: var(--font-display);
+  font-size: clamp(40px, 5.6vw, 80px);
+  line-height: 1;
+  letter-spacing: -0.035em;
+  color: var(--accent);
+}
+.gcommerce__label {
+  font-size: 13px;
+  color: var(--ink-2);
+  line-height: 1.45;
+}
+
+/* ============================================================
+   RAYL PAY — Settlement
+   ============================================================ */
+.settle-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+}
+.settle-card {
+  padding: 32px;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: background .3s ease;
+  position: relative;
+}
+.settle-card:hover { background: rgba(255,255,255,0.02); }
+.settle-card__icon {
+  width: 44px; height: 44px;
+  display: inline-flex; align-items: center; justify-content: center;
+  border: 1px solid var(--accent-line);
+  background: var(--accent-soft);
+  color: var(--accent);
+  border-radius: 12px;
+  margin-bottom: 8px;
+}
+.settle-card__icon svg { width: 22px; height: 22px; }
+.settle-card__title {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 20px;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+}
+.settle-card__desc { font-size: 14.5px; color: var(--muted); line-height: 1.55; }
+.settle-card__time {
+  margin-top: 8px;
+  font-size: 11px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+/* ============================================================
+   RAYL PAY — Real-time risk (transaction list mockup)
+   ============================================================ */
+.risk {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 60px;
+  align-items: start;
+}
+.risk__copy h3 {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: clamp(28px, 3.4vw, 42px);
+  letter-spacing: -0.025em;
+  line-height: 1.08;
+  color: var(--ink);
+  margin-bottom: 18px;
+}
+.risk__copy p {
+  color: var(--ink-2);
+  font-size: 16px;
+  max-width: 44ch;
+  margin-bottom: 28px;
+}
+.risk__signals {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px 28px;
+  list-style: none;
+}
+.risk__signals li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: var(--ink-2);
+}
+.risk__signals li::before {
+  content: "";
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 4px var(--accent-soft);
+}
+.risk__panel {
+  background: linear-gradient(180deg, #131313, #0d0d0d);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 50px 100px -40px rgba(0,0,0,0.7);
+}
+.risk__panel-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--line);
+  background: rgba(255,255,255,0.015);
+}
+.risk__panel-head h4 {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 15px;
+  color: var(--ink);
+  letter-spacing: -0.005em;
+}
+.risk__live {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.risk__live::before {
+  content: "";
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 4px var(--accent-soft);
+  animation: pulse 2s ease-in-out infinite;
+}
+.risk__row {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 16px;
+  align-items: center;
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--line-2);
+  font-size: 13.5px;
+}
+.risk__row:last-child { border-bottom: 0; }
+.risk__id {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.risk__id strong {
+  font-family: ui-monospace, "SF Mono", Menlo, monospace;
+  font-size: 12.5px;
+  color: var(--ink);
+  font-weight: normal;
+}
+.risk__id small {
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: .04em;
+}
+.risk__amt {
+  font-family: var(--font-display);
+  color: var(--ink);
+  font-size: 15px;
+}
+.risk__status {
+  font-size: 10px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  padding: 5px 10px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+.risk__status--ok {
+  background: rgba(74, 222, 128, 0.10);
+  color: #4ade80;
+  border: 1px solid rgba(74, 222, 128, 0.30);
+}
+.risk__status--review {
+  background: rgba(250, 204, 21, 0.10);
+  color: #facc15;
+  border: 1px solid rgba(250, 204, 21, 0.30);
+}
+.risk__status--block {
+  background: rgba(253, 94, 83, 0.10);
+  color: var(--accent);
+  border: 1px solid var(--accent-line);
+}
+
+/* ============================================================
+   RAYL PAY — Industries
+   ============================================================ */
+.ind-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+}
+.ind-card {
+  padding: 36px;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  transition: background .3s ease, border-color .3s ease;
+  position: relative;
+}
+.ind-card:hover {
+  background: linear-gradient(180deg, rgba(253, 94, 83, 0.06), rgba(253, 94, 83, 0.02));
+}
+.ind-card__icon {
+  width: 40px; height: 40px;
+  display: inline-flex; align-items: center; justify-content: center;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  color: var(--ink-2);
+  margin-bottom: 6px;
+  transition: color .25s ease, border-color .25s ease;
+}
+.ind-card:hover .ind-card__icon { color: var(--accent); border-color: var(--accent-line); }
+.ind-card__icon svg { width: 20px; height: 20px; }
+.ind-card__title {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 19px;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+}
+.ind-card__desc { font-size: 14px; color: var(--muted); line-height: 1.55; }
+
+/* ============================================================
+   RAYL PAY — Customer intelligence (analytics mock)
+   ============================================================ */
+.intel {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+.intel__copy h3 {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: clamp(28px, 3.4vw, 42px);
+  letter-spacing: -0.025em;
+  line-height: 1.08;
+  color: var(--ink);
+  margin-bottom: 18px;
+}
+.intel__copy p {
+  color: var(--ink-2);
+  font-size: 16px;
+  max-width: 44ch;
+  margin-bottom: 24px;
+}
+.intel__panel {
+  background: linear-gradient(180deg, #131313, #0d0d0d);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 50px 100px -40px rgba(0,0,0,0.7);
+}
+.intel__metric {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 20px;
+}
+.intel__metric-label {
+  font-size: 11px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.intel__metric-num {
+  font-family: var(--font-display);
+  font-size: 42px;
+  line-height: 1;
+  color: var(--accent);
+}
+.intel__metric-delta {
+  font-size: 12px;
+  color: #4ade80;
+  letter-spacing: 0.02em;
+}
+.intel__chart {
+  height: 110px;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  gap: 6px;
+}
+.intel__bar {
+  flex: 1;
+  background: linear-gradient(180deg, var(--accent), rgba(253, 94, 83, 0.25));
+  border-radius: 4px 4px 0 0;
+  position: relative;
+  transition: opacity .25s ease;
+  opacity: 0.85;
+}
+.intel__bar:hover { opacity: 1; }
+
+/* ============================================================
+   RAYL PAY — Languages flag grid
+   ============================================================ */
+.langs {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0;
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+}
+.lang {
+  padding: 22px 20px;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+  color: var(--ink-2);
+  transition: color .2s ease, background .2s ease;
+}
+.lang:hover { color: var(--accent); background: rgba(253, 94, 83, 0.03); }
+.lang__code {
+  font-family: var(--font-display);
+  font-size: 11px;
+  letter-spacing: .12em;
+  color: var(--muted);
+  text-transform: uppercase;
+  padding: 4px 7px;
+  background: rgba(255,255,255,0.04);
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+/* ============================================================
+   RAYL PAY — Support channels
+   ============================================================ */
+.support-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+.support-card {
+  padding: 28px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: rgba(255,255,255,0.015);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: border-color .25s ease, background .25s ease;
+}
+.support-card:hover {
+  border-color: var(--accent-line);
+  background: var(--accent-soft);
+}
+.support-card__icon {
+  width: 40px; height: 40px;
+  display: inline-flex; align-items: center; justify-content: center;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  color: var(--accent);
+  margin-bottom: 4px;
+}
+.support-card__icon svg { width: 20px; height: 20px; }
+.support-card h4 {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 18px;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+}
+.support-card p { font-size: 13.5px; color: var(--muted); line-height: 1.5; }
+.support-card a {
+  color: var(--accent);
+  font-size: 13px;
+  letter-spacing: 0.01em;
+  margin-top: auto;
+}
+
+/* ============================================================
+   RAYL PAY — Methods grid override for 10 cards (5x2)
+   ============================================================ */
+.methods-grid--wide { grid-template-columns: repeat(5, 1fr); }
+
+/* ============================================================
    RESPONSIVE
    ============================================================ */
 @media (max-width: 900px) {
@@ -1564,6 +2007,14 @@ em.accent, .accent-text {
   .stat:nth-child(3) { border-left: 0; padding-left: 0; }
   .compare { grid-template-columns: 1fr; }
   .compare__col--new { border-left: 0; border-top: 1px solid var(--accent-line); }
+  .gcommerce__grid { grid-template-columns: 1fr 1fr; gap: 32px 0; }
+  .gcommerce__cell:nth-child(3) { border-left: 0; padding-left: 0; }
+  .settle-grid { grid-template-columns: 1fr 1fr; }
+  .methods-grid--wide { grid-template-columns: repeat(3, 1fr); }
+  .ind-grid { grid-template-columns: 1fr 1fr; }
+  .risk, .intel { grid-template-columns: 1fr; gap: 40px; }
+  .langs { grid-template-columns: repeat(3, 1fr); }
+  .support-grid { grid-template-columns: 1fr 1fr; }
 }
 
 @media (max-width: 720px) {
@@ -1594,4 +2045,13 @@ em.accent, .accent-text {
   .stat { border-left: 0; padding-left: 0; padding-right: 0; border-top: 1px solid var(--line); padding-top: 24px; }
   .stat:first-child { border-top: 0; padding-top: 0; }
   .hero--pay .hero__visual::after { font-size: 20px; padding: 10px 16px; }
+  .gcommerce__grid { grid-template-columns: 1fr; }
+  .gcommerce__cell { border-left: 0; padding: 24px 0; border-top: 1px solid var(--line); }
+  .gcommerce__cell:first-child { border-top: 0; padding-top: 0; }
+  .settle-grid { grid-template-columns: 1fr; }
+  .methods-grid--wide { grid-template-columns: 1fr 1fr; }
+  .ind-grid { grid-template-columns: 1fr; }
+  .langs { grid-template-columns: 1fr 1fr; }
+  .support-grid { grid-template-columns: 1fr; }
+  .risk__signals { grid-template-columns: 1fr; }
 }
