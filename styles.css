@@ -2292,20 +2292,18 @@ body::before {
 }
 .brand {
   flex: 0 0 auto;
-  height: 30px;
+  height: 36px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  transition: opacity .25s ease;
 }
-.brand:hover { opacity: 1; }
 .brand__img {
-  height: 30px;
-  width: auto;
+  height: 36px;
+  width: 36px;
   display: block;
-  /* Knock out the brand colors and re-paint a single muted off-white */
+  /* Repaint single-path monochrome SVGs in a unified muted off-white */
   filter: brightness(0) invert(1);
-  opacity: 0.68;
+  opacity: 0.72;
   transition: opacity .25s ease;
 }
 .brand:hover .brand__img { opacity: 1; }
@@ -3405,8 +3403,8 @@ body::before {
   .security-grid { grid-template-columns: 1fr; }
   .flow { grid-template-columns: 1fr; }
   .logos__row { gap: 28px; }
-  .brand { height: 24px; }
-  .brand__img { height: 24px; }
+  .brand { height: 28px; }
+  .brand__img { height: 28px; width: 28px; }
   .worldmap-stats { grid-template-columns: 1fr; }
   .worldmap-stat { border-left: 0; border-top: 1px solid var(--line); }
   .worldmap-stat:first-child { border-top: 0; }
