@@ -50,7 +50,7 @@ document.querySelectorAll(".faq__item").forEach((item) => {
   });
 });
 
-// Subtle reveal on scroll
+// Subtle reveal on scroll — supports stagger for grouped children
 const io = new IntersectionObserver(
   (entries) => {
     entries.forEach((e) => {
@@ -61,17 +61,40 @@ const io = new IntersectionObserver(
       }
     });
   },
-  { threshold: 0.12 }
+  { threshold: 0.1, rootMargin: "0px 0px -60px 0px" }
 );
 
+// Sections + headlines
 document
   .querySelectorAll(
-    ".section, .hero__title, .hero__sub, .hero__cta, .venture, .principle, .manifesto__text, " +
-    ".stat, .surface-card, .method-card, .security-card, .step, .compare__col, .bigcta__inner"
+    ".section, .hero__copy, .hero__viz, .venture, .principle, .manifesto__text, " +
+    ".bigcta__inner, .compliance, .logos"
   )
   .forEach((el) => {
     el.style.opacity = 0;
     el.style.transform = "translateY(18px)";
-    el.style.transition = "opacity .7s ease, transform .7s ease";
+    el.style.transition = "opacity .8s cubic-bezier(.2,.8,.2,1), transform .8s cubic-bezier(.2,.8,.2,1)";
     io.observe(el);
   });
+
+// Staggered grids — each child gets a small delay so they cascade in
+const stagger = (selector, delayStep = 80, maxIndex = 12) => {
+  document.querySelectorAll(selector).forEach((parent) => {
+    Array.from(parent.children).forEach((child, i) => {
+      if (i > maxIndex) return;
+      child.style.opacity = 0;
+      child.style.transform = "translateY(16px)";
+      child.style.transition = `opacity .7s cubic-bezier(.2,.8,.2,1) ${i * delayStep}ms, transform .7s cubic-bezier(.2,.8,.2,1) ${i * delayStep}ms`;
+      io.observe(child);
+    });
+  });
+};
+
+stagger(".flow", 90);
+stagger(".pillars", 90);
+stagger(".security-row", 90);
+stagger(".how", 100);
+stagger(".faq", 60);
+stagger(".logos__row", 60);
+stagger(".dashboard__metrics", 80);
+stagger(".sdk-row", 30);
