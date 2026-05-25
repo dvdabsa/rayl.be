@@ -2090,6 +2090,146 @@ em.accent, .accent-text {
 .methods-grid--wide { grid-template-columns: repeat(5, 1fr); }
 
 /* ============================================================
+   v6 — Dashboard mockup (chart-first, all numbers visible)
+   ============================================================ */
+.dash {
+  background: linear-gradient(180deg, #111111, #0a0a0a);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: clamp(20px, 2vw, 28px);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-shadow:
+    0 60px 120px -40px rgba(0,0,0,0.75),
+    0 30px 60px -30px rgba(0,0,0,0.4),
+    inset 0 1px 0 rgba(255,255,255,0.04);
+}
+
+/* Header — avatar, welcome, period pill */
+.dash__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--line);
+}
+.dash__hello { display: flex; align-items: center; gap: 12px; }
+.dash__avatar {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background:
+    radial-gradient(40% 40% at 50% 40%, #f5d8b8 0%, #d9a877 60%, transparent 61%),
+    radial-gradient(60% 80% at 50% 100%, #2b3a52 30%, #1a2236 100%);
+  border: 1px solid var(--line);
+  flex-shrink: 0;
+}
+.dash__hello-title {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 15px;
+  color: var(--ink);
+  line-height: 1.2;
+}
+.dash__hello-sub {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 2px;
+}
+.dash__pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 7px 14px;
+  font-family: var(--font-body);
+  font-size: 12px;
+  color: var(--ink-2);
+  border-radius: 999px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--line);
+}
+.dash__pill--ghost { color: var(--muted); }
+
+/* Row with label + big value (used twice) */
+.dash__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  background: rgba(255,255,255,0.025);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+}
+.dash__row-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: var(--muted);
+}
+.dash__row-label svg { color: var(--accent); }
+.dash__row-val {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: clamp(22px, 2.4vw, 30px);
+  letter-spacing: -0.02em;
+  color: var(--accent);
+  line-height: 1;
+}
+.dash__row-val .cents { font-size: 0.55em; color: var(--ink-2); }
+.dash__row-val--sm {
+  font-size: clamp(18px, 1.8vw, 22px);
+  color: var(--ink);
+}
+
+/* Chart */
+.dash__chart {
+  width: 100%;
+  height: 200px;
+  position: relative;
+  border-radius: 14px;
+  overflow: hidden;
+  background:
+    radial-gradient(70% 100% at 50% 100%, rgba(63, 184, 255, 0.08), transparent 70%),
+    linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0));
+  border: 1px solid var(--line);
+}
+
+/* Stats row */
+.dash__stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+.dash__stat {
+  padding: 14px 16px;
+  background: rgba(255,255,255,0.025);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.dash__stat-label {
+  font-size: 11.5px;
+  color: var(--muted);
+  letter-spacing: 0.04em;
+}
+.dash__stat-val {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: 22px;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  line-height: 1;
+}
+
+@media (max-width: 720px) {
+  .dash__stats { grid-template-columns: 1fr; }
+  .dash__chart { height: 160px; }
+}
+
+/* ============================================================
    v5 — Manifesto scroll-pin (word-by-word reveal)
    ============================================================ */
 .manifest-scroll {
