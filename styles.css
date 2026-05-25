@@ -830,6 +830,191 @@ em {
   color: var(--muted);
 }
 /* ============================================================
+   RAYL PAY — surfaces grid
+   ============================================================ */
+.surfaces-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+}
+.surface-card {
+  padding: 32px;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  transition: background .3s ease;
+}
+.surface-card:hover { background: rgba(255,255,255,0.02); }
+.surface-card--wide {
+  grid-column: span 4;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 28px;
+  padding: 40px;
+}
+.surface-card--wide > div { flex: 1; }
+.surface-card__icon {
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink-2);
+  flex-shrink: 0;
+}
+.surface-card__icon svg { width: 22px; height: 22px; }
+.surface-card__title {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 20px;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+}
+.surface-card__desc {
+  font-size: 14.5px;
+  color: var(--muted);
+  line-height: 1.55;
+}
+.surface-card__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 18px;
+}
+.chip {
+  display: inline-block;
+  font-size: 11px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+  padding: 6px 12px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(255,255,255,0.02);
+}
+
+/* ============================================================
+   RAYL PAY — SDK grid
+   ============================================================ */
+.sdk-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-bottom: 36px;
+}
+.sdk-chip {
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: rgba(255,255,255,0.015);
+  font-size: 13.5px;
+  color: var(--ink-2);
+  letter-spacing: -0.005em;
+  transition: border-color .25s ease, color .25s ease, background .25s ease;
+}
+.sdk-chip:hover { border-color: rgba(255,255,255,0.2); color: var(--ink); background: rgba(255,255,255,0.04); }
+
+/* ============================================================
+   RAYL PAY — security grid
+   ============================================================ */
+.security-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+}
+.security-card {
+  padding: 32px;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  transition: background .3s ease;
+}
+.security-card:hover { background: rgba(255,255,255,0.02); }
+.security-card__num {
+  font-family: var(--font-display);
+  font-size: 12px;
+  color: var(--muted);
+  letter-spacing: .08em;
+  margin-bottom: 18px;
+}
+.security-card h4 {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 20px;
+  letter-spacing: -0.015em;
+  margin-bottom: 8px;
+  color: var(--ink);
+}
+.security-card p {
+  font-size: 14.5px;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+/* ============================================================
+   RAYL PAY — steps (how it works)
+   ============================================================ */
+.steps {
+  display: grid;
+  grid-template-columns: 1fr 40px 1fr 40px 1fr;
+  gap: 24px;
+  align-items: stretch;
+}
+.step {
+  padding: 32px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: rgba(255,255,255,0.015);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: border-color .25s ease, background .25s ease;
+}
+.step:hover { border-color: rgba(255,255,255,0.18); background: rgba(255,255,255,0.03); }
+.step__num {
+  font-family: var(--font-display);
+  font-size: 13px;
+  color: var(--muted);
+  letter-spacing: .08em;
+  margin-bottom: 14px;
+}
+.step h4 {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 22px;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+.step p {
+  font-size: 14.5px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+.step--arrow {
+  border: 0;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  position: relative;
+}
+.step--arrow:hover { background: transparent; border-color: transparent; }
+.step--arrow::before {
+  content: "→";
+  color: var(--muted-2);
+  font-size: 28px;
+  font-family: var(--font-display);
+}
+
+/* ============================================================
    RESPONSIVE
    ============================================================ */
 @media (max-width: 900px) {
@@ -844,6 +1029,12 @@ em {
   .contact__row { grid-template-columns: 1fr; gap: 4px; }
   .methods-grid { grid-template-columns: repeat(2, 1fr); }
   .features { grid-template-columns: 1fr; }
+  .surfaces-grid { grid-template-columns: repeat(2, 1fr); }
+  .surface-card--wide { grid-column: span 2; flex-direction: column; gap: 14px; padding: 32px; }
+  .sdk-grid { grid-template-columns: repeat(2, 1fr); }
+  .security-grid { grid-template-columns: 1fr 1fr; }
+  .steps { grid-template-columns: 1fr; }
+  .step--arrow { display: none; }
 }
 
 @media (max-width: 720px) {
@@ -867,4 +1058,7 @@ em {
   .footer__cols { grid-template-columns: 1fr; }
   .methods-grid { grid-template-columns: 1fr; }
   .code__body { font-size: 12px; }
+  .surfaces-grid { grid-template-columns: 1fr; }
+  .sdk-grid { grid-template-columns: 1fr 1fr; }
+  .security-grid { grid-template-columns: 1fr; }
 }
