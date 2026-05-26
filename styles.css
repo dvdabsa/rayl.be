@@ -27,14 +27,17 @@
   --pad: clamp(20px, 4vw, 56px);
 
   /* Type system
-     - body:    Inter — UI, paragraphs, labels (multiple weights)
-     - display: Geist — large display headlines (used at light weights)
-     - wordmark: Geist Bold w/ synthesized italic — Rayl / RaylPay logo only
-     - serif:   Instrument Serif — italic highlight words
-     - mono:    Geist Mono — code, monospace UI */
+     - body:     Inter — UI, paragraphs, labels (multiple weights)
+     - display:  Geist — large display headlines (used at light weights)
+     - wordmark: Plus Jakarta Sans 800 italic — Rayl / RaylPay logo only.
+                 Picked specifically because it ships a real bold italic
+                 (Geist is upright-only, so the synthesized italic looked
+                 flat). OFL licensed, safe for commercial use.
+     - serif:    Instrument Serif — italic highlight words
+     - mono:     Geist Mono — code, monospace UI */
   --font-body:    "Inter", "Helvetica Neue", Arial, sans-serif;
   --font-display: "Geist", "Inter", "Helvetica Neue", Arial, sans-serif;
-  --font-wordmark:"Geist", "Inter", "Helvetica Neue", Arial, sans-serif;
+  --font-wordmark:"Plus Jakarta Sans", "Geist", "Inter", "Helvetica Neue", Arial, sans-serif;
   --font-serif:   "Instrument Serif", "Times New Roman", serif;
   --font-mono:    "Geist Mono", "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
 }
@@ -184,10 +187,11 @@ em.accent, .accent-text {
 .nav__logo .logo__mark,
 .logo__mark {
   font-family: var(--font-wordmark);
-  font-weight: 700;
-  font-style: italic;
+  font-weight: 800;       /* Plus Jakarta Sans ExtraBold */
+  font-style: italic;     /* a real italic file is loaded, not synthesized */
   color: inherit;
   font-size: 1em;
+  letter-spacing: -0.035em;
 }
 .nav__logo .logo__sub,
 .logo__sub {
@@ -2780,6 +2784,7 @@ body::before {
 }
 .footer-wordmark__text {
   font-family: var(--font-wordmark);
+  font-weight: 800;
   font-style: italic;
   font-size: clamp(80px, 18vw, 260px);
   line-height: 0.85;
