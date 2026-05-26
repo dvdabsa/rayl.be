@@ -3,21 +3,8 @@
    Palette: off-white on near-black, surgical typography
    ============================================================ */
 
-@font-face {
-  font-family: "Aeonik Italic";
-  src: url("fonts/AeonikTRIAL-BoldItalic.otf") format("opentype");
-  font-weight: 700;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Aeonik";
-  src: url("fonts/AeonikTRIAL-Light.otf") format("opentype");
-  font-weight: 100 600; /* use this single file across the whole light-to-medium range */
-  font-style: normal;
-  font-display: swap;
-}
+/* Geist is loaded via Google Fonts in each HTML page's <head>.
+   No local @font-face declarations needed. */
 
 :root {
   --bg:        #0a0a0a;
@@ -41,15 +28,15 @@
 
   /* Type system
      - body:    Inter — UI, paragraphs, labels (multiple weights)
-     - display: Aeonik Light — large display headlines only
-     - wordmark: Aeonik Bold Italic — Rayl / RaylPay logo only
+     - display: Geist — large display headlines (used at light weights)
+     - wordmark: Geist Bold w/ synthesized italic — Rayl / RaylPay logo only
      - serif:   Instrument Serif — italic highlight words
-     - mono:    JetBrains Mono — code, monospace UI */
+     - mono:    Geist Mono — code, monospace UI */
   --font-body:    "Inter", "Helvetica Neue", Arial, sans-serif;
-  --font-display: "Aeonik", "Inter", "Helvetica Neue", Arial, sans-serif;
-  --font-wordmark:"Aeonik Italic", "Instrument Serif", serif;
+  --font-display: "Geist", "Inter", "Helvetica Neue", Arial, sans-serif;
+  --font-wordmark:"Geist", "Inter", "Helvetica Neue", Arial, sans-serif;
   --font-serif:   "Instrument Serif", "Times New Roman", serif;
-  --font-mono:    "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --font-mono:    "Geist Mono", "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -88,12 +75,14 @@ em.accent, .accent-text {
   font-style: italic;
 }
 
-/* The Rayl wordmark / logos stay in Aeonik Bold Italic */
+/* The Rayl wordmark / logos use Geist Bold w/ synthesized italic */
 .nav__logo,
 .footer__logo,
 .checkout-card__brand,
 .nav__logo .logo__mark {
   font-family: var(--font-wordmark);
+  font-synthesis: style weight;
+  -webkit-font-synthesis: style weight;
 }
 
 .container {
@@ -176,12 +165,12 @@ em.accent, .accent-text {
 
 /* ============================================================
    Rayl Pay wordmark — single unified treatment
-   "Rayl" = Aeonik Bold Italic, "Pay" = Aeonik (synthesized
-   medium weight). Both render in the SAME perceived white
-   despite the structural weight difference, thanks to a
-   tiny synthesized weight bump + a hairline currentColor
-   text-shadow that fattens "Pay" optically without changing
-   the font.
+   "Rayl" = Geist Bold + synthesized italic (font-style: italic).
+   "Pay"  = Geist Medium upright.
+   Both render in the SAME perceived white despite the
+   structural weight difference, thanks to a tiny synthesized
+   weight bump + a hairline currentColor text-shadow that
+   fattens "Pay" optically without changing the font.
    ============================================================ */
 .nav__logo {
   display: inline-flex;
@@ -202,8 +191,8 @@ em.accent, .accent-text {
 }
 .nav__logo .logo__sub,
 .logo__sub {
-  font-family: var(--font-display);  /* Aeonik, used at medium */
-  font-weight: 500;                  /* synthesized — file is 300 baseline */
+  font-family: var(--font-display);  /* Geist, used at medium weight */
+  font-weight: 500;
   font-style: normal;
   color: inherit;
   font-size: 1em;
