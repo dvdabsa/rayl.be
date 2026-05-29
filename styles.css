@@ -28,16 +28,19 @@
 
   /* Type system
      - body:     Inter — UI, paragraphs, labels (multiple weights)
-     - display:  Geist — large display headlines (used at light weights)
-     - wordmark: Plus Jakarta Sans 800 italic — Rayl / RaylPay logo only.
-                 Picked specifically because it ships a real bold italic
-                 (Geist is upright-only, so the synthesized italic looked
-                 flat). OFL licensed, safe for commercial use.
+     - display:  Bricolage Grotesque — large display headlines.
+                 Optical-size variable axis (12..96) means glyphs
+                 quietly recut themselves at larger sizes.
+     - wordmark: Bricolage Grotesque 800 italic — Rayl / RaylPay logo
+                 only. Italic is synthesized (Bricolage ships upright
+                 only on Google Fonts) and that's intentional — the
+                 user picked this in the side-by-side preview.
      - serif:    Instrument Serif — italic highlight words
-     - mono:     Geist Mono — code, monospace UI */
+     - mono:     Geist Mono — code, monospace UI
+     OFL licensed across the board. */
   --font-body:    "Inter", "Helvetica Neue", Arial, sans-serif;
-  --font-display: "Geist", "Inter", "Helvetica Neue", Arial, sans-serif;
-  --font-wordmark:"Plus Jakarta Sans", "Geist", "Inter", "Helvetica Neue", Arial, sans-serif;
+  --font-display: "Bricolage Grotesque", "Inter", "Helvetica Neue", Arial, sans-serif;
+  --font-wordmark:"Bricolage Grotesque", "Inter", "Helvetica Neue", Arial, sans-serif;
   --font-serif:   "Instrument Serif", "Times New Roman", serif;
   --font-mono:    "Geist Mono", "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
 }
