@@ -3,8 +3,21 @@
    Palette: off-white on near-black, surgical typography
    ============================================================ */
 
-/* Geist is loaded via Google Fonts in each HTML page's <head>.
-   No local @font-face declarations needed. */
+@font-face {
+  font-family: "Aeonik Italic";
+  src: url("fonts/AeonikTRIAL-BoldItalic.otf") format("opentype");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Aeonik";
+  src: url("fonts/AeonikTRIAL-Light.otf") format("opentype");
+  font-weight: 100 600;
+  font-style: normal;
+  font-display: swap;
+}
 
 :root {
   --bg:        #0a0a0a;
@@ -27,20 +40,14 @@
   --pad: clamp(20px, 4vw, 56px);
 
   /* Type system
-     - body:     Inter — UI, paragraphs, labels (multiple weights)
-     - display:  Bricolage Grotesque — large display headlines.
-                 Optical-size variable axis (12..96) means glyphs
-                 quietly recut themselves at larger sizes.
-     - wordmark: Bricolage Grotesque 800 italic — Rayl / RaylPay logo
-                 only. Italic is synthesized (Bricolage ships upright
-                 only on Google Fonts) and that's intentional — the
-                 user picked this in the side-by-side preview.
+     - body:     Inter — UI, paragraphs, labels
+     - display:  Aeonik Light — large display headlines
+     - wordmark: Aeonik Bold Italic — Rayl / RaylPay logo
      - serif:    Instrument Serif — italic highlight words
-     - mono:     Geist Mono — code, monospace UI
-     OFL licensed across the board. */
+     - mono:     Geist Mono — code, monospace UI */
   --font-body:    "Inter", "Helvetica Neue", Arial, sans-serif;
-  --font-display: "Bricolage Grotesque", "Inter", "Helvetica Neue", Arial, sans-serif;
-  --font-wordmark:"Bricolage Grotesque", "Inter", "Helvetica Neue", Arial, sans-serif;
+  --font-display: "Aeonik", "Inter", "Helvetica Neue", Arial, sans-serif;
+  --font-wordmark:"Aeonik Italic", "Aeonik", "Inter", "Helvetica Neue", Arial, sans-serif;
   --font-serif:   "Instrument Serif", "Times New Roman", serif;
   --font-mono:    "Geist Mono", "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
 }
@@ -190,7 +197,7 @@ em.accent, .accent-text {
 .nav__logo .logo__mark,
 .logo__mark {
   font-family: var(--font-wordmark);
-  font-weight: 800;       /* Plus Jakarta Sans ExtraBold */
+  font-weight: 700;       /* Aeonik Bold Italic */
   font-style: italic;     /* a real italic file is loaded, not synthesized */
   color: inherit;
   font-size: 1em;
@@ -2787,7 +2794,7 @@ body::before {
 }
 .footer-wordmark__text {
   font-family: var(--font-wordmark);
-  font-weight: 800;
+  font-weight: 700;
   font-style: italic;
   font-size: clamp(80px, 18vw, 260px);
   line-height: 0.85;
