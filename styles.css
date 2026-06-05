@@ -551,18 +551,22 @@ em.accent, .accent-text {
   padding: 44px 0;
   border-top: 1px solid var(--line);
   position: relative;
-  transition: background .35s ease;
+  transition: background .35s ease, border-color .35s ease;
 }
 .venture:last-child { border-bottom: 1px solid var(--line); }
 .venture::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.018), transparent);
+  background:
+    linear-gradient(90deg, transparent, rgba(63, 184, 255, 0.04) 35%, rgba(63, 184, 255, 0.04) 65%, transparent),
+    linear-gradient(180deg, rgba(255,255,255,0.025), transparent 50%);
   opacity: 0;
-  transition: opacity .35s ease;
+  transition: opacity .4s ease;
   pointer-events: none;
 }
+.venture:hover { border-top-color: rgba(255,255,255,0.16); }
+.venture:hover + .venture { border-top-color: rgba(255,255,255,0.16); }
 .venture:hover::before { opacity: 1; }
 
 .venture__num {

@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rayl — shadcn preview</title>
+  <meta name="description" content="Rayl homepage in shadcn/ui style — design comparison preview." />
+  <meta name="theme-color" content="#09090b" />
+  <meta name="color-scheme" content="dark" />
+  <meta name="robots" content="noindex, nofollow" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" />
+  <style>
+    /* ===========================================================
+       shadcn/ui design tokens (dark theme — zinc base, sky accent)
+       =========================================================== */
+    :root {
+      --background:           240 10% 3.9%;
+      --foreground:           0 0% 98%;
+      --card:                 240 6% 6%;
+      --card-foreground:      0 0% 98%;
+      --popover:              240 10% 3.9%;
+      --popover-foreground:   0 0% 98%;
+      --primary:              0 0% 98%;
+      --primary-foreground:   240 5.9% 10%;
+      --secondary:            240 3.7% 15.9%;
+      --secondary-foreground: 0 0% 98%;
+      --muted:                240 3.7% 15.9%;
+      --muted-foreground:     240 5% 64.9%;
+      --accent:               199 89% 62%;
+      --accent-foreground:    240 5.9% 10%;
+      --border:               240 3.7% 15.9%;
+      --input:                240 3.7% 15.9%;
+      --ring:                 199 89% 62%;
+      --radius:               0.75rem;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      background: hsl(var(--background));
+      color: hsl(var(--foreground));
+      font-family: "Inter", system-ui, -apple-system, sans-serif;
+      font-feature-settings: "cv02", "cv11", "ss01", "calt";
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    .font-display { font-family: "Inter", system-ui, sans-serif; letter-spacing: -0.035em; }
+    .font-serif-italic { font-family: "Instrument Serif", "Times New Roman", serif; font-style: italic; }
+    .font-mono { font-family: "Geist Mono", ui-monospace, "SF Mono", Menlo, monospace; }
+
+    /* Custom scrollbar to match aesthetic */
+    ::selection { background: hsl(var(--accent)); color: hsl(var(--accent-foreground)); }
+
+    /* Subtle radial glow utility */
+    .glow-hero {
+      background:
+        radial-gradient(60% 50% at 80% 10%, rgba(56, 189, 248, 0.08), transparent 65%),
+        radial-gradient(50% 40% at 20% 90%, rgba(56, 189, 248, 0.04), transparent 70%);
+    }
+  </style>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            border: 'hsl(var(--border))',
+            input: 'hsl(var(--input))',
+            ring: 'hsl(var(--ring))',
+            background: 'hsl(var(--background))',
+            foreground: 'hsl(var(--foreground))',
+            primary: { DEFAULT: 'hsl(var(--primary))', foreground: 'hsl(var(--primary-foreground))' },
+            secondary: { DEFAULT: 'hsl(var(--secondary))', foreground: 'hsl(var(--secondary-foreground))' },
+            muted: { DEFAULT: 'hsl(var(--muted))', foreground: 'hsl(var(--muted-foreground))' },
+            accent: { DEFAULT: 'hsl(var(--accent))', foreground: 'hsl(var(--accent-foreground))' },
+            popover: { DEFAULT: 'hsl(var(--popover))', foreground: 'hsl(var(--popover-foreground))' },
+            card: { DEFAULT: 'hsl(var(--card))', foreground: 'hsl(var(--card-foreground))' },
+          },
+          borderRadius: {
+            lg: 'var(--radius)',
+            md: 'calc(var(--radius) - 2px)',
+            sm: 'calc(var(--radius) - 4px)',
+          },
+        },
+      },
+    };
+  </script>
+</head>
+<body class="min-h-screen antialiased relative overflow-x-hidden">
+
+  <!-- Preview banner — only visible on /shadcn -->
+  <div class="fixed top-2 left-1/2 -translate-x-1/2 z-[60] inline-flex items-center gap-2 rounded-full border border-border bg-card/90 backdrop-blur px-3 py-1.5 text-xs text-muted-foreground shadow-lg">
+    <span class="w-1.5 h-1.5 rounded-full bg-sky-400 animate-pulse"></span>
+    shadcn/ui preview
+    <span class="text-muted-foreground/40">·</span>
+    <a href="/" class="text-foreground hover:underline">View original →</a>
+  </div>
+
+  <!-- ===== NAV ===== -->
+  <header class="fixed top-0 left-0 right-0 z-50 border-b border-border/60 backdrop-blur-xl bg-background/70">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="/" class="text-xl font-bold italic tracking-tight">Rayl</a>
+      <nav class="hidden md:flex items-center gap-7">
+        <a href="#platform" class="text-sm text-muted-foreground hover:text-foreground transition-colors">Platform</a>
+        <a href="#ventures" class="text-sm text-muted-foreground hover:text-foreground transition-colors">Ventures</a>
+        <a href="#approach" class="text-sm text-muted-foreground hover:text-foreground transition-colors">Approach</a>
+        <a href="#contact" class="text-sm text-muted-foreground hover:text-foreground transition-colors">Contact</a>
+        <div class="w-px h-4 bg-border"></div>
+        <a href="/pay" class="text-sm text-muted-foreground hover:text-foreground transition-colors inline-flex items-center gap-1">
+          Rayl Pay
+          <svg viewBox="0 0 16 16" width="11" height="11" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+        </a>
+        <a href="#contact" class="inline-flex items-center justify-center rounded-md text-sm font-medium bg-primary text-primary-foreground hover:bg-primary/90 h-9 px-4 transition">Get in touch</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section class="relative pt-32 md:pt-40 pb-24 px-6 glow-hero">
+    <div class="max-w-7xl mx-auto grid lg:grid-cols-[1.1fr_1fr] gap-14 items-center">
+      <!-- Copy -->
+      <div>
+        <!-- Badge -->
+        <div class="inline-flex items-center gap-2 rounded-full border border-border bg-secondary/30 backdrop-blur px-3 py-1 text-xs font-medium">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 ring-2 ring-emerald-400/20 animate-pulse"></span>
+          <span class="text-muted-foreground">Rayl — Building since 2024</span>
+        </div>
+
+        <!-- Headline -->
+        <h1 class="font-display mt-7 text-5xl md:text-7xl font-light leading-[0.96] tracking-tight">
+          Building the<br>
+          infrastructure of<br>
+          a <span class="font-serif-italic text-sky-400 font-normal">new</span> generation.
+        </h1>
+
+        <!-- Sub -->
+        <p class="mt-8 text-base md:text-lg text-muted-foreground max-w-[58ch] leading-relaxed">
+          Rayl is the parent company behind a portfolio of products in technology,
+          innovation, youth culture, and payment systems — engineered for the
+          people building what comes next.
+        </p>
+
+        <!-- CTAs -->
+        <div class="mt-10 flex flex-wrap gap-3">
+          <a href="#ventures" class="inline-flex items-center justify-center gap-2 rounded-md text-sm font-medium bg-primary text-primary-foreground hover:bg-primary/90 h-11 px-6 transition shadow-lg shadow-sky-500/0 hover:shadow-sky-500/10">
+            Explore the ecosystem
+            <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+          </a>
+          <a href="#approach" class="inline-flex items-center justify-center gap-2 rounded-md text-sm font-medium border border-border hover:bg-secondary/50 h-11 px-6 transition">
+            Our approach
+            <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Right: shadcn Card mockup -->
+      <div class="relative">
+        <!-- Soft glow behind the card -->
+        <div class="absolute -inset-6 bg-sky-500/5 blur-3xl rounded-full pointer-events-none"></div>
+
+        <div class="relative rounded-xl border border-border bg-card text-card-foreground shadow-2xl overflow-hidden">
+          <!-- Card header (window-chrome style) -->
+          <div class="flex items-center gap-2 px-4 py-3 border-b border-border bg-secondary/20">
+            <div class="flex gap-1.5">
+              <span class="w-2.5 h-2.5 rounded-full bg-muted-foreground/25"></span>
+              <span class="w-2.5 h-2.5 rounded-full bg-muted-foreground/25"></span>
+              <span class="w-2.5 h-2.5 rounded-full bg-muted-foreground/25"></span>
+            </div>
+            <span class="ml-2 text-xs font-mono text-muted-foreground/60">rayl.ecosystem</span>
+          </div>
+
+          <!-- Card body -->
+          <div class="p-6">
+            <!-- Big metric -->
+            <div class="flex items-end justify-between pb-5 mb-4 border-b border-border">
+              <div>
+                <p class="text-[10px] uppercase tracking-[0.2em] text-muted-foreground font-medium">Active ventures</p>
+                <p class="font-display mt-1.5 text-4xl font-light tracking-tight">04</p>
+              </div>
+              <span class="text-xs font-mono px-2 py-1 rounded-md border border-border text-muted-foreground">2026</span>
+            </div>
+
+            <!-- Venture rows -->
+            <div class="divide-y divide-border/60">
+              <div class="flex items-center justify-between py-2.5 text-sm">
+                <span class="font-mono text-xs text-muted-foreground">/ 01 Technologies</span>
+                <span class="text-foreground/80">Coming soon</span>
+              </div>
+              <div class="flex items-center justify-between py-2.5 text-sm">
+                <span class="font-mono text-xs text-muted-foreground">/ 02 Pay</span>
+                <span class="text-foreground/80">Live preview</span>
+              </div>
+              <div class="flex items-center justify-between py-2.5 text-sm">
+                <span class="font-mono text-xs text-muted-foreground">/ 03 Youth</span>
+                <span class="text-foreground/80">In development</span>
+              </div>
+              <div class="flex items-center justify-between py-2.5 text-sm">
+                <span class="font-mono text-xs text-muted-foreground">/ 04 Labs</span>
+                <span class="text-foreground/80">Internal</span>
+              </div>
+            </div>
+
+            <!-- Status row -->
+            <div class="mt-4 pt-4 border-t border-border flex items-center justify-between">
+              <span class="text-sm text-muted-foreground">Status</span>
+              <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 text-xs font-medium">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                Operational
+              </span>
+            </div>
+
+            <!-- Footer hint -->
+            <p class="mt-3 pt-3 border-t border-dashed border-border/60 text-[11px] font-mono text-muted-foreground/60">
+              200 OK · Antwerp · BE 0717.928.771
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PLATFORM ===== -->
+  <section id="platform" class="py-24 px-6 border-t border-border">
+    <div class="max-w-7xl mx-auto grid lg:grid-cols-[1fr_1.4fr] gap-12 items-start">
+      <div>
+        <p class="text-[10px] uppercase tracking-[0.24em] text-muted-foreground font-medium inline-flex items-center gap-3">
+          <span class="w-7 h-0.5 bg-sky-400 rounded-full"></span>
+          01 — Platform
+        </p>
+        <h2 class="font-display mt-5 text-4xl md:text-5xl font-light leading-tight tracking-tight">
+          <span class="font-serif-italic text-sky-400">One</span> company.<br>
+          Many disciplines.
+        </h2>
+      </div>
+      <div>
+        <p class="text-lg text-foreground/85 leading-relaxed mb-7 max-w-[60ch]">
+          Rayl operates as a holding entity for a tightly integrated set of
+          ventures. Each project shares infrastructure, design language, and a
+          commitment to building tools that matter — without the noise.
+        </p>
+        <ul class="divide-y divide-border">
+          <li class="py-4 text-foreground/80 flex items-baseline gap-3">
+            <span class="w-1 h-1 rounded-full bg-muted-foreground translate-y-[-3px]"></span>
+            Engineering teams that ship.
+          </li>
+          <li class="py-4 text-foreground/80 flex items-baseline gap-3">
+            <span class="w-1 h-1 rounded-full bg-muted-foreground translate-y-[-3px]"></span>
+            Design systems that scale across products.
+          </li>
+          <li class="py-4 text-foreground/80 flex items-baseline gap-3">
+            <span class="w-1 h-1 rounded-full bg-muted-foreground translate-y-[-3px]"></span>
+            Capital and operational support for every venture.
+          </li>
+          <li class="py-4 text-foreground/80 flex items-baseline gap-3">
+            <span class="w-1 h-1 rounded-full bg-muted-foreground translate-y-[-3px]"></span>
+            A long-term horizon, not a quarterly one.
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== VENTURES ===== -->
+  <section id="ventures" class="py-24 px-6 border-t border-border">
+    <div class="max-w-7xl mx-auto">
+      <div class="mb-12">
+        <p class="text-[10px] uppercase tracking-[0.24em] text-muted-foreground font-medium inline-flex items-center gap-3">
+          <span class="w-7 h-0.5 bg-sky-400 rounded-full"></span>
+          02 — Ventures
+        </p>
+        <h2 class="font-display mt-5 text-4xl md:text-5xl font-light leading-tight tracking-tight">The portfolio.</h2>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-4">
+        <!-- Card: Technologies -->
+        <article class="group rounded-xl border border-border bg-card p-7 hover:bg-secondary/30 hover:border-border/80 transition relative overflow-hidden">
+          <div class="absolute inset-0 bg-gradient-to-br from-sky-500/0 via-transparent to-sky-500/0 group-hover:from-sky-500/5 transition pointer-events-none"></div>
+          <div class="relative">
+            <p class="font-mono text-xs text-muted-foreground">/ 01</p>
+            <h3 class="font-display mt-3 text-2xl md:text-3xl font-light tracking-tight">
+              <span class="font-serif-italic text-sky-400 font-normal">Rayl</span> Technologies
+            </h3>
+            <p class="mt-3 text-muted-foreground text-sm leading-relaxed max-w-[42ch]">
+              Software, systems, and engineering services. The technical backbone of the Rayl ecosystem — and a partner for organizations building serious products.
+            </p>
+            <div class="mt-5 flex flex-wrap gap-2">
+              <span class="text-[10px] uppercase tracking-wider font-medium border border-border rounded-full px-2.5 py-1 text-muted-foreground">Software</span>
+              <span class="text-[10px] uppercase tracking-wider font-medium border border-border rounded-full px-2.5 py-1 text-muted-foreground">Infrastructure</span>
+              <span class="text-[10px] uppercase tracking-wider font-medium border border-border rounded-full px-2.5 py-1 text-muted-foreground">R&amp;D</span>
+            </div>
+            <div class="mt-6 pt-5 border-t border-border/60 flex items-center justify-between text-xs text-muted-foreground">
+              <span>rayl.tech</span>
+              <span>Coming soon</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card: Pay -->
+        <article class="group rounded-xl border border-border bg-card p-7 hover:bg-secondary/30 hover:border-border/80 transition relative overflow-hidden">
+          <div class="absolute inset-0 bg-gradient-to-br from-sky-500/0 via-transparent to-sky-500/0 group-hover:from-sky-500/5 transition pointer-events-none"></div>
+          <div class="relative">
+            <p class="font-mono text-xs text-muted-foreground">/ 02</p>
+            <h3 class="font-display mt-3 text-2xl md:text-3xl font-light tracking-tight">
+              <span class="font-serif-italic text-sky-400 font-normal">Rayl</span> Pay
+            </h3>
+            <p class="mt-3 text-muted-foreground text-sm leading-relaxed max-w-[42ch]">
+              A modern payment system designed for the way money actually moves today — fast, transparent, and built for both individuals and businesses.
+            </p>
+            <div class="mt-5 flex flex-wrap gap-2">
+              <span class="text-[10px] uppercase tracking-wider font-medium border border-border rounded-full px-2.5 py-1 text-muted-foreground">Payments</span>
+              <span class="text-[10px] uppercase tracking-wider font-medium border border-border rounded-full px-2.5 py-1 text-muted-foreground">Fintech</span>
+              <span class="text-[10px] uppercase tracking-wider font-medium border border-border rounded-full px-2.5 py-1 text-muted-foreground">Consumer</span>
+            </div>
+            <div class="mt-6 pt-5 border-t border-border/60 flex items-center justify-between text-sm">
+              <a href="/pay" class="text-sky-400 hover:text-sky-300 inline-flex items-center gap-1 transition">
+                Explore Rayl Pay
+                <svg viewBox="0 0 16 16" width="11" height="11" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+              </a>
+              <span class="text-xs text-muted-foreground">Live preview</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card: Youth -->
+        <article class="rounded-xl border border-border bg-card p-7 hover:bg-secondary/30 transition">
+          <p class="font-mono text-xs text-muted-foreground">/ 03</p>
+          <h3 class="font-display mt-3 text-2xl md:text-3xl font-light tracking-tight">
+            <span class="font-serif-italic text-sky-400 font-normal">Rayl</span> Youth
+          </h3>
+          <p class="mt-3 text-muted-foreground text-sm leading-relaxed max-w-[42ch]">
+            Programs, partnerships, and platforms supporting the next generation of builders, thinkers, and operators.
+          </p>
+          <div class="mt-5 flex flex-wrap gap-2">
+            <span class="text-[10px] uppercase tracking-wider font-medium border border-border rounded-full px-2.5 py-1 text-muted-foreground">Community</span>
+            <span class="text-[10px] uppercase tracking-wider font-medium border border-border rounded-full px-2.5 py-1 text-muted-foreground">Education</span>
+            <span class="text-[10px] uppercase tracking-wider font-medium border border-border rounded-full px-2.5 py-1 text-muted-foreground">Culture</span>
+          </div>
+          <div class="mt-6 pt-5 border-t border-border/60 text-xs text-muted-foreground/60 uppercase tracking-wider">In development</div>
+        </article>
+
+        <!-- Card: Labs -->
+        <article class="rounded-xl border border-border bg-card p-7 hover:bg-secondary/30 transition">
+          <p class="font-mono text-xs text-muted-foreground">/ 04</p>
+          <h3 class="font-display mt-3 text-2xl md:text-3xl font-light tracking-tight">
+            <span class="font-serif-italic text-sky-400 font-normal">Rayl</span> Labs
+          </h3>
+          <p class="mt-3 text-muted-foreground text-sm leading-relaxed max-w-[42ch]">
+            Where new ideas get built and stress-tested. An internal studio for prototyping the products that haven't been named yet.
+          </p>
+          <div class="mt-5 flex flex-wrap gap-2">
+            <span class="text-[10px] uppercase tracking-wider font-medium border border-border rounded-full px-2.5 py-1 text-muted-foreground">Research</span>
+            <span class="text-[10px] uppercase tracking-wider font-medium border border-border rounded-full px-2.5 py-1 text-muted-foreground">Prototyping</span>
+            <span class="text-[10px] uppercase tracking-wider font-medium border border-border rounded-full px-2.5 py-1 text-muted-foreground">Innovation</span>
+          </div>
+          <div class="mt-6 pt-5 border-t border-border/60 text-xs text-muted-foreground/60 uppercase tracking-wider">Internal</div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== APPROACH ===== -->
+  <section id="approach" class="py-24 px-6 border-t border-border">
+    <div class="max-w-7xl mx-auto grid lg:grid-cols-[1fr_1.4fr] gap-12 items-start">
+      <div>
+        <p class="text-[10px] uppercase tracking-[0.24em] text-muted-foreground font-medium inline-flex items-center gap-3">
+          <span class="w-7 h-0.5 bg-sky-400 rounded-full"></span>
+          03 — Approach
+        </p>
+        <h2 class="font-display mt-5 text-4xl md:text-5xl font-light leading-tight tracking-tight">
+          How we<br>
+          <span class="font-serif-italic text-sky-400">operate.</span>
+        </h2>
+      </div>
+      <div class="grid sm:grid-cols-2 gap-px bg-border rounded-xl overflow-hidden">
+        <div class="bg-card p-7 hover:bg-secondary/30 transition">
+          <h4 class="font-display text-lg font-light tracking-tight">Build for the long term.</h4>
+          <p class="mt-2 text-sm text-muted-foreground leading-relaxed">We measure success in decades, not demo days.</p>
+        </div>
+        <div class="bg-card p-7 hover:bg-secondary/30 transition">
+          <h4 class="font-display text-lg font-light tracking-tight">Ship real things.</h4>
+          <p class="mt-2 text-sm text-muted-foreground leading-relaxed">Working products in users' hands are the only deliverable that counts.</p>
+        </div>
+        <div class="bg-card p-7 hover:bg-secondary/30 transition">
+          <h4 class="font-display text-lg font-light tracking-tight">Invest in the next generation.</h4>
+          <p class="mt-2 text-sm text-muted-foreground leading-relaxed">The most important infrastructure we build is the people we build with.</p>
+        </div>
+        <div class="bg-card p-7 hover:bg-secondary/30 transition">
+          <h4 class="font-display text-lg font-light tracking-tight">Stay quiet. Stay sharp.</h4>
+          <p class="mt-2 text-sm text-muted-foreground leading-relaxed">We'd rather be useful than loud.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA ===== -->
+  <section class="py-32 px-6 border-t border-border relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-b from-sky-500/[0.04] to-transparent pointer-events-none"></div>
+    <div class="relative max-w-3xl mx-auto text-center">
+      <h2 class="font-display text-5xl md:text-7xl font-light tracking-tight">
+        Build with <span class="font-serif-italic text-sky-400">us.</span>
+      </h2>
+      <p class="mt-6 text-lg text-muted-foreground max-w-[44ch] mx-auto leading-relaxed">
+        We work with founders, engineers, and operators who treat the long term as a real timeline.
+      </p>
+      <div class="mt-10 flex flex-wrap gap-3 justify-center">
+        <a href="mailto:hello@rayl.be" class="inline-flex items-center justify-center rounded-md text-sm font-medium bg-primary text-primary-foreground hover:bg-primary/90 h-11 px-6 transition">Get in touch</a>
+        <a href="#ventures" class="inline-flex items-center justify-center rounded-md text-sm font-medium border border-border hover:bg-secondary/50 h-11 px-6 transition">See the ventures</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section id="contact" class="py-24 px-6 border-t border-border">
+    <div class="max-w-7xl mx-auto grid lg:grid-cols-[1fr_1.4fr] gap-12 items-start">
+      <div>
+        <p class="text-[10px] uppercase tracking-[0.24em] text-muted-foreground font-medium inline-flex items-center gap-3">
+          <span class="w-7 h-0.5 bg-sky-400 rounded-full"></span>
+          04 — Contact
+        </p>
+        <h2 class="font-display mt-5 text-4xl md:text-5xl font-light leading-tight tracking-tight">
+          Get in <span class="font-serif-italic text-sky-400">touch.</span>
+        </h2>
+      </div>
+      <div class="divide-y divide-border">
+        <div class="grid sm:grid-cols-[140px_1fr] gap-4 py-5">
+          <span class="text-[10px] uppercase tracking-[0.2em] text-muted-foreground font-medium">General</span>
+          <a href="mailto:hello@rayl.be" class="font-display text-2xl md:text-3xl font-light tracking-tight hover:text-sky-400 transition">hello@rayl.be</a>
+        </div>
+        <div class="grid sm:grid-cols-[140px_1fr] gap-4 py-5">
+          <span class="text-[10px] uppercase tracking-[0.2em] text-muted-foreground font-medium">Press</span>
+          <a href="mailto:press@rayl.be" class="font-display text-2xl md:text-3xl font-light tracking-tight hover:text-sky-400 transition">press@rayl.be</a>
+        </div>
+        <div class="grid sm:grid-cols-[140px_1fr] gap-4 py-5">
+          <span class="text-[10px] uppercase tracking-[0.2em] text-muted-foreground font-medium">Careers</span>
+          <a href="mailto:careers@rayl.be" class="font-display text-2xl md:text-3xl font-light tracking-tight hover:text-sky-400 transition">careers@rayl.be</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== GIANT FOOTER WORDMARK ===== -->
+  <div class="px-6 pt-20 pb-0 text-center overflow-hidden">
+    <span class="block text-[20vw] leading-[0.85] tracking-[-0.05em] italic font-bold" style="color: transparent; -webkit-text-stroke: 1px rgba(255,255,255,0.10);">Rayl</span>
+  </div>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="border-t border-border px-6 py-12 bg-card/30">
+    <div class="max-w-7xl mx-auto grid md:grid-cols-[1.2fr_2fr] gap-10">
+      <div>
+        <a href="/" class="text-3xl font-bold italic tracking-tight">Rayl</a>
+      </div>
+      <div class="grid sm:grid-cols-3 gap-8">
+        <div>
+          <p class="text-[10px] uppercase tracking-[0.2em] text-muted-foreground font-medium mb-4">Ventures</p>
+          <div class="space-y-2 text-sm">
+            <a href="/pay" class="block text-foreground/80 hover:text-foreground transition">Rayl Pay</a>
+            <span class="block text-muted-foreground/60">rayl.tech <span class="text-[10px]">(coming soon)</span></span>
+            <span class="block text-muted-foreground/40">Rayl Youth</span>
+            <span class="block text-muted-foreground/40">Rayl Labs</span>
+          </div>
+        </div>
+        <div>
+          <p class="text-[10px] uppercase tracking-[0.2em] text-muted-foreground font-medium mb-4">Company</p>
+          <div class="space-y-2 text-sm">
+            <a href="#approach" class="block text-foreground/80 hover:text-foreground transition">Approach</a>
+            <a href="#contact" class="block text-foreground/80 hover:text-foreground transition">Contact</a>
+            <a href="mailto:careers@rayl.be" class="block text-foreground/80 hover:text-foreground transition">Careers</a>
+          </div>
+        </div>
+        <div>
+          <p class="text-[10px] uppercase tracking-[0.2em] text-muted-foreground font-medium mb-4">Legal</p>
+          <div class="space-y-2 text-sm">
+            <a href="/privacy" class="block text-foreground/80 hover:text-foreground transition">Privacy</a>
+            <a href="/terms" class="block text-foreground/80 hover:text-foreground transition">Terms</a>
+          </div>
+        </div>
+      </div>
+      <div class="md:col-span-2 pt-6 border-t border-border text-[10px] uppercase tracking-[0.16em] font-medium text-muted-foreground flex flex-wrap items-center gap-x-2 gap-y-1">
+        © <span id="yr"></span> Rayl. All rights reserved.
+        <span class="text-muted-foreground/40">·</span>
+        Rayl BV
+        <span class="text-muted-foreground/40">·</span>
+        BE 0717.928.771
+        <span class="text-muted-foreground/40">·</span>
+        BTW BE 0717.928.771
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("yr").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
