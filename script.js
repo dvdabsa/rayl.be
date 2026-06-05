@@ -205,3 +205,7 @@ stagger(".faq", 60);
 stagger(".logos__row", 60);
 stagger(".dashboard__metrics", 80);
 stagger(".sdk-row", 30);
+// Homepage components
+stagger(".ventures", 90);
+stagger(".principles", 70);
+stagger(".bullets", 50);

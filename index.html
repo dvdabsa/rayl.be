@@ -43,43 +43,85 @@
   </header>
 
   <!-- HERO -->
-  <section class="hero">
-    <div class="container">
-      <span class="status-pill">
-        <span class="status-pill__dot"></span>
-        Rayl — Building since 2024
-      </span>
+  <section class="hero hero--v2">
+    <div class="container hero__grid">
+      <div class="hero__copy">
+        <span class="status-pill">
+          <span class="status-pill__dot"></span>
+          Rayl — Building since 2024
+        </span>
 
-      <h1 class="hero__title">
-        Building the<br />
-        infrastructure of<br />
-        a <em class="accent">new</em> generation.
-      </h1>
-      <p class="hero__sub">
-        Rayl is the parent company behind a portfolio of products in technology,
-        innovation, youth culture, and payment systems — engineered for the
-        people building what comes next.
-      </p>
+        <h1 class="display">
+          Building the<br />
+          infrastructure of<br />
+          a <em class="accent">new</em> generation.
+        </h1>
+        <p class="lead lead--hero">
+          Rayl is the parent company behind a portfolio of products in technology,
+          innovation, youth culture, and payment systems — engineered for the
+          people building what comes next.
+        </p>
 
-      <div class="hero__cta">
-        <a href="#ventures" class="btn btn--primary">
-          Explore the ecosystem
-          <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
-        </a>
-        <a href="#approach" class="btn btn--ghost">
-          Our approach
-          <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
-        </a>
+        <div class="hero__cta">
+          <a href="#ventures" class="btn btn--primary">
+            Explore the ecosystem
+            <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+          </a>
+          <a href="#approach" class="btn btn--ghost">
+            Our approach
+            <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+          </a>
+        </div>
       </div>
 
-      <div class="hero__meta">
-        <div><span class="meta__num">04</span><span class="meta__label">Active ventures</span></div>
-        <div><span class="meta__num">∞</span><span class="meta__label">Ambition</span></div>
-        <div><span class="meta__num">01</span><span class="meta__label">Mission</span></div>
+      <div class="hero__viz" aria-hidden="true">
+        <div class="terminal">
+          <div class="terminal__bar">
+            <span class="terminal__dot"></span>
+            <span class="terminal__dot"></span>
+            <span class="terminal__dot"></span>
+            <span class="terminal__title">rayl.ecosystem</span>
+          </div>
+          <div class="terminal__body">
+            <div class="terminal__head">
+              <div>
+                <p class="terminal__label">Active ventures</p>
+                <p class="terminal__amount">04</p>
+              </div>
+              <span class="terminal__chip">2026</span>
+            </div>
+
+            <div class="terminal__row">
+              <span class="terminal__row-label mono">/ 01 Technologies</span>
+              <span class="terminal__row-val">Coming soon</span>
+            </div>
+            <div class="terminal__row">
+              <span class="terminal__row-label mono">/ 02 Pay</span>
+              <span class="terminal__row-val">Live preview</span>
+            </div>
+            <div class="terminal__row">
+              <span class="terminal__row-label mono">/ 03 Youth</span>
+              <span class="terminal__row-val">In development</span>
+            </div>
+            <div class="terminal__row">
+              <span class="terminal__row-label mono">/ 04 Labs</span>
+              <span class="terminal__row-val">Internal</span>
+            </div>
+            <div class="terminal__row terminal__row--status">
+              <span class="terminal__row-label">Status</span>
+              <span class="status-tag status-tag--ok">
+                <span class="status-pill__dot"></span>
+                Operational
+              </span>
+            </div>
+
+            <div class="terminal__hint">
+              <span class="mono">200 OK</span> · Antwerp · BE 0717.928.771
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-
-    <div class="hero__rule"></div>
   </section>
 
   <!-- PLATFORM / WHAT WE DO -->
@@ -229,12 +271,17 @@
     </div>
   </section>
 
-  <!-- MANIFESTO STRIP -->
-  <section class="manifesto">
-    <div class="container">
-      <p class="manifesto__text">
-        <em class="accent">Rayl</em> exists to build the technology, the systems, and the
-        opportunities that the next generation will inherit — and use.
+  <!-- MANIFESTO SCROLL-PIN -->
+  <section class="manifest-scroll" id="manifest">
+    <div class="manifest-scroll__sticky">
+      <p class="manifest-scroll__text" data-manifest>
+        <span>We're</span> <span>building</span> <span>the</span> <span>infrastructure,</span>
+        <br />
+        <span>the</span> <span>systems,</span> <span>and</span> <span>the</span> <span>opportunities</span>
+        <br />
+        <span>the</span> <span>next</span> <span>generation</span> <span>will</span> <span>inherit.</span>
+        <br />
+        <span class="accent-em">And</span> <span class="accent-em">use.</span>
       </p>
     </div>
   </section>
@@ -265,6 +312,23 @@
             <a href="/pay">Rayl Pay</a> &nbsp;·&nbsp; <small>rayl.tech (coming soon)</small>
           </span>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BIG CTA -->
+  <section class="bigcta" id="cta">
+    <div class="container bigcta__inner">
+      <h2 class="display display--lg">
+        Build with <em class="accent">us.</em>
+      </h2>
+      <p class="bigcta__sub">
+        We work with founders, engineers, and operators who treat the
+        long term as a real timeline. If that sounds like you, get in touch.
+      </p>
+      <div class="bigcta__row">
+        <a href="mailto:hello@rayl.be" class="btn btn--primary">Get in touch</a>
+        <a href="#ventures" class="btn btn--ghost">See the ventures</a>
       </div>
     </div>
   </section>
