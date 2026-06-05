@@ -68,6 +68,11 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
   overflow-x: hidden;
+  /* Inter stylistic alternates: single-storey 'a' (cv11), open-tail 'l'
+     (cv02), proper four (cv11), contextual alternates, and tabular
+     numerals so any number in a row aligns column-perfect. */
+  font-feature-settings: "cv02", "cv11", "ss01", "calt", "tnum" 0;
+  font-variant-numeric: lining-nums proportional-nums;
 }
 
 ::selection { background: var(--accent); color: #fff; }
@@ -445,6 +450,7 @@ em.accent, .accent-text {
 }
 .meta__label {
   font-size: 11px;
+  font-weight: 500;
   letter-spacing: .2em;
   text-transform: uppercase;
   color: var(--muted);
@@ -462,7 +468,8 @@ em.accent, .accent-text {
 
 .section__tag {
   font-size: 11px;
-  letter-spacing: .26em;
+  font-weight: 500;
+  letter-spacing: .24em;
   text-transform: uppercase;
   color: var(--muted);
   margin-bottom: 28px;
@@ -735,7 +742,8 @@ em.accent, .accent-text {
 }
 .footer__h {
   font-size: 11px;
-  letter-spacing: .24em;
+  font-weight: 500;
+  letter-spacing: .22em;
   text-transform: uppercase;
   color: var(--muted);
   margin-bottom: 18px;
@@ -757,7 +765,8 @@ em.accent, .accent-text {
   padding-top: 24px;
   margin-top: 32px;
   font-size: 11px;
-  letter-spacing: .18em;
+  font-weight: 500;
+  letter-spacing: .16em;
   text-transform: uppercase;
   color: var(--muted);
   display: flex;
@@ -2956,7 +2965,8 @@ body::before {
 }
 .terminal__label {
   font-size: 11px;
-  letter-spacing: 0.18em;
+  font-weight: 500;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--muted);
   margin-bottom: 6px;
