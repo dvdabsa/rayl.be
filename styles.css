@@ -723,12 +723,37 @@ em.accent, .accent-text {
    FOOTER
    ============================================================ */
 .footer {
-  background: #060606;
+  position: relative;
   color: var(--ink-2);
-  padding: 88px 0 32px;
-  border-top: 1px solid var(--line);
+  margin: 0 clamp(14px, 2vw, 28px) clamp(14px, 2vw, 28px);
+  padding: clamp(56px, 7vh, 88px) clamp(28px, 4vw, 56px) clamp(28px, 3vh, 40px);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background-color: #0b0b0b;
+  /* dot grid */
+  background-image:
+    radial-gradient(circle, rgba(255, 255, 255, 0.05) 1px, transparent 1.4px);
+  background-size: 22px 22px;
+  background-position: 0 0;
+  overflow: hidden;
+  isolation: isolate;
 }
-.footer__inner { display: grid; grid-template-columns: 1.2fr 2fr; gap: 60px; }
+.footer::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(60% 80% at 50% 0%, rgba(63, 184, 255, 0.06), transparent 65%),
+    radial-gradient(40% 50% at 0% 100%, rgba(255, 255, 255, 0.025), transparent 70%);
+  pointer-events: none;
+  z-index: -1;
+}
+.footer__inner {
+  display: grid;
+  grid-template-columns: 1.2fr 2fr;
+  gap: 60px;
+  position: relative;
+}
 .footer__logo {
   font-family: var(--font-display);
   font-style: italic;
