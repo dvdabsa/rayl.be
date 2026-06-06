@@ -11,6 +11,33 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500&family=Inter:wght@300;400;500;600&family=Instrument+Serif:ital@0;1&display=swap" />
   <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* /pay-specific overrides — pure black background, slightly
+       deeper surfaces so cards lift more clearly off the page. */
+    :root {
+      --bg:      #000000;
+      --bg-2:    #050505;
+      --surface: #0a0a0a;
+    }
+    body { background: #000000; }
+    .terminal,
+    .dash,
+    .risk__panel,
+    .footer-wordmark {
+      background: linear-gradient(180deg, #0d0d0d, #050505);
+    }
+    .flow__step,
+    .sec-card,
+    .how__step,
+    .settle-card,
+    .ind-card {
+      background: rgba(255, 255, 255, 0.015);
+    }
+    .logos,
+    .compliance {
+      background: rgba(255, 255, 255, 0.012);
+    }
+  </style>
 </head>
 <body>
 
@@ -141,6 +168,21 @@
   </section>
 
   <!-- =====================================================
+       COMPLIANCE TRUST STRIP
+       ===================================================== -->
+  <section class="compliance">
+    <div class="container">
+      <ul class="compliance__row">
+        <li>PCI Level 1</li>
+        <li>3D Secure 2</li>
+        <li>PSD2 / SCA</li>
+        <li>GDPR</li>
+        <li>ISO 27001 <small>(in progress)</small></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- =====================================================
        PAYMENT FLOW — anatomy of a transaction
        ===================================================== -->
   <section class="section section--lg" id="product">
@@ -194,6 +236,56 @@
           <p>Webhook fires, signed and idempotent. Your dashboard updates in real time.</p>
         </li>
       </ol>
+    </div>
+  </section>
+
+  <!-- =====================================================
+       INDUSTRIES — built for
+       ===================================================== -->
+  <section class="section section--lg">
+    <div class="container">
+      <div class="section__head section__head--centered">
+        <p class="section__tag">Built for</p>
+        <h2 class="display display--md">Industries we <em class="accent">understand.</em></h2>
+        <p class="section__sub">
+          Rayl Pay is tuned for the verticals where payment friction kills
+          conversion — and where flexibility is the difference between
+          shipping and stalling.
+        </p>
+      </div>
+
+      <div class="ind-grid">
+        <article class="ind-card">
+          <div class="ind-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="7" width="18" height="12" rx="3"/><path d="M8 12h2M9 11v2M14 11h.01M16 13h.01"/></svg></div>
+          <h3 class="ind-card__title">Gaming</h3>
+          <p class="ind-card__desc">Microtransactions, virtual goods, and high-frequency processing — without the friction that kills conversion.</p>
+        </article>
+        <article class="ind-card">
+          <div class="ind-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></div>
+          <h3 class="ind-card__title">Digital goods</h3>
+          <p class="ind-card__desc">Software licenses, downloads, and digital content delivery — instant, fraud-screened, and reconcilable.</p>
+        </article>
+        <article class="ind-card">
+          <div class="ind-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 12a9 9 0 1018 0 9 9 0 00-18 0z"/><path d="M3 12h18M12 3a14 14 0 010 18M12 3a14 14 0 000 18"/></svg></div>
+          <h3 class="ind-card__title">Subscriptions</h3>
+          <p class="ind-card__desc">Recurring billing, smart retries, dunning workflows, and customer-portal-ready APIs.</p>
+        </article>
+        <article class="ind-card">
+          <div class="ind-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="9" cy="9" r="4"/><circle cx="17" cy="15" r="4"/><line x1="9" y1="9" x2="17" y2="15"/></svg></div>
+          <h3 class="ind-card__title">Marketplaces</h3>
+          <p class="ind-card__desc">Split payments, escrow, multi-party payouts, and KYC for sellers — all on a single ledger.</p>
+        </article>
+        <article class="ind-card">
+          <div class="ind-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M9 9h6a2 2 0 010 4H9a2 2 0 000 4h6"/></svg></div>
+          <h3 class="ind-card__title">Crypto &amp; FinTech</h3>
+          <p class="ind-card__desc">On-ramps, off-ramps, and stablecoin settlement built for regulated crypto operators.</p>
+        </article>
+        <article class="ind-card">
+          <div class="ind-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 7l1.5 11a2 2 0 002 1.7h11a2 2 0 002-1.7L21 7"/><path d="M9 7V5a3 3 0 016 0v2"/></svg></div>
+          <h3 class="ind-card__title">E-commerce</h3>
+          <p class="ind-card__desc">From single-store shops to multi-country enterprise commerce — same SDK, same dashboard.</p>
+        </article>
+      </div>
     </div>
   </section>
 
@@ -391,6 +483,60 @@
           <span class="worldmap-stat__num">24 / 7</span>
           <span class="worldmap-stat__label">Real-time processing</span>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================
+       SETTLEMENT OPTIONS
+       ===================================================== -->
+  <section class="section section--lg">
+    <div class="container">
+      <div class="section__head section__head--centered">
+        <p class="section__tag">Settlement</p>
+        <h2 class="display display--md">Move money <em class="accent">your way.</em></h2>
+        <p class="section__sub">
+          Receive payouts in the format that fits your treasury — fiat,
+          stablecoin, or instant push to a debit card.
+        </p>
+      </div>
+
+      <div class="settle-grid">
+        <article class="settle-card">
+          <div class="settle-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="6" width="18" height="13" rx="2"/><line x1="3" y1="10" x2="21" y2="10"/><line x1="7" y1="15" x2="11" y2="15"/></svg>
+          </div>
+          <h3 class="settle-card__title">Bank transfer</h3>
+          <p class="settle-card__desc">Settle directly to your business bank account with full statement reconciliation.</p>
+          <span class="settle-card__time">T+2 by default</span>
+        </article>
+
+        <article class="settle-card">
+          <div class="settle-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M9 10h6M9 14h6"/></svg>
+          </div>
+          <h3 class="settle-card__title">USDC on Solana</h3>
+          <p class="settle-card__desc">Receive payouts in regulated stablecoin on the fastest settlement layer available.</p>
+          <span class="settle-card__time">Same-day available</span>
+        </article>
+
+        <article class="settle-card">
+          <div class="settle-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2v20M5 6h11a3 3 0 010 6H8a3 3 0 000 6h11"/></svg>
+          </div>
+          <h3 class="settle-card__title">Multi-currency</h3>
+          <p class="settle-card__desc">Settle in EUR, USD, GBP and 27 more — without losing margin to forced conversion.</p>
+          <span class="settle-card__time">30+ currencies</span>
+        </article>
+
+        <article class="settle-card">
+          <div class="settle-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg>
+          </div>
+          <h3 class="settle-card__title">Instant payouts</h3>
+          <p class="settle-card__desc">For approved merchants — push earnings to a debit card within minutes, 24/7.</p>
+          <span class="settle-card__time">In minutes</span>
+        </article>
       </div>
     </div>
   </section>
