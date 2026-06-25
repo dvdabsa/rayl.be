@@ -100,6 +100,24 @@ def send_via_resend(data):
 
 
 class CustomHandler(http.server.SimpleHTTPRequestHandler):
+    def _rewrite_clean_url(self):
+        """Serve /about for /about.html so the site works without extensions."""
+        path = self.path.split("?", 1)[0].split("#", 1)[0]
+        rest = self.path[len(path):]
+        if path.endswith("/") or "." in os.path.basename(path):
+            return
+        candidate = os.path.join(ROOT, path.lstrip("/") + ".html")
+        if os.path.isfile(candidate):
+            self.path = path + ".html" + rest
+
+    def do_GET(self):
+        self._rewrite_clean_url()
+        return super().do_GET()
+
+    def do_HEAD(self):
+        self._rewrite_clean_url()
+        return super().do_HEAD()
+
     def _json(self, code, obj):
         body = json.dumps(obj).encode("utf-8")
         self.send_response(code)
