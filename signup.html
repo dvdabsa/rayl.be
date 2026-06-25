@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Create your Rayl account</title>
+    <meta name="description" content="Create a Rayl account to get started with Rayl Payments and Rayl Marketplace." />
+    <link rel="canonical" href="https://rayl.be/signup.html" />
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <meta name="theme-color" content="#090909" />
+    <meta name="robots" content="noindex, follow" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fustat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css?v=20260613f" />
+  </head>
+  <body>
+    <main class="auth-split">
+      <aside class="auth-split-brand">
+        <div class="auth-brand-top">
+          <a class="brand-name" href="index.html">Rayl</a>
+          <a class="auth-back" href="index.html">← back to rayl.be</a>
+        </div>
+
+        <div class="auth-brand-headline">
+          <h2>Join Rayl. <em>Start moving.</em></h2>
+          <p>
+            One account works across both Rayl products — pay, get paid, and sell with the same
+            credentials wherever you go.
+          </p>
+          <ul class="auth-perks">
+            <li><span><strong>Pay with Rayl Payments.</strong>Move money simply, anywhere.</span></li>
+            <li><span><strong>Sell on Rayl Marketplace.</strong>List, get discovered, get paid.</span></li>
+            <li><span><strong>Built on licensed PSPs.</strong>Your money handled by regulated partners.</span></li>
+            <li><span><strong>GDPR-aligned by default.</strong>We only ask for what we need.</span></li>
+          </ul>
+        </div>
+
+        <div class="auth-brand-foot">
+          <span>© 2026 Rayl Technologies BV · Antwerp, Belgium</span>
+          <span><a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a> · <a href="cookies.html">Cookies</a></span>
+        </div>
+      </aside>
+
+      <section class="auth-split-form" aria-label="Create account">
+        <div class="auth-split-form-top">
+          <span>Already have an account?</span><a href="signin.html">Sign in</a>
+        </div>
+
+        <div class="auth-split-form-body">
+          <div class="auth-split-form-inner">
+            <h1>Create your account.</h1>
+            <p class="auth-lede">Takes under a minute. No card needed.</p>
+
+            <form class="auth-form" method="post" action="#" novalidate>
+              <div class="auth-field">
+                <label for="su-name">Full name</label>
+                <input id="su-name" name="name" type="text" autocomplete="name" placeholder="Jane Janssens" required />
+              </div>
+              <div class="auth-field">
+                <label for="su-email">Work or personal email</label>
+                <input id="su-email" name="email" type="email" autocomplete="email" placeholder="you@domain.com" required />
+              </div>
+              <div class="auth-field">
+                <label for="su-password">Password</label>
+                <input id="su-password" name="password" type="password" autocomplete="new-password" placeholder="At least 8 characters" minlength="8" required />
+              </div>
+              <div class="auth-field">
+                <label for="su-confirm">Confirm password</label>
+                <input id="su-confirm" name="confirm" type="password" autocomplete="new-password" minlength="8" required />
+              </div>
+
+              <label class="auth-check">
+                <input type="checkbox" name="terms" required />
+                <span>
+                  I agree to the <a href="terms.html">Terms of Service</a>, the
+                  <a href="payments-terms.html">Rayl Payments terms</a>, and have read the
+                  <a href="privacy.html">Privacy Policy</a>.
+                </span>
+              </label>
+
+              <button class="auth-submit" type="submit">Create account</button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <aside class="cookie-banner" id="cookieBanner" role="dialog" aria-live="polite" aria-label="Cookie consent" hidden>
+      <div class="cookie-banner-text">
+        <strong>We use cookies.</strong>
+        <p>Rayl uses cookies to keep the site running, remember your preferences, and understand how people use it. You can accept all, reject non-essential, or read our <a href="cookies.html">Cookie Policy</a>.</p>
+      </div>
+      <div class="cookie-banner-actions">
+        <button type="button" class="cookie-btn cookie-btn-reject" data-cookie-action="reject">Reject non-essential</button>
+        <button type="button" class="cookie-btn cookie-btn-accept" data-cookie-action="accept">Accept all</button>
+      </div>
+    </aside>
+
+    <script src="script.js?v=20260613f"></script>
+  </body>
+</html>

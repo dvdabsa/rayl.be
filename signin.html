@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sign in to Rayl</title>
+    <meta name="description" content="Sign in to your Rayl account." />
+    <link rel="canonical" href="https://rayl.be/signin.html" />
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <meta name="theme-color" content="#090909" />
+    <meta name="robots" content="noindex, follow" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fustat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css?v=20260613f" />
+  </head>
+  <body>
+    <main class="auth-split auth-split-reverse">
+      <section class="auth-split-form" aria-label="Sign in">
+        <div class="auth-split-form-top">
+          <span>New to Rayl?</span><a href="signup.html">Create an account</a>
+        </div>
+
+        <div class="auth-split-form-body">
+          <div class="auth-split-form-inner">
+            <h1>Welcome back.</h1>
+            <p class="auth-lede">Sign in to your Rayl account.</p>
+
+            <form class="auth-form" method="post" action="#" novalidate>
+              <div class="auth-field">
+                <label for="si-email">Email</label>
+                <input id="si-email" name="email" type="email" autocomplete="email" placeholder="you@domain.com" required />
+              </div>
+              <div class="auth-field">
+                <label for="si-password">Password</label>
+                <input id="si-password" name="password" type="password" autocomplete="current-password" placeholder="••••••••" required />
+              </div>
+
+              <a class="auth-forgot" href="#">Forgot password?</a>
+
+              <button class="auth-submit" type="submit">Sign in</button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <aside class="auth-split-brand">
+        <div class="auth-brand-top">
+          <a class="brand-name" href="index.html">Rayl</a>
+          <a class="auth-back" href="index.html">← back to rayl.be</a>
+        </div>
+
+        <div class="auth-brand-headline">
+          <h2>Good to see you. <em>Let&rsquo;s pick up.</em></h2>
+          <p>
+            One account, both products. Sign in once and Rayl Payments and Rayl Marketplace
+            are both right there.
+          </p>
+          <ul class="auth-perks">
+            <li><span><strong>Payouts on schedule.</strong>Tuesdays &amp; Fridays, Brussels time.</span></li>
+            <li><span><strong>Funds in regulated hands.</strong>Licensed PSPs do the moving.</span></li>
+            <li><span><strong>Built in Antwerp.</strong>GDPR + PCI DSS aligned by default.</span></li>
+          </ul>
+        </div>
+
+        <div class="auth-brand-foot">
+          <span>© 2026 Rayl Technologies BV · Antwerp, Belgium</span>
+          <span><a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a> · <a href="cookies.html">Cookies</a></span>
+        </div>
+      </aside>
+    </main>
+
+    <aside class="cookie-banner" id="cookieBanner" role="dialog" aria-live="polite" aria-label="Cookie consent" hidden>
+      <div class="cookie-banner-text">
+        <strong>We use cookies.</strong>
+        <p>Rayl uses cookies to keep the site running, remember your preferences, and understand how people use it. You can accept all, reject non-essential, or read our <a href="cookies.html">Cookie Policy</a>.</p>
+      </div>
+      <div class="cookie-banner-actions">
+        <button type="button" class="cookie-btn cookie-btn-reject" data-cookie-action="reject">Reject non-essential</button>
+        <button type="button" class="cookie-btn cookie-btn-accept" data-cookie-action="accept">Accept all</button>
+      </div>
+    </aside>
+
+    <script src="script.js?v=20260613f"></script>
+  </body>
+</html>

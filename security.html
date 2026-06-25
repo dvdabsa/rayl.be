@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Security — Rayl Technologies BV</title>
+    <meta name="description" content="How Rayl approaches security, compliance, and responsible vulnerability disclosure." />
+    <link rel="canonical" href="https://rayl.be/security.html" />
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <meta name="theme-color" content="#090909" />
+    <meta name="robots" content="index, follow" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fustat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css?v=20260613f" />
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="site-header" aria-label="Primary navigation">
+        <a class="brand" href="index.html#top" aria-label="Rayl home">
+          <span class="brand-name">Rayl</span>
+        </a>
+        <nav class="desktop-nav" aria-label="Main navigation">
+          <a href="index.html#projects">Projects</a>
+          <a href="index.html#mission">Mission</a>
+          <a href="index.html#values">Values</a>
+          <a href="index.html#contact">Contact</a>
+        </nav>
+        <div class="header-actions">
+          <div class="lang-switch" role="group" aria-label="Language">
+            <a href="./" class="is-active" aria-current="true" hreflang="en">EN</a>
+            <a href="nl/security.html" hreflang="nl">NL</a>
+            <a href="fr/security.html" hreflang="fr">FR</a>
+          </div>
+          <a class="login-link" href="signin.html">Sign in</a>
+          <a class="nav-cta" href="signup.html">Get Started</a>
+        </div>
+        <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span>
+        </button>
+      </header>
+
+      <nav class="mobile-nav" aria-label="Mobile navigation">
+        <div class="mobile-lang" role="group" aria-label="Language">
+          <a href="./" class="is-active" aria-current="true" hreflang="en">EN</a>
+          <a href="nl/security.html" hreflang="nl">NL</a>
+          <a href="fr/security.html" hreflang="fr">FR</a>
+        </div>
+        <a href="index.html#projects">Projects</a>
+        <a href="index.html#mission">Mission</a>
+        <a href="index.html#values">Values</a>
+        <a href="index.html#contact">Contact</a>
+        <a href="signin.html">Sign in</a>
+        <a href="signup.html">Get Started</a>
+      </nav>
+
+      <main>
+        <article class="legal-page">
+          <p class="legal-eyebrow">Security</p>
+          <h1>How we keep things safe.</h1>
+          <p class="legal-meta">Last updated: 8 June 2026</p>
+
+          <p class="legal-intro">
+            Security is part of how we build, not a checkbox at the end. This page summarises
+            the controls we operate today and how to report a vulnerability if you find one.
+          </p>
+
+          <h2>1. How we&rsquo;re structured</h2>
+          <p>
+            Rayl Technologies BV builds the software behind Rayl Payments and Rayl Marketplace. We
+            do <strong>not</strong> hold or move customer funds ourselves. All money movement
+            is handled by licensed third-party <strong>Payment Service Providers (PSPs)</strong>
+            we partner with, who carry the relevant authorisations under PSD2 and are supervised
+            by their respective EU national competent authorities. That keeps Rayl out of
+            unauthorised financial activity and keeps customer funds in the hands of regulated,
+            audited providers.
+          </p>
+
+          <h2>2. Compliance posture</h2>
+          <ul>
+            <li><strong>GDPR &amp; UK GDPR</strong> — we treat personal data the same way regardless of jurisdiction: collect only what we need, store it for as short as we can, and give you rights over it. See our <a href="privacy.html">Privacy Policy</a>.</li>
+            <li><strong>PCI DSS</strong> — our PSP partners hold the in-scope PCI DSS attestation for cardholder data. Rayl&rsquo;s own systems are designed to minimise PCI scope; we never store raw PANs and rely on the PSP&rsquo;s tokenisation for any card reference.</li>
+            <li><strong>PSD2</strong> — payment services are provided through licensed PSPs. Rayl Technologies BV operates as a technical service provider, not a payment institution.</li>
+            <li><strong>Data minimisation</strong> — we don&rsquo;t collect extra information &ldquo;just in case&rdquo;. If we don&rsquo;t need it to run the product or meet a legal obligation, we don&rsquo;t ask for it.</li>
+          </ul>
+
+          <h2>3. Encryption</h2>
+          <ul>
+            <li><strong>In transit</strong> — TLS 1.2+ everywhere, with HSTS on production domains.</li>
+            <li><strong>At rest</strong> — managed encryption on all data stores we operate; cryptographic keys held in a managed KMS with restricted access.</li>
+          </ul>
+
+          <h2>4. Access control</h2>
+          <ul>
+            <li>Least-privilege role-based access for production systems.</li>
+            <li>Mandatory multi-factor authentication on every internal account that touches infrastructure or data.</li>
+            <li>Hardware-backed credentials for the highest-privilege roles.</li>
+            <li>Access is reviewed when people change roles or leave.</li>
+          </ul>
+
+          <h2>5. Application security</h2>
+          <ul>
+            <li>Peer review on every change before it lands in production.</li>
+            <li>Automated dependency scanning and patching on a regular cadence.</li>
+            <li>Static analysis and secret-scanning on every commit.</li>
+            <li>Production secrets stored only in a managed secret vault, never in source.</li>
+          </ul>
+
+          <h2>6. Infrastructure</h2>
+          <ul>
+            <li>Production runs in vetted EU cloud regions with isolated environments per project.</li>
+            <li>Network exposure is minimised; only the endpoints that need to be public are public.</li>
+            <li>Centralised logging with tamper-evident retention for security-relevant events. Every payment, order, and material system event is timestamped in Brussels time (CET / CEST) on our side of the system, so audit trails line up with the way our team operates.</li>
+            <li>Backups taken regularly and restore is tested.</li>
+          </ul>
+
+          <h2>7. Incident response</h2>
+          <p>
+            We maintain a documented incident-response process: detect, contain, eradicate,
+            recover, learn. Personal-data breaches are assessed against GDPR Article 33/34
+            timelines, and where notifiable, we notify the relevant supervisory authority and
+            affected users without undue delay.
+          </p>
+
+          <h2>8. Responsible disclosure</h2>
+          <p>
+            If you believe you&rsquo;ve found a vulnerability in any Rayl system, please email
+            <a href="mailto:security@rayl.be">security@rayl.be</a>. We ask that you:
+          </p>
+          <ul>
+            <li>Give us reasonable time to investigate and remediate before any public disclosure.</li>
+            <li>Avoid privacy violations, destruction of data, or interruption of services during testing.</li>
+            <li>Only interact with accounts you own or have explicit permission to test.</li>
+          </ul>
+          <p>
+            We don&rsquo;t currently run a paid bug-bounty programme, but we will acknowledge
+            researchers who report valid issues in good faith and won&rsquo;t pursue legal action
+            against research conducted under these guidelines.
+          </p>
+
+          <div class="legal-callout">
+            <strong>Note:</strong> until <code>security@rayl.be</code> is provisioned, use
+            <a href="mailto:hello@rayl.be">hello@rayl.be</a> with the subject line
+            &ldquo;Security: …&rdquo;.
+          </div>
+
+          <h2>9. Subprocessors</h2>
+          <p>
+            A current list of the third-party processors we use for hosting, email, and
+            infrastructure will be maintained and made available on request.
+          </p>
+
+          <h2>10. Status page</h2>
+          <p>
+            Real-time service status, ongoing incidents, and scheduled maintenance windows are
+            published at <a href="https://status.rayl.be">status.rayl.be</a>. Subscribing
+            there gets you email or webhook notifications when something changes.
+          </p>
+
+          <h2>11. Contact</h2>
+          <p>
+            Security questions or vulnerability reports:
+            <a href="mailto:security@rayl.be">security@rayl.be</a>.
+          </p>
+        </article>
+      </main>
+
+      <footer class="site-footer">
+        <div class="footer-brand">
+          <a class="brand" href="index.html#top" aria-label="Rayl home">
+            <span class="brand-name">Rayl</span>
+          </a>
+          <p>Rayl Technologies BV — building fintech for everyone.</p>
+        </div>
+        <nav class="footer-links" aria-label="Footer navigation">
+          <div>
+            <h3>Projects</h3>
+            <a href="index.html#projects">Rayl Payments</a>
+            <a href="index.html#projects">Rayl Marketplace</a>
+          </div>
+          <div>
+            <h3>Company</h3>
+            <a href="about.html">About</a>
+            <a href="careers.html">Careers</a>
+            <a href="press.html">Press</a>
+          </div>
+          <div>
+            <h3>Get in touch</h3>
+            <a href="mailto:hello@rayl.be">hello@rayl.be</a>
+          </div>
+        </nav>
+        <div class="footer-legal" aria-label="Legal links">
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="cookies.html">Cookies</a>
+          <a href="documents.html">All documents</a>
+        </div>
+        <div class="footer-bottom">
+          <span>© 2026 Rayl Technologies BV. All rights reserved.</span>
+          <span>Jos Ratinckxstraat 3, C082, 2600 Antwerp, Belgium · VAT BE 0717928771 · Est. 2.385.638.190</span>
+        </div>
+      </footer>
+    </div>
+
+    <aside class="cookie-banner" id="cookieBanner" role="dialog" aria-live="polite" aria-label="Cookie consent" hidden>
+      <div class="cookie-banner-text">
+        <strong>We use cookies.</strong>
+        <p>
+          Rayl uses cookies to keep the site running, remember your preferences, and understand how
+          people use it. You can accept all, reject non-essential, or read our
+          <a href="cookies.html">Cookie Policy</a>.
+        </p>
+      </div>
+      <div class="cookie-banner-actions">
+        <button type="button" class="cookie-btn cookie-btn-reject" data-cookie-action="reject">Reject non-essential</button>
+        <button type="button" class="cookie-btn cookie-btn-accept" data-cookie-action="accept">Accept all</button>
+      </div>
+    </aside>
+
+    <script src="script.js?v=20260613f"></script>
+  </body>
+</html>

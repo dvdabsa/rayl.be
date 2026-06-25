@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>PSD2 &amp; Strong Customer Authentication — Rayl Technologies BV</title>
+    <meta name="description" content="How Rayl Payments applies PSD2 Strong Customer Authentication (SCA) through its licensed Payment Service Provider partners." />
+    <link rel="canonical" href="https://rayl.be/psd2-sca.html" />
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <meta name="theme-color" content="#090909" />
+    <meta name="robots" content="index, follow" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fustat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css?v=20260613f" />
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="site-header" aria-label="Primary navigation">
+        <a class="brand" href="index.html#top" aria-label="Rayl home"><span class="brand-name">Rayl</span></a>
+        <nav class="desktop-nav" aria-label="Main navigation">
+          <a href="index.html#software">Software</a>
+          <a href="index.html#projects">Products</a>
+          <a href="index.html#mission">Mission</a>
+          <a href="index.html#values">Values</a>
+          <a href="index.html#contact">Contact</a>
+        </nav>
+        <div class="header-actions">
+          <div class="lang-switch" role="group" aria-label="Language">
+            <a href="./" class="is-active" aria-current="true" hreflang="en">EN</a>
+            <a href="nl/psd2-sca.html" hreflang="nl">NL</a>
+            <a href="fr/psd2-sca.html" hreflang="fr">FR</a>
+          </div>
+          <a class="login-link" href="signin.html">Sign in</a>
+          <a class="nav-cta" href="signup.html">Get Started</a>
+        </div>
+        <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
+      </header>
+
+      <nav class="mobile-nav" aria-label="Mobile navigation">
+        <div class="mobile-lang" role="group" aria-label="Language">
+          <a href="./" class="is-active" aria-current="true" hreflang="en">EN</a>
+          <a href="nl/psd2-sca.html" hreflang="nl">NL</a>
+          <a href="fr/psd2-sca.html" hreflang="fr">FR</a>
+        </div>
+        <a href="index.html#software">Software</a>
+        <a href="index.html#projects">Products</a>
+        <a href="index.html#mission">Mission</a>
+        <a href="index.html#values">Values</a>
+        <a href="index.html#contact">Contact</a>
+        <a href="signin.html">Sign in</a>
+        <a href="signup.html">Get Started</a>
+      </nav>
+
+      <main>
+        <article class="legal-page">
+          <p class="legal-eyebrow">Compliance</p>
+          <h1>PSD2 &amp; Strong Customer Authentication</h1>
+          <p class="legal-meta">Last updated: 8 June 2026 · Applies to Rayl Payments</p>
+
+          <p class="legal-intro">
+            This page explains how Rayl Payments — a product brand of Rayl Technologies BV —
+            applies the Revised Payment Services Directive (<strong>PSD2</strong>, Directive
+            (EU) 2015/2366) and its requirement for <strong>Strong Customer Authentication
+            (SCA)</strong>. Because Rayl Technologies BV is not itself a licensed payment
+            institution, SCA is delivered by our licensed Payment Service Provider (PSP)
+            partners; this page describes the experience as it appears in our product.
+          </p>
+
+          <div class="legal-callout">
+            <strong>Plain summary:</strong> when you authorise a payment through Rayl Payments,
+            you may be asked to confirm it on another device or with a biometric. That extra
+            step protects you and it&rsquo;s required by EU law.
+          </div>
+
+          <h2>1. What SCA is</h2>
+          <p>
+            Strong Customer Authentication means authenticating a payer with at least two of
+            three independent elements:
+          </p>
+          <ul>
+            <li><strong>Something you know</strong> — e.g. a password or PIN.</li>
+            <li><strong>Something you have</strong> — e.g. your phone, a token, a payment card.</li>
+            <li><strong>Something you are</strong> — e.g. a fingerprint or face scan.</li>
+          </ul>
+          <p>
+            The two elements must be independent: a compromise of one must not compromise the
+            other.
+          </p>
+
+          <h2>2. When SCA is triggered</h2>
+          <p>SCA is required by PSD2 and its Regulatory Technical Standards when:</p>
+          <ul>
+            <li>You access your payment account online.</li>
+            <li>You initiate an electronic payment transaction.</li>
+            <li>You carry out any action through a remote channel that may imply a risk of payment fraud.</li>
+          </ul>
+
+          <h2>3. How Rayl Payments delivers SCA</h2>
+          <p>
+            The SCA challenge in Rayl Payments is provided by our licensed PSP partners. In
+            practice, depending on the payment method, you may be:
+          </p>
+          <ul>
+            <li>Redirected to your bank&rsquo;s 3-D Secure (3DS2) authentication flow for card payments.</li>
+            <li>Asked to confirm in your bank&rsquo;s mobile app for account-to-account payments.</li>
+            <li>Asked to use a biometric on your device combined with a session check.</li>
+          </ul>
+          <p>
+            Rayl Payments does not store the authentication factors themselves; that&rsquo;s
+            handled by your bank or the PSP. We receive only a confirmation that authentication
+            succeeded.
+          </p>
+
+          <h2>4. Exemptions</h2>
+          <p>
+            PSD2 allows a limited set of exemptions where SCA may not be applied — for example
+            low-value transactions, trusted-beneficiary lists, recurring transactions of a fixed
+            amount, and risk-based exemptions under the Transaction Risk Analysis (TRA) regime.
+            Any exemption used in Rayl Payments is applied by the PSP under their licence and
+            in line with the RTS on SCA.
+          </p>
+
+          <h2>5. What happens if authentication fails</h2>
+          <ul>
+            <li>The transaction will not be completed.</li>
+            <li>You may be asked to retry or use a different payment method.</li>
+            <li>Repeated failures can lead to a temporary block of your payment method by your bank or the PSP for fraud prevention. To unblock, contact your bank.</li>
+          </ul>
+
+          <h2>6. Your rights under PSD2</h2>
+          <ul>
+            <li><strong>Refund for unauthorised payments</strong> — if a payment was made without your consent, you can ask your bank or PSP for a refund. The PSP must refund the amount without undue delay and no later than the end of the following business day, subject to investigation.</li>
+            <li><strong>Limited liability for losses from a lost or stolen instrument</strong> — your loss is capped at €50, unless you acted fraudulently or with gross negligence.</li>
+            <li><strong>Right to information</strong> — clear, free, up-front information about fees, exchange rates, and the time the payment will take.</li>
+          </ul>
+
+          <h2>7. Fraud prevention and monitoring</h2>
+          <p>
+            Rayl Payments combines its own product-level signals with the PSP&rsquo;s real-time
+            fraud monitoring. If a transaction looks abnormal, you may be asked for additional
+            verification, or the transaction may be declined. We never ask you for your full
+            password, full card number, or one-time codes outside of the authentication flow
+            itself.
+          </p>
+
+          <h2>8. Reporting suspected fraud</h2>
+          <p>
+            If you believe a payment was made fraudulently:
+          </p>
+          <ul>
+            <li>Contact your bank or card issuer immediately to block your instrument.</li>
+            <li>Email <a href="mailto:fraud@rayl.be">fraud@rayl.be</a> (until provisioned, use <a href="mailto:hello@rayl.be">hello@rayl.be</a> with subject &ldquo;Fraud&rdquo;).</li>
+            <li>Report to local authorities if applicable (in Belgium, the Federal Computer Crime Unit and your local police).</li>
+          </ul>
+
+          <h2>9. Regulatory information</h2>
+          <p>
+            Payment services in Rayl Payments are provided by licensed PSP partners regulated
+            under PSD2 by their respective EU competent authorities. The names and licence
+            details of the PSPs operating in Rayl Payments will be made available in product
+            and on request from <a href="mailto:hello@rayl.be">hello@rayl.be</a>.
+          </p>
+
+          <h2>10. Contact</h2>
+          <p>
+            Questions about SCA or PSD2 in Rayl Payments:
+            <a href="mailto:hello@rayl.be">hello@rayl.be</a>.
+          </p>
+        </article>
+      </main>
+
+      <footer class="site-footer">
+        <div class="footer-brand">
+          <a class="brand" href="index.html#top" aria-label="Rayl home"><span class="brand-name">Rayl</span></a>
+          <p>Rayl Technologies BV — building fintech for everyone.</p>
+        </div>
+        <nav class="footer-links" aria-label="Footer navigation">
+          <div>
+            <h3>Products</h3>
+            <a href="index.html#projects">Rayl Payments</a>
+            <a href="index.html#projects">Rayl Marketplace</a>
+          </div>
+          <div>
+            <h3>Company</h3>
+            <a href="about.html">About</a>
+            <a href="careers.html">Careers</a>
+            <a href="press.html">Press</a>
+          </div>
+          <div>
+            <h3>Get in touch</h3>
+            <a href="mailto:hello@rayl.be">hello@rayl.be</a>
+          </div>
+        </nav>
+        <div class="footer-legal" aria-label="Legal links">
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="cookies.html">Cookies</a>
+          <a href="documents.html">All documents</a>
+        </div>
+        <div class="footer-bottom">
+          <span>© 2026 Rayl Technologies BV. All rights reserved.</span>
+          <span>Jos Ratinckxstraat 3, C082, 2600 Antwerp, Belgium · VAT BE 0717928771 · Est. 2.385.638.190</span>
+        </div>
+      </footer>
+    </div>
+
+    <aside class="cookie-banner" id="cookieBanner" role="dialog" aria-live="polite" aria-label="Cookie consent" hidden>
+      <div class="cookie-banner-text">
+        <strong>We use cookies.</strong>
+        <p>Rayl uses cookies to keep the site running, remember your preferences, and understand how people use it. You can accept all, reject non-essential, or read our <a href="cookies.html">Cookie Policy</a>.</p>
+      </div>
+      <div class="cookie-banner-actions">
+        <button type="button" class="cookie-btn cookie-btn-reject" data-cookie-action="reject">Reject non-essential</button>
+        <button type="button" class="cookie-btn cookie-btn-accept" data-cookie-action="accept">Accept all</button>
+      </div>
+    </aside>
+
+    <script src="script.js?v=20260613f"></script>
+  </body>
+</html>

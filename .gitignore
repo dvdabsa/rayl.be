@@ -10,7 +10,7 @@ Thumbs.db
 .idea/
 *.swp
 
-# Local backups (kept outside repo anyway, but just in case)
+# Local backups
 *.local-backup
 *-backup/
 
@@ -24,5 +24,6 @@ Thumbs.db
 .env.*
 !.env.example
 
-# Node (in case we add tooling later)
+# Node
 node_modules/
+package-lock.json
