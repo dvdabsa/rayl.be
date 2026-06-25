@@ -950,6 +950,12 @@ button {
   color: #0a1a0e;
 }
 
+.contact-submit.is-error {
+  background: linear-gradient(135deg, #ff8a3d, #ff4d2e);
+  box-shadow: 0 14px 32px rgba(255, 77, 46, 0.4);
+  color: #1a0d05;
+}
+
 .contact-disclaimer {
   font-size: 12px;
   color: var(--muted-2);

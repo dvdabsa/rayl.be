@@ -190,29 +190,60 @@ if (menuButton && mobileNav) {
   const btn = form.querySelector(".contact-submit");
   const honeypot = form.querySelector('input[name="website"]');
 
-  form.addEventListener("submit", (e) => {
+  const originalText = btn.textContent;
+
+  function reset(delay) {
+    setTimeout(() => {
+      btn.disabled = false;
+      btn.classList.remove("is-success", "is-error");
+      btn.textContent = originalText;
+    }, delay);
+  }
+
+  form.addEventListener("submit", async (e) => {
     e.preventDefault();
     if (honeypot && honeypot.value) return;
     if (!form.checkValidity()) {
       form.reportValidity();
       return;
     }
+
     btn.disabled = true;
-    const originalText = btn.textContent;
+    btn.classList.remove("is-error");
     btn.textContent = "Sending…";
 
-    setTimeout(() => {
-      btn.classList.add("is-success");
-      btn.textContent = "Got it — we’ll be in touch ✓";
-      form.querySelectorAll("input, textarea, select").forEach((el) => {
-        if (el !== honeypot && el !== btn) el.value = "";
+    const payload = {
+      name: form.querySelector('[name="name"]')?.value || "",
+      email: form.querySelector('[name="email"]')?.value || "",
+      company: form.querySelector('[name="company"]')?.value || "",
+      topic: form.querySelector('[name="topic"]')?.value || "",
+      message: form.querySelector('[name="message"]')?.value || "",
+      website: honeypot ? honeypot.value : "",
+    };
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
       });
-      setTimeout(() => {
-        btn.disabled = false;
-        btn.classList.remove("is-success");
-        btn.textContent = originalText;
-      }, 4000);
-    }, 700);
+      const data = await res.json().catch(() => ({}));
+
+      if (res.ok && data.ok) {
+        btn.classList.add("is-success");
+        btn.textContent = "Got it — we’ll be in touch ✓";
+        form.querySelectorAll("input, textarea, select").forEach((el) => {
+          if (el !== honeypot && el !== btn) el.value = "";
+        });
+        reset(4000);
+      } else {
+        throw new Error(data.error || "Send failed");
+      }
+    } catch (err) {
+      btn.classList.add("is-error");
+      btn.textContent = "Couldn’t send — email us instead";
+      reset(5000);
+    }
   });
 })();
 
