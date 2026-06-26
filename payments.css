@@ -65,19 +65,30 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: 12px 28px;
+  gap: 12px 14px;
 }
 
-.pay-methods-row span {
-  font-size: 16px;
-  font-weight: 800;
-  letter-spacing: -0.01em;
-  color: var(--muted);
-  opacity: 0.75;
-  transition: opacity 180ms ease, color 180ms ease;
+.pay-methods-row img {
+  height: 38px;
+  width: auto;
+  padding: 7px 12px;
+  border-radius: 9px;
+  background: #ffffff;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.08);
+  object-fit: contain;
+  opacity: 0.92;
+  transition: opacity 180ms ease, transform 180ms ease;
 }
 
-.pay-methods-row span:hover { opacity: 1; color: var(--text); }
+.pay-methods-row img:hover { opacity: 1; transform: translateY(-2px); }
+
+/* Monochrome logos (Klarna/SEPA) already render in their own colour — keep
+   them on a transparent chip so the white art shows on dark. */
+.pay-methods-row img.pay-logo-mono,
+.pay-method-chips img.pay-logo-mono {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--line);
+}
 
 /* === FEATURE GRID === */
 .pay-feature-grid {
@@ -147,17 +158,16 @@
   flex-wrap: wrap;
   gap: 8px;
   align-content: center;
-  max-width: 240px;
+  max-width: 260px;
 }
 
-.pay-method-chips span {
-  padding: 8px 12px;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.03);
-  font-size: 12px;
-  font-weight: 700;
-  color: var(--text);
+.pay-method-chips img {
+  height: 32px;
+  width: auto;
+  padding: 6px 9px;
+  border-radius: 8px;
+  background: #ffffff;
+  object-fit: contain;
 }
 
 .pay-stat-row {
