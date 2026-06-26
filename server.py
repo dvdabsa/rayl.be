@@ -65,45 +65,44 @@ def send_via_resend(data):
     logo = "https://rayl.be/favicon.png"
     msg_html = esc(message).replace(chr(10), "<br>")
 
-    def row(label, value):
+    def field(label, value):
         return (
-            f'<tr><td style="padding:10px 0;border-bottom:1px solid #eee;font-size:13px;'
-            f'color:#888;width:130px;vertical-align:top;">{label}</td>'
-            f'<td style="padding:10px 0;border-bottom:1px solid #eee;font-size:14px;'
-            f'color:#0a0a0a;font-weight:600;">{value}</td></tr>'
+            f'<tr><td style="padding:0 0 18px;font-size:12px;color:#9a9a9a;'
+            f'letter-spacing:.06em;text-transform:uppercase;width:120px;vertical-align:top;line-height:1.9;">{label}</td>'
+            f'<td style="padding:0 0 18px;font-size:15px;color:#0a0a0a;font-weight:600;'
+            f'vertical-align:top;line-height:1.6;">{value}</td></tr>'
         )
 
     html = f"""<!DOCTYPE html><html><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1"></head>
-<body style="margin:0;padding:0;background:#f4f4f4;font-family:Helvetica,Arial,sans-serif;color:#0a0a0a;">
-<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background:#f4f4f4;">
-<tr><td align="center" style="padding:40px 16px;">
-  <table role="presentation" width="600" cellspacing="0" cellpadding="0" border="0" style="max-width:600px;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.06);">
-    <tr><td style="padding:28px 40px;border-bottom:1px solid #eaeaea;">
-      <table role="presentation" cellspacing="0" cellpadding="0" border="0"><tr>
-        <td style="vertical-align:middle;padding-right:12px;"><img src="{logo}" alt="Rayl" width="36" height="36" style="display:block;border-radius:8px;"></td>
-        <td style="vertical-align:middle;"><span style="font-family:Georgia,serif;font-style:italic;font-weight:700;font-size:24px;letter-spacing:-.02em;color:#0a0a0a;">Rayl</span></td>
-      </tr></table>
-    </td></tr>
-    <tr><td style="height:4px;background:linear-gradient(90deg,{accent},#ff4d2e);font-size:0;line-height:0;">&nbsp;</td></tr>
-    <tr><td style="padding:36px 40px 8px;">
-      <h1 style="margin:0 0 6px;font-size:22px;font-weight:700;line-height:1.3;letter-spacing:-.015em;">New inquiry from the website</h1>
-      <p style="margin:0 0 24px;font-size:14px;color:#888;">Someone just submitted the contact form on rayl.be.</p>
+<body style="margin:0;padding:0;background:#ffffff;font-family:Helvetica,Arial,sans-serif;color:#0a0a0a;">
+<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background:#ffffff;">
+<tr><td align="center" style="padding:48px 24px;">
+  <table role="presentation" width="560" cellspacing="0" cellpadding="0" border="0" style="max-width:560px;background:#ffffff;">
+    <tr><td style="padding:0 0 36px;"><img src="{logo}" alt="Rayl" width="44" height="44" style="display:block;border-radius:10px;"></td></tr>
+    <tr><td style="padding:0 0 4px;"><h1 style="margin:0;font-size:26px;font-weight:700;line-height:1.25;letter-spacing:-.02em;">New inquiry from the website</h1></td></tr>
+    <tr><td style="padding:0 0 32px;"><p style="margin:0;font-size:15px;color:#9a9a9a;">Someone just reached out through rayl.be.</p></td></tr>
+    <tr><td style="padding:0 0 8px;">
       <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
-        {row("Name", esc(name))}
-        {row("Email", f'<a href="mailto:{esc(email)}" style="color:{accent};text-decoration:none;">{esc(email)}</a>')}
-        {row("Company", esc(company) or "—")}
-        {row("Topic", esc(topic) or "—")}
-      </table>
-      <p style="margin:24px 0 6px;font-size:13px;color:#888;text-transform:uppercase;letter-spacing:.08em;">Message</p>
-      <div style="font-size:15px;line-height:1.65;color:#222;background:#fafafa;border:1px solid #eee;border-radius:8px;padding:16px 18px;">{msg_html}</div>
-      <table role="presentation" cellspacing="0" cellpadding="0" border="0" style="margin:24px 0 8px;">
-        <tr><td bgcolor="{accent}" style="border-radius:8px;"><a href="mailto:{esc(email)}" style="display:inline-block;padding:13px 26px;font-size:14px;font-weight:700;color:#1a0d05;text-decoration:none;border-radius:8px;">Reply to {esc(name)}</a></td></tr>
+        {field("Name", esc(name))}
+        {field("Email", f'<a href="mailto:{esc(email)}" style="color:{accent};text-decoration:none;font-weight:600;">{esc(email)}</a>')}
+        {field("Company", esc(company) or "—")}
+        {field("Topic", esc(topic) or "—")}
       </table>
     </td></tr>
-    <tr><td style="padding:24px 40px 30px;border-top:1px solid #eaeaea;font-size:12px;color:#999;line-height:1.6;">
-      <p style="margin:0 0 4px;font-weight:700;color:#0a0a0a;">Rayl Technologies BV</p>
-      <p style="margin:0;">Jos Ratinckxstraat 3, C082, 2600 Antwerp, Belgium · <a href="https://rayl.be" style="color:#999;">rayl.be</a></p>
+    <tr><td style="padding:14px 0 6px;">
+      <p style="margin:0 0 10px;font-size:12px;color:#9a9a9a;letter-spacing:.06em;text-transform:uppercase;">Message</p>
+      <div style="font-size:16px;line-height:1.7;color:#1a1a1a;">{msg_html}</div>
+    </td></tr>
+    <tr><td style="padding:34px 0 0;">
+      <table role="presentation" cellspacing="0" cellpadding="0" border="0">
+        <tr><td bgcolor="{accent}" style="border-radius:10px;"><a href="mailto:{esc(email)}" style="display:inline-block;padding:14px 30px;font-size:15px;font-weight:700;color:#1a0d05;text-decoration:none;border-radius:10px;">Reply to {esc(name)}</a></td></tr>
+      </table>
+    </td></tr>
+    <tr><td style="padding:48px 0 0;font-size:12px;color:#b5b5b5;line-height:1.7;">
+      <p style="margin:0 0 2px;font-weight:600;color:#6a6a6a;">Rayl Technologies BV</p>
+      <p style="margin:0;">Jos Ratinckxstraat 3, C082, 2600 Antwerp, Belgium</p>
+      <p style="margin:6px 0 0;"><a href="https://rayl.be" style="color:{accent};text-decoration:none;">rayl.be</a></p>
     </td></tr>
   </table>
 </td></tr></table>

@@ -16,10 +16,10 @@ function esc(s) {
 }
 
 function renderHtml({ name, email, company, topic, message }) {
-  const row = (label, value) =>
+  const field = (label, value) =>
     `<tr>
-       <td style="padding:10px 0;border-bottom:1px solid #eee;font-size:13px;color:#888;width:130px;vertical-align:top;">${esc(label)}</td>
-       <td style="padding:10px 0;border-bottom:1px solid #eee;font-size:14px;color:#0a0a0a;font-weight:600;">${value}</td>
+       <td style="padding:0 0 18px;font-size:12px;color:#9a9a9a;letter-spacing:.06em;text-transform:uppercase;width:120px;vertical-align:top;line-height:1.9;">${esc(label)}</td>
+       <td style="padding:0 0 18px;font-size:15px;color:#0a0a0a;font-weight:600;vertical-align:top;line-height:1.6;">${value}</td>
      </tr>`;
 
   return `<!DOCTYPE html><html><head>
@@ -27,52 +27,54 @@ function renderHtml({ name, email, company, topic, message }) {
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>New contact via rayl.be</title>
 </head>
-<body style="margin:0;padding:0;background:#f4f4f4;font-family:Helvetica,Arial,sans-serif;color:#0a0a0a;-webkit-font-smoothing:antialiased;">
-<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="background:#f4f4f4;">
-<tr><td align="center" style="padding:40px 16px;">
-  <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="600" style="max-width:600px;background:#ffffff;border-radius:12px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.06);">
+<body style="margin:0;padding:0;background:#ffffff;font-family:Helvetica,Arial,sans-serif;color:#0a0a0a;-webkit-font-smoothing:antialiased;">
+<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="background:#ffffff;">
+<tr><td align="center" style="padding:48px 24px;">
+  <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="560" style="max-width:560px;background:#ffffff;">
 
-    <!-- Header -->
-    <tr><td style="padding:28px 40px;border-bottom:1px solid #eaeaea;">
-      <table role="presentation" cellspacing="0" cellpadding="0" border="0"><tr>
-        <td style="vertical-align:middle;padding-right:12px;">
-          <img src="${LOGO_URL}" alt="Rayl" width="36" height="36" style="display:block;border-radius:8px;" />
-        </td>
-        <td style="vertical-align:middle;">
-          <span style="font-family:Georgia,'Times New Roman',serif;font-style:italic;font-weight:700;font-size:24px;letter-spacing:-.02em;color:#0a0a0a;">Rayl</span>
-        </td>
-      </tr></table>
+    <!-- Logo -->
+    <tr><td style="padding:0 0 36px;">
+      <img src="${LOGO_URL}" alt="Rayl" width="44" height="44" style="display:block;border-radius:10px;" />
     </td></tr>
 
-    <!-- Accent bar -->
-    <tr><td style="height:4px;background:linear-gradient(90deg,${ACCENT},#ff4d2e);font-size:0;line-height:0;">&nbsp;</td></tr>
+    <!-- Heading -->
+    <tr><td style="padding:0 0 4px;">
+      <h1 style="margin:0;font-size:26px;font-weight:700;line-height:1.25;color:#0a0a0a;letter-spacing:-.02em;">New inquiry from the website</h1>
+    </td></tr>
+    <tr><td style="padding:0 0 32px;">
+      <p style="margin:0;font-size:15px;color:#9a9a9a;">Someone just reached out through rayl.be.</p>
+    </td></tr>
 
-    <!-- Body -->
-    <tr><td style="padding:36px 40px 8px;">
-      <h1 style="margin:0 0 6px;font-size:22px;font-weight:700;line-height:1.3;color:#0a0a0a;letter-spacing:-.015em;">New inquiry from the website</h1>
-      <p style="margin:0 0 24px;font-size:14px;color:#888;">Someone just submitted the contact form on rayl.be.</p>
-
+    <!-- Fields -->
+    <tr><td style="padding:0 0 8px;">
       <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
-        ${row("Name", esc(name))}
-        ${row("Email", `<a href="mailto:${esc(email)}" style="color:${ACCENT};text-decoration:none;">${esc(email)}</a>`)}
-        ${row("Company", esc(company) || "—")}
-        ${row("Topic", esc(topic) || "—")}
+        ${field("Name", esc(name))}
+        ${field("Email", `<a href="mailto:${esc(email)}" style="color:${ACCENT};text-decoration:none;font-weight:600;">${esc(email)}</a>`)}
+        ${field("Company", esc(company) || "—")}
+        ${field("Topic", esc(topic) || "—")}
       </table>
+    </td></tr>
 
-      <p style="margin:24px 0 6px;font-size:13px;color:#888;text-transform:uppercase;letter-spacing:.08em;">Message</p>
-      <div style="font-size:15px;line-height:1.65;color:#222;background:#fafafa;border:1px solid #eee;border-radius:8px;padding:16px 18px;">${esc(message).replace(/\n/g, "<br>")}</div>
+    <!-- Message -->
+    <tr><td style="padding:14px 0 6px;">
+      <p style="margin:0 0 10px;font-size:12px;color:#9a9a9a;letter-spacing:.06em;text-transform:uppercase;">Message</p>
+      <div style="font-size:16px;line-height:1.7;color:#1a1a1a;">${esc(message).replace(/\n/g, "<br>")}</div>
+    </td></tr>
 
-      <table role="presentation" cellspacing="0" cellpadding="0" border="0" style="margin:24px 0 8px;">
-        <tr><td bgcolor="${ACCENT}" style="border-radius:8px;">
-          <a href="mailto:${esc(email)}" target="_blank" style="display:inline-block;padding:13px 26px;font-size:14px;font-weight:700;color:#1a0d05;text-decoration:none;border-radius:8px;">Reply to ${esc(name)}</a>
+    <!-- CTA -->
+    <tr><td style="padding:34px 0 0;">
+      <table role="presentation" cellspacing="0" cellpadding="0" border="0">
+        <tr><td bgcolor="${ACCENT}" style="border-radius:10px;">
+          <a href="mailto:${esc(email)}" target="_blank" style="display:inline-block;padding:14px 30px;font-size:15px;font-weight:700;color:#1a0d05;text-decoration:none;border-radius:10px;">Reply to ${esc(name)}</a>
         </td></tr>
       </table>
     </td></tr>
 
     <!-- Footer -->
-    <tr><td style="padding:24px 40px 30px;border-top:1px solid #eaeaea;font-size:12px;color:#999;line-height:1.6;">
-      <p style="margin:0 0 4px;font-weight:700;color:#0a0a0a;">${esc(COMPANY)}</p>
-      <p style="margin:0;">${esc(ADDRESS)} · <a href="${SITE}" style="color:#999;text-decoration:underline;">rayl.be</a></p>
+    <tr><td style="padding:48px 0 0;font-size:12px;color:#b5b5b5;line-height:1.7;">
+      <p style="margin:0 0 2px;font-weight:600;color:#6a6a6a;">${esc(COMPANY)}</p>
+      <p style="margin:0;">${esc(ADDRESS)}</p>
+      <p style="margin:6px 0 0;"><a href="${SITE}" style="color:${ACCENT};text-decoration:none;">rayl.be</a></p>
     </td></tr>
 
   </table>
