@@ -283,6 +283,26 @@ if (menuButton && mobileNav) {
   update();
 })();
 
+(function initVisitTracking() {
+  // Only track visitors who accepted analytics in the cookie banner (GDPR).
+  let consent = null;
+  try { consent = JSON.parse(localStorage.getItem("rayl-cookie-consent") || "null"); } catch (_) {}
+  if (!consent || consent.choice !== "accept") return;
+
+  // Fire a one-off beacon with the current page; IP + geo are read server-side.
+  try {
+    fetch("/api/track", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      keepalive: true,
+      body: JSON.stringify({
+        path: location.pathname,
+        referrer: document.referrer || "",
+      }),
+    }).catch(() => {});
+  } catch (_) {}
+})();
+
 (function initCookieConsent() {
   const banner = document.getElementById("cookieBanner");
   if (!banner) return;

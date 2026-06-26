@@ -165,6 +165,26 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
         self.wfile.write(body)
 
     def do_POST(self):
+        if self.path.rstrip("/") == "/api/track":
+            try:
+                length = int(self.headers.get("Content-Length", 0))
+                raw = self.rfile.read(length) if length else b"{}"
+                data = json.loads(raw.decode("utf-8") or "{}")
+            except Exception:  # noqa: BLE001
+                data = {}
+            ip = (self.headers.get("X-Forwarded-For", "")
+                  or self.client_address[0] or "")
+            print("[track]", json.dumps({
+                "ip": ip.split(",")[0].strip(),
+                "country": self.headers.get("X-Vercel-IP-Country", "(local)"),
+                "path": str(data.get("path", ""))[:200],
+                "referrer": str(data.get("referrer", ""))[:300],
+                "ua": self.headers.get("User-Agent", "")[:300],
+            }))
+            self.send_response(204)
+            self.end_headers()
+            return
+
         if self.path.rstrip("/") == "/api/contact":
             try:
                 length = int(self.headers.get("Content-Length", 0))
