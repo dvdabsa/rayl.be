@@ -39,9 +39,10 @@ export default async function handler(req, res) {
     ua: (req.headers["user-agent"] || "").slice(0, 300),
   };
 
-  // Persist to Vercel KV if configured; else log.
-  const kvUrl = process.env.KV_REST_API_URL;
-  const kvToken = process.env.KV_REST_API_TOKEN;
+  // Persist to Redis (Upstash) if configured; else log.
+  // Accept either the Vercel KV or the Upstash env-var naming.
+  const kvUrl = process.env.KV_REST_API_URL || process.env.UPSTASH_REDIS_REST_URL;
+  const kvToken = process.env.KV_REST_API_TOKEN || process.env.UPSTASH_REDIS_REST_TOKEN;
 
   if (kvUrl && kvToken) {
     try {
