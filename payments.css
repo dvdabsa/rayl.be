@@ -38,7 +38,11 @@
 }
 
 @media (max-width: 960px) {
-  .pay-hero { grid-template-columns: 1fr; gap: 36px; }
+  /* minmax(0,1fr) (not bare 1fr, which is minmax(auto,1fr)) so the column can
+     shrink below the dashboard image's intrinsic width; min-width:0 lets the
+     grid items themselves shrink too. Prevents mobile horizontal overflow. */
+  .pay-hero { grid-template-columns: minmax(0, 1fr); gap: 36px; }
+  .pay-hero > * { min-width: 0; }
 }
 
 /* === METHODS STRIP === */

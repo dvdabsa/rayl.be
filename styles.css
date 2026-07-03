@@ -4990,3 +4990,46 @@ h1 {
     padding: 24px;
   }
 }
+
+/* ============================================================
+ * Mobile overflow hardening (applies to all pages via styles.css)
+ * ============================================================ */
+html {
+  overflow-x: clip;
+  max-width: 100%;
+}
+body {
+  max-width: 100%;
+}
+
+/* The animated background field must never exceed the viewport on mobile.
+   On desktop it keeps the -8% parallax breathing room; on touch/small
+   screens we pin it to the viewport and drop the cursor-parallax transform. */
+@media (max-width: 900px), (hover: none) {
+  .bg-field {
+    inset: 0 !important;
+    transform: none !important;
+  }
+}
+
+/* Let big editorial headings wrap instead of pushing the page wide. */
+@media (max-width: 720px) {
+  h1,
+  .manifesto-line,
+  .pf-hero-copy h1,
+  .reach-text h2,
+  .contact-copy h2,
+  .section h2,
+  .split-section h2,
+  .final-cta h2,
+  .pay-hero h1 {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    hyphens: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 { font-size: clamp(36px, 11vw, 56px); }
+  .manifesto-line { font-size: clamp(38px, 12vw, 60px); }
+}
