@@ -101,7 +101,7 @@ def send_via_resend(data):
     </td></tr>
     <tr><td style="padding:48px 0 0;font-size:12px;color:#b5b5b5;line-height:1.7;">
       <p style="margin:0 0 2px;font-weight:600;color:#6a6a6a;">Rayl Technologies BV</p>
-      <p style="margin:0;">Jos Ratinckxstraat 3, C082, 2600 Antwerp, Belgium</p>
+      <p style="margin:0;">Antwerp, Belgium</p>
       <p style="margin:6px 0 0;"><a href="https://rayl.be" style="color:{accent};text-decoration:none;">rayl.be</a></p>
     </td></tr>
   </table>

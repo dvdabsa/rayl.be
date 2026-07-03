@@ -6,7 +6,7 @@ const SITE = "https://rayl.be";
 const LOGO_URL = `${SITE}/favicon.png`;
 const ACCENT = "#ff8a3d";
 const COMPANY = "Rayl Technologies BV";
-const ADDRESS = "Jos Ratinckxstraat 3, C082, 2600 Antwerp, Belgium";
+const ADDRESS = "Antwerp, Belgium";
 
 function esc(s) {
   return String(s || "")
