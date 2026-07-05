@@ -4994,12 +4994,16 @@ h1 {
 /* ============================================================
  * Mobile overflow hardening (applies to all pages via styles.css)
  * ============================================================ */
+/* Clip horizontal overflow on <body>, NOT <html>. Putting overflow on the
+   root element makes it the scroll container and breaks the sticky navbar
+   (.site-header is position:sticky). overflow-x:clip does not create a scroll
+   container, so the viewport stays the scroll root and sticky keeps working. */
 html {
-  overflow-x: clip;
   max-width: 100%;
 }
 body {
   max-width: 100%;
+  overflow-x: clip;
 }
 
 /* The animated background field must never exceed the viewport on mobile.
