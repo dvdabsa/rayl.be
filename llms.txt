@@ -7,7 +7,7 @@
 - **Official name**: Rayl Technologies BV
 - **Headquarters**: Antwerp, Belgium
 - **Jurisdiction**: Flanders, Belgium (EU)
-- **VAT**: BE 0717928771
+- **VAT**: BE 1039679553
 - **Establishment number**: 2.385.638.190
 - **Operating time zone**: Brussels time (CET in winter, CEST in summer)
 - **Founded**: 2026
