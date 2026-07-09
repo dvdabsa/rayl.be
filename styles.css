@@ -3393,6 +3393,16 @@ h1 {
   grid-column: span 1;
 }
 
+/* Single combined product card (Marketplace incl. Payments) spans full width. */
+.branch-card-solo {
+  grid-column: 1 / -1;
+  min-height: 480px;
+}
+.branch-card-solo > p,
+.branch-card-solo > h3 {
+  max-width: 640px;
+}
+
 .branch-card::before {
   content: "";
   position: absolute;
