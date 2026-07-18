@@ -72,7 +72,8 @@
       ],
       "brand": [
         { "@type": "Brand", "name": "Rayl Payments" },
-        { "@type": "Brand", "name": "Rayl Marketplace" }
+        { "@type": "Brand", "name": "Rayl Marketplace" },
+        { "@type": "Brand", "name": "Rayl Defense" }
       ],
       "sameAs": []
     }
@@ -94,7 +95,8 @@
       href="https://fonts.googleapis.com/css2?family=Fustat:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=20260613o" />
+    <link rel="stylesheet" href="styles.css?v=20260613p" />
+    <link rel="stylesheet" href="defense.css?v=20260613p" />
   </head>
   <body>
     <div class="bg-field" id="bgField" aria-hidden="true">
@@ -363,10 +365,10 @@
         </section>
 
         <section class="section" id="projects">
-          <p class="section-kicker">✶ Our own product</p>
+          <p class="section-kicker">✶ Our own products</p>
           <h2>We don&rsquo;t just build for clients.</h2>
           <p class="section-lede">
-            We also operate our own product. It&rsquo;s proof that we ship and a way for us
+            We also operate our own products. They&rsquo;re proof that we ship and a way for us
             to stay sharp on the same problems our clients face.
           </p>
 
@@ -413,6 +415,26 @@
                 Payments is built right in, so everyone who joins the marketplace can accept
                 payments and settle faster from day one — no separate signup, no second account.
                 <strong style="color: var(--text); font-weight: 700;">Join the marketplace and payments come included.</strong>
+              </p>
+            </article>
+
+            <article class="branch-card branch-card-solo branch-card-defense">
+              <div class="branch-visual def-hud-card" aria-hidden="true">
+                <span class="def-corner tl"></span><span class="def-corner tr"></span>
+                <span class="def-corner bl"></span><span class="def-corner br"></span>
+                <div class="def-track t1"><i>TRK-042 · VEHICLE · 0.97</i></div>
+                <div class="def-track t2"><i>TRK-057 · STRUCTURE · 0.94</i></div>
+                <div class="def-scan"></div>
+                <div class="def-read tl-read">51.2602N 4.4022E · SECTOR 7</div>
+                <div class="def-read tr-read">SENTINEL · LIVE</div>
+              </div>
+              <p>Defense division · Mission software</p>
+              <h3><a href="defense.html" style="color:inherit;">Rayl Defense <span>→</span></a></h3>
+              <p>
+                AI-enabled GEOINT, ISR analysis and command software for EU &amp; NATO-aligned
+                government, primes and dual-use companies. Software only — built, hosted and
+                governed in the EU.
+                <a href="defense.html" style="color: var(--text); text-decoration: underline; text-underline-offset: 3px;">Enter Rayl Defense</a>.
               </p>
             </article>
           </div>
@@ -604,14 +626,15 @@
             <span class="brand-name">Rayl</span>
           </a>
           <p>
-            Rayl Technologies BV — building fintech for everyone. Operator of Rayl Marketplace,
-            with Rayl Payments built in.
+            Rayl Technologies BV — software that ships. Operator of Rayl Marketplace (with
+            Rayl Payments built in) and the Rayl Defense division.
           </p>
         </div>
         <nav class="footer-links" aria-label="Footer navigation">
           <div>
-            <h3>Product</h3>
+            <h3>Products</h3>
             <a href="#projects">Rayl Marketplace</a>
+            <a href="defense.html">Rayl Defense</a>
             <a href="signup.html">Get started</a>
           </div>
           <div>
@@ -657,7 +680,7 @@
     </aside>
     <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
     <script src="https://cdn.jsdelivr.net/npm/topojson-client@3"></script>
-    <script src="script.js?v=20260613o"></script>
+    <script src="script.js?v=20260613p"></script>
       <script defer src="/_vercel/insights/script.js"></script>
   </body>
 </html>

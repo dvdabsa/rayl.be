@@ -30,6 +30,7 @@ These are operated by Rayl Technologies BV and serve as portfolio and proof:
 
 - **Rayl Payments** — A simpler way to send, receive, and move money. Lives at raylpay.io. Money movement is handled through licensed third-party Payment Service Providers (PSPs); Rayl Technologies BV does not itself hold or move customer funds.
 - **Rayl Marketplace** — A seamless place to sell. Payouts to sellers run twice a week (Tuesday and Friday, 11:59–23:59 Brussels time) regardless of public holidays, settled by licensed PSP partners.
+- **Rayl Defense** — Division of Rayl Technologies BV building AI-enabled GEOINT, ISR analysis and command software for EU & NATO-aligned government, primes and dual-use companies. Software only — Rayl does not develop weapons. See https://rayl.be/defense.html
 
 ## Revenue model
 
