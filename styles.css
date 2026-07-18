@@ -21,6 +21,9 @@
   --blue: #5664ff;
   --orange: #ff991c;
   --max: 1240px;
+  /* Motion tokens — one signature curve site-wide, plus a springy variant. */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-spring: cubic-bezier(0.34, 1.4, 0.44, 1);
   font-family: "Fustat", Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
@@ -30,6 +33,10 @@
 
 html {
   scroll-behavior: smooth;
+  /* Anchor jumps land clear of the floating sticky navbar (28px top + 72px bar + air). */
+  scroll-padding-top: 124px;
+  /* Native UI (form controls, scrollbars) renders dark to match the theme. */
+  color-scheme: dark;
 }
 
 body {
@@ -40,7 +47,8 @@ body {
     radial-gradient(circle at 18% 48%, rgba(44, 79, 40, 0.15), transparent 27rem),
     var(--bg);
   color: var(--text);
-  overflow-x: hidden;
+  /* No overflow-x here: hidden/clip on body breaks #anchor scrolling in
+     Chromium. Horizontal containment lives on <main> (see hardening block). */
 }
 
 body.menu-open {
@@ -77,21 +85,25 @@ button {
   align-items: center;
   justify-content: space-between;
   gap: 22px;
-  border: 0;
+  border: 1px solid transparent;
   border-radius: 7px;
   background: transparent;
   box-shadow: none;
   backdrop-filter: none;
   -webkit-backdrop-filter: none;
-  transition: background 300ms ease, backdrop-filter 300ms ease, box-shadow 300ms ease;
+  transition: background 360ms var(--ease-out), border-color 360ms var(--ease-out),
+              backdrop-filter 360ms var(--ease-out), box-shadow 360ms var(--ease-out);
   animation: navDrop 700ms ease both;
 }
 
 .site-header.is-scrolled {
-  background: rgb(142 142 142 / 30%);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+  background: rgba(14, 14, 14, 0.58);
+  border-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px) saturate(1.5);
+  -webkit-backdrop-filter: blur(20px) saturate(1.5);
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
 }
 
 .brand {
@@ -158,9 +170,38 @@ button {
   transition: color 180ms ease;
 }
 
+.desktop-nav a {
+  position: relative;
+}
+
+/* Animated underline — grows from the left on hover, stays on the active section. */
+.desktop-nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -6px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--green);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 320ms var(--ease-out);
+}
+
+.desktop-nav a:hover::after,
+.desktop-nav a.is-active::after {
+  transform: scaleX(1);
+}
+
 .desktop-nav a:hover,
 .login-link:hover {
   color: var(--green);
+}
+
+/* Scrollspy: the section currently in view stays lit. */
+.desktop-nav a.is-active {
+  color: var(--text);
 }
 
 .header-actions {
@@ -326,7 +367,7 @@ button {
 
   clip-path: inset(0 0 100% 0);
   pointer-events: none;
-  transition: clip-path 560ms cubic-bezier(0.22, 1, 0.36, 1);
+  transition: clip-path 560ms var(--ease-out);
 }
 
 .menu-open .mobile-nav {
@@ -358,7 +399,7 @@ button {
 
   opacity: 0;
   transform: translateY(24px);
-  transition: opacity 480ms ease, transform 560ms cubic-bezier(0.22, 1, 0.36, 1), color 200ms ease;
+  transition: opacity 480ms ease, transform 560ms var(--ease-out), color 200ms ease;
 }
 
 .mobile-nav a:last-child {
@@ -377,7 +418,7 @@ button {
 .mobile-nav > .mobile-lang {
   opacity: 0;
   transform: translateY(-12px);
-  transition: opacity 420ms ease, transform 480ms cubic-bezier(0.22, 1, 0.36, 1);
+  transition: opacity 420ms ease, transform 480ms var(--ease-out);
 }
 
 .menu-open .mobile-nav > .mobile-lang {
@@ -1358,7 +1399,7 @@ body::after {
   transform: translateY(80px);
   opacity: 0;
   pointer-events: none;
-  transition: transform 320ms cubic-bezier(0.22, 1, 0.36, 1), opacity 280ms ease, box-shadow 240ms ease;
+  transition: transform 320ms var(--ease-out), opacity 280ms ease, box-shadow 240ms ease;
 }
 
 .float-cta.is-visible {
@@ -1407,7 +1448,7 @@ body::after {
   background: #000;
   /* Mouse parallax applied here (parent) so it never fights the per-blob motion */
   transform: translate(calc((var(--mx, 0.5) - 0.5) * 48px), calc((var(--my, 0.5) - 0.5) * 48px));
-  transition: transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+  transition: transform 700ms var(--ease-out);
 }
 
 /* Animated film grain — shimmers continuously, monochrome, very subtle. */
@@ -1513,11 +1554,11 @@ body::after {
 
 /* Legal / info pages — single gentle fade */
 .legal-page {
-  animation: fadeSoft 620ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation: fadeSoft 620ms var(--ease-out) both;
 }
 
 .legal-page > * {
-  animation: fadeSoft 600ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation: fadeSoft 600ms var(--ease-out) both;
 }
 .legal-page > *:nth-child(1) { animation-delay: 60ms; }
 .legal-page > *:nth-child(2) { animation-delay: 110ms; }
@@ -1544,7 +1585,7 @@ body::after {
 .auth-solo-topbar,
 .auth-solo-card,
 .auth-solo-footer {
-  animation: authIn 760ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation: authIn 760ms var(--ease-out) both;
 }
 
 /* Left panel cadence */
@@ -2397,24 +2438,29 @@ body::after {
 }
 
 
-/* Staggered hero entrance — each element appears in sequence on load */
+/* Staggered hero entrance — each element rises out of a soft blur in
+   sequence on load. Covers the homepage hero and the payments hero. */
 .hero .announcement,
+.pay-hero .announcement,
 .hero-copy > .eyebrow,
 .hero-copy > h1,
 .hero-copy > p:not(.eyebrow),
 .hero-copy > .hero-buttons,
 .hero-copy > .hero-trust,
-.hero-visual {
-  animation: fadeUp 720ms cubic-bezier(0.22, 1, 0.36, 1) both;
+.hero-visual,
+.pay-hero-visual {
+  animation: heroRise 720ms var(--ease-out) both;
 }
 
-.hero .announcement        { animation-delay: 80ms; }
+.hero .announcement,
+.pay-hero .announcement    { animation-delay: 80ms; }
 .hero-copy > .eyebrow      { animation-delay: 200ms; }
 .hero-copy > h1            { animation-delay: 320ms; }
 .hero-copy > p:not(.eyebrow) { animation-delay: 480ms; }
 .hero-copy > .hero-buttons { animation-delay: 620ms; }
 .hero-copy > .hero-trust   { animation-delay: 740ms; }
-.hero-visual               { animation-delay: 560ms; }
+.hero-visual,
+.pay-hero-visual           { animation-delay: 560ms; }
 
 .announcement {
   display: inline-flex;
@@ -2688,7 +2734,7 @@ h1 {
   box-shadow:
     0 30px 80px rgba(0, 0, 0, 0.55),
     0 0 0 1px rgba(255, 255, 255, 0.02) inset;
-  transition: transform 320ms cubic-bezier(0.22, 1, 0.36, 1), border-color 240ms ease, box-shadow 240ms ease;
+  transition: transform 320ms var(--ease-out), border-color 240ms ease, box-shadow 240ms ease;
 }
 
 .product-frame:hover {
@@ -3869,8 +3915,8 @@ h1 {
 .reveal {
   opacity: 0;
   transform: translateY(28px);
-  transition: opacity 700ms cubic-bezier(0.22, 1, 0.36, 1),
-              transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+  transition: opacity 700ms var(--ease-out),
+              transform 700ms var(--ease-out);
   transition-delay: var(--reveal-delay, 0ms);
   will-change: opacity, transform;
 }
@@ -3882,7 +3928,7 @@ h1 {
 
 /* Hero dashboard parallax lift */
 .hero-visual .product-frame {
-  transition: transform 320ms cubic-bezier(0.22, 1, 0.36, 1), border-color 240ms ease, box-shadow 240ms ease;
+  transition: transform 320ms var(--ease-out), border-color 240ms ease, box-shadow 240ms ease;
   transform: translateY(var(--parallax, 0px));
 }
 
@@ -5004,15 +5050,23 @@ h1 {
 /* ============================================================
  * Mobile overflow hardening (applies to all pages via styles.css)
  * ============================================================ */
-/* Clip horizontal overflow on <body>, NOT <html>. Putting overflow on the
-   root element makes it the scroll container and breaks the sticky navbar
-   (.site-header is position:sticky). overflow-x:clip does not create a scroll
-   container, so the viewport stays the scroll root and sticky keeps working. */
+/* Clip horizontal overflow on <main>, NOT <html> or <body>.
+   - On <html> it turns the root into the scroll container and breaks the
+     sticky navbar.
+   - On <body> Chromium stops scrolling to #fragment anchors entirely
+     (nav links silently stall), because the propagated clip interferes
+     with the viewport's fragment-scroll path.
+   <main> holds all the wide decorative content (hero glows, blobs, viz),
+   sits in normal flow, and overflow-x:clip on it neither creates a scroll
+   container nor touches the viewport — so sticky, anchors, and smooth
+   scrolling all keep working while stray width still gets clipped. */
 html {
   max-width: 100%;
 }
 body {
   max-width: 100%;
+}
+main {
   overflow-x: clip;
 }
 
@@ -5046,4 +5100,166 @@ body {
 @media (max-width: 480px) {
   h1 { font-size: clamp(36px, 11vw, 56px); }
   .manifesto-line { font-size: clamp(38px, 12vw, 60px); }
+}
+
+/* ============================================================
+ * Polish pass — selection, scrollbar, focus, entrance, blur-up,
+ * glare, magnetic buttons, view transitions
+ * ============================================================ */
+
+/* Branded text selection. */
+::selection {
+  background: var(--orange);
+  color: #000000;
+}
+
+/* Slim, dark scrollbar (WebKit + Firefox). */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.16) transparent;
+}
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.14);
+  border-radius: 999px;
+  border: 3px solid #000000;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Keyboard focus — a deliberate ring instead of browser defaults. */
+:where(a, button, input, textarea, select, summary, [tabindex]):focus-visible {
+  outline: 2px solid var(--orange);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* --- Hero entrance choreography (first paint) --- */
+@keyframes heroRise {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+    filter: blur(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+/* (Applied by the existing "Staggered hero entrance" block near the hero
+   styles — it now uses these heroRise keyframes for both page heroes.) */
+
+/* --- Image blur-up: big imagery fades in from a soft blur --- */
+.img-blurup {
+  opacity: 0;
+  filter: blur(16px);
+  transform: scale(1.035);
+}
+.img-blurup.is-loaded {
+  opacity: 1;
+  filter: blur(0);
+  transform: none;
+  transition: opacity 800ms var(--ease-out), filter 800ms var(--ease-out),
+              transform 800ms var(--ease-out);
+}
+
+/* --- Specular glare that follows the cursor on the flagship card --- */
+.branch-card-solo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  border-radius: inherit;
+  background: radial-gradient(
+    560px circle at var(--cx, 50%) var(--cy, 50%),
+    rgba(255, 255, 255, 0.09),
+    transparent 45%
+  );
+  opacity: 0;
+  transition: opacity 320ms var(--ease-out);
+  pointer-events: none;
+}
+.branch-card-solo:hover::after {
+  opacity: 1;
+}
+@media (hover: none) {
+  .branch-card-solo::after { display: none; }
+}
+
+/* --- Magnetic buttons: keep non-transform transitions intact --- */
+.is-magnetic {
+  transition: transform 220ms var(--ease-spring), border-color 180ms ease,
+              background 180ms ease;
+  will-change: transform;
+}
+
+/* --- Count-up stats: fixed-width digits so numbers don't jitter --- */
+.trust-stat strong,
+.pay-stat strong,
+.reach-stats strong,
+.pv-tile strong {
+  font-variant-numeric: tabular-nums;
+}
+
+/* --- Cross-document view transitions: pages crossfade like an SPA.
+   The navbar carries its own snapshot, so it stays put while the
+   page content glides underneath. Progressive enhancement — browsers
+   without support simply do a normal navigation. --- */
+@view-transition {
+  navigation: auto;
+}
+
+.site-header {
+  view-transition-name: site-header;
+}
+
+@keyframes vtOut {
+  to { opacity: 0; transform: translateY(-10px); }
+}
+@keyframes vtIn {
+  from { opacity: 0; transform: translateY(12px); }
+}
+::view-transition-old(root) {
+  animation: vtOut 200ms var(--ease-out) both;
+}
+::view-transition-new(root) {
+  animation: vtIn 300ms var(--ease-out) both;
+}
+
+/* Reduced motion: no entrance, no blur-up hiding, no page transitions. */
+@media (prefers-reduced-motion: reduce) {
+  .hero .announcement,
+  .pay-hero .announcement,
+  .hero-copy > .eyebrow,
+  .hero-copy > h1,
+  .hero-copy > p:not(.eyebrow),
+  .hero-copy > .hero-buttons,
+  .hero-copy > .hero-trust,
+  .hero-visual,
+  .pay-hero-visual {
+    animation: none;
+  }
+  .img-blurup {
+    opacity: 1;
+    filter: none;
+    transform: none;
+  }
+  @view-transition {
+    navigation: none;
+  }
+  ::view-transition-group(*),
+  ::view-transition-image-pair(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
 }

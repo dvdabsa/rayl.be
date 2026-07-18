@@ -500,3 +500,160 @@ if (menuButton && mobileNav) {
     requestAnimationFrame(tick);
   }).catch(() => {});
 })();
+
+(function initScrollSpy() {
+  // Highlight the nav link whose section is currently in the middle of the viewport.
+  const links = Array.from(document.querySelectorAll('.desktop-nav a[href^="#"]'));
+  if (!links.length || !("IntersectionObserver" in window)) return;
+
+  const byId = new Map();
+  links.forEach((link) => {
+    const id = link.getAttribute("href").slice(1);
+    const section = id && document.getElementById(id);
+    if (section) byId.set(section, link);
+  });
+  if (!byId.size) return;
+
+  const io = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        links.forEach((l) => l.classList.remove("is-active"));
+        const link = byId.get(entry.target);
+        if (link) link.classList.add("is-active");
+      });
+    },
+    // A band around the middle of the viewport decides the "current" section.
+    { rootMargin: "-35% 0px -60% 0px", threshold: 0 }
+  );
+
+  byId.forEach((_, section) => io.observe(section));
+})();
+
+(function initCountUp() {
+  // Animate stat numbers from 0 when they scroll into view.
+  if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  if (!("IntersectionObserver" in window)) return;
+
+  const els = document.querySelectorAll(
+    ".trust-stat strong, .pay-stat strong, .reach-stats strong, .pv-tile strong"
+  );
+
+  const targets = [];
+  els.forEach((el) => {
+    // Exactly one numeric run, e.g. "99.4%", "11+", "1,200+", "2026".
+    const m = el.textContent.trim().match(/^([^0-9]*)([0-9][0-9.,]*)([^0-9]*)$/);
+    if (!m) return;
+    const raw = m[2];
+    const value = parseFloat(raw.replace(/,/g, ""));
+    if (!isFinite(value)) return;
+    targets.push({
+      el,
+      prefix: m[1],
+      suffix: m[3],
+      value,
+      decimals: raw.includes(".") ? raw.split(".")[1].length : 0,
+      grouped: raw.includes(","),
+      final: el.textContent,
+    });
+  });
+  if (!targets.length) return;
+
+  function format(t, val) {
+    if (t.grouped) {
+      return val.toLocaleString("en-US", {
+        minimumFractionDigits: t.decimals,
+        maximumFractionDigits: t.decimals,
+      });
+    }
+    return val.toFixed(t.decimals);
+  }
+
+  function run(t) {
+    const DURATION = 1200;
+    const start = performance.now();
+    function frame(now) {
+      const p = Math.min(1, (now - start) / DURATION);
+      const eased = 1 - Math.pow(2, -10 * p); // easeOutExpo
+      if (p >= 1) {
+        t.el.textContent = t.final; // land exactly on the authored text
+        return;
+      }
+      t.el.textContent = t.prefix + format(t, t.value * eased) + t.suffix;
+      requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
+  }
+
+  const io = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const t = targets.find((x) => x.el === entry.target);
+        if (t) run(t);
+        io.unobserve(entry.target);
+      });
+    },
+    { threshold: 0.5 }
+  );
+
+  targets.forEach((t) => {
+    t.el.textContent = t.prefix + format(t, 0) + t.suffix;
+    io.observe(t.el);
+  });
+})();
+
+(function initImgReveal() {
+  // Blur-up for hero-scale imagery: fade in from a soft blur instead of popping.
+  if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+  document
+    .querySelectorAll(".product-frame img, .reach-globe-img")
+    .forEach((img) => {
+      if (img.complete && img.naturalWidth > 0) return; // cached — show instantly
+      img.classList.add("img-blurup");
+      const done = () => img.classList.add("is-loaded");
+      img.addEventListener("load", done, { once: true });
+      img.addEventListener("error", done, { once: true });
+    });
+})();
+
+(function initMagneticButtons() {
+  // CTAs lean gently toward the cursor, spring back on leave.
+  if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  if (!matchMedia("(hover: hover) and (pointer: fine)").matches) return;
+
+  document.querySelectorAll(".nav-cta, .primary-button, .contact-submit").forEach((el) => {
+    el.classList.add("is-magnetic");
+    el.addEventListener("mousemove", (e) => {
+      const r = el.getBoundingClientRect();
+      const dx = (e.clientX - (r.left + r.width / 2)) * 0.18;
+      const dy = (e.clientY - (r.top + r.height / 2)) * 0.26;
+      el.style.transform =
+        "translate(" + dx.toFixed(1) + "px, " + (dy - 2).toFixed(1) + "px)";
+    });
+    el.addEventListener("mouseleave", () => {
+      el.style.transform = "";
+    });
+  });
+})();
+
+(function initAnchorScroll() {
+  // Fragment navigation is unreliable in Chromium when body/ancestor overflow
+  // or view transitions are in play — the hash changes but the page never
+  // scrolls. Drive same-page anchor scrolling explicitly instead;
+  // scrollIntoView honors the CSS scroll-padding-top navbar offset.
+  document.addEventListener("click", (e) => {
+    const a = e.target.closest('a[href^="#"]');
+    if (!a) return;
+    const id = a.getAttribute("href").slice(1);
+    const target = id && document.getElementById(id);
+    if (!target) return;
+    e.preventDefault();
+    history.pushState(null, "", "#" + id);
+    const behavior = matchMedia("(prefers-reduced-motion: reduce)").matches
+      ? "instant"
+      : "smooth";
+    target.scrollIntoView({ behavior, block: "start" });
+  });
+})();
