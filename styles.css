@@ -5263,3 +5263,12 @@ html {
     animation: none !important;
   }
 }
+
+/* Navbar items must never wrap their labels ("Sign in", "Get Started",
+   "Request Briefing") — keep every header control on a single line. */
+.brand-name,
+.desktop-nav a,
+.login-link,
+.nav-cta {
+  white-space: nowrap;
+}
