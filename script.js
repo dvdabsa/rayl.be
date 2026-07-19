@@ -30,9 +30,8 @@ if (menuButton && mobileNav) {
     ".contact-copy",
     ".contact-form",
     ".final-cta > *",
-    ".def-hero > *",
+    ".def-mission > *",
     ".def-band",
-    ".def-hud",
     ".def-section > .def-kicker",
     ".def-section > h2",
     ".def-section > .def-lede",
@@ -54,7 +53,8 @@ if (menuButton && mobileNav) {
     ".pf-quotes-grid",
     ".pf-links-grid",
     ".pf-metrics",
-    ".def-grid",
+    ".def-tiles",
+    ".def-stats",
     ".def-rows",
   ];
 

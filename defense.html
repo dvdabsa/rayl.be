@@ -24,8 +24,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Fustat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="styles.css?v=20260613q" />
-    <link rel="stylesheet" href="defense.css?v=20260613q" />
+    <link rel="stylesheet" href="styles.css?v=20260613r" />
+    <link rel="stylesheet" href="defense.css?v=20260613r" />
   </head>
   <body class="def-page">
     <div class="site-shell">
@@ -34,7 +34,7 @@
           <span class="brand-name">Rayl</span>
         </a>
         <nav class="desktop-nav" aria-label="Main navigation">
-          <a href="#capabilities">Capabilities</a>
+          <a href="#capabilities">Systems</a>
           <a href="#sentinel">Sentinel</a>
           <a href="#doctrine">Doctrine</a>
           <a href="index.html#contact">Contact</a>
@@ -49,7 +49,7 @@
       </header>
 
       <nav class="mobile-nav" aria-label="Mobile navigation">
-        <a href="#capabilities">Capabilities</a>
+        <a href="#capabilities">Systems</a>
         <a href="#sentinel">Sentinel</a>
         <a href="#doctrine">Doctrine</a>
         <a href="index.html#contact">Contact</a>
@@ -58,18 +58,29 @@
       </nav>
 
       <main id="top">
-        <!-- HERO -->
-        <section class="def-hero">
-          <p class="eyebrow">Rayl Defense · Division of Rayl Technologies BV</p>
-          <h1>Mission software for a safer Europe.</h1>
-          <p class="def-sub">
-            We build AI-enabled geospatial intelligence, ISR analysis and command software for
-            the organisations defending Europe — engineered in Antwerp, hosted in the EU,
-            delivered at software speed.
-          </p>
-          <div class="hero-buttons">
-            <a class="primary-button" href="index.html#contact">Request a briefing</a>
-            <a class="secondary-button" href="#capabilities">View capabilities</a>
+        <!-- FULL-BLEED HERO -->
+        <section class="def-fullhero">
+          <div class="def-fullhero-bg" aria-hidden="true"></div>
+          <span class="def-fullhero-read tl" aria-hidden="true">Rayl Defense · Antwerp HQ</span>
+          <span class="def-fullhero-read tr" aria-hidden="true">51.2602N 4.4022E</span>
+
+          <div class="def-fullhero-content">
+            <p class="def-tag">Division of Rayl Technologies BV</p>
+            <h1>We are a European defense software company.</h1>
+            <p class="def-sub">
+              Rayl Defense builds AI-enabled geospatial intelligence, ISR analysis and command
+              software for the organisations defending Europe — engineered in Antwerp,
+              hosted in the EU, delivered at software speed.
+            </p>
+            <div class="hero-buttons">
+              <a class="primary-button" href="index.html#contact">Request a briefing</a>
+              <a class="secondary-button" href="#capabilities">Explore systems</a>
+            </div>
+          </div>
+
+          <div class="def-fullhero-foot">
+            <span>Software only · No weapons development</span>
+            <span class="def-scrollcue">Scroll<i aria-hidden="true"></i></span>
           </div>
         </section>
 
@@ -81,73 +92,105 @@
           <div role="listitem"><i aria-hidden="true"></i>Export-control aware</div>
         </div>
 
-        <!-- HUD -->
-        <div class="def-hud" aria-hidden="true">
-          <span class="def-corner tl"></span><span class="def-corner tr"></span>
-          <span class="def-corner bl"></span><span class="def-corner br"></span>
-          <div class="def-cross"><span></span><span></span></div>
-          <div class="def-track t1"><i>TRK-042 · VEHICLE · 0.97</i></div>
-          <div class="def-track t2"><i>TRK-057 · STRUCTURE · 0.94</i></div>
-          <div class="def-track t3"><i>TRK-061 · 0.88</i></div>
-          <div class="def-scan"></div>
-          <div class="def-read tl-read">51.2602N 4.4022E · SECTOR 7</div>
-          <div class="def-read tr-read">SENTINEL · LIVE</div>
-          <div class="def-read bl-read">GSD 0.30 M/PX · EPSG:32631</div>
-          <div class="def-read br-read">DETECTION CORE v2.4</div>
-        </div>
-
-        <!-- CAPABILITIES -->
-        <section class="def-section" id="capabilities">
-          <p class="def-kicker">/ 01 — Capabilities</p>
-          <h2>What we build.</h2>
-          <p class="def-lede">
-            Focused software capabilities for intelligence, surveillance and decision support —
-            built by a product team that ships, not a services bench.
+        <!-- DOCTRINE / MISSION -->
+        <section class="def-mission" id="doctrine">
+          <p class="def-kicker">/ 01 — Doctrine</p>
+          <p class="def-statement">
+            The decisive edge is no longer only steel. It is <em>software</em>.
           </p>
-
-          <div class="def-grid">
-            <article class="def-cap">
-              <p class="def-num">CAP / 01</p>
-              <h3>GEOINT Analysis</h3>
-              <p>Satellite and aerial imagery pipelines — ingest, enhancement, tiling and
-              annotation of JPG, PNG and GeoTIFF sources at scale.</p>
-            </article>
-            <article class="def-cap">
-              <p class="def-num">CAP / 02</p>
-              <h3>AI Object Detection</h3>
-              <p>Detection and classification of vehicles, structures, roads and vessels with
-              per-object confidence scoring and change detection between passes.</p>
-            </article>
-            <article class="def-cap">
-              <p class="def-num">CAP / 03</p>
-              <h3>Command Dashboards</h3>
-              <p>Operator-grade command and control interfaces: live maps, track overlays,
-              measurement tools and reporting built for high-tempo environments.</p>
-            </article>
-            <article class="def-cap">
-              <p class="def-num">CAP / 04</p>
-              <h3>Secure Data Infrastructure</h3>
-              <p>EU-hosted, least-privilege, audit-logged infrastructure. Deployable to cloud,
-              on-premise or air-gapped environments.</p>
-            </article>
-            <article class="def-cap">
-              <p class="def-num">CAP / 05</p>
-              <h3>Data Fusion</h3>
-              <p>Fusing imagery, open-source and operational feeds into a single picture —
-              normalised, timestamped and queryable.</p>
-            </article>
-            <article class="def-cap">
-              <p class="def-num">CAP / 06</p>
-              <h3>Rapid Prototyping</h3>
-              <p>Mission tooling in weeks, not years. We prototype against real operator
-              workflows and iterate under feedback from the field.</p>
-            </article>
+          <p class="def-lede">
+            The speed at which raw data becomes a decision determines outcomes. Rayl Defense
+            exists to compress that loop — bringing product-company speed, modern AI and honest
+            engineering to the institutions that protect open societies.
+          </p>
+          <div class="def-callout">
+            <b>Software only.</b> Rayl Technologies BV develops software and analysis tooling.
+            We do not design, produce or trade weapons or weapon components, and we assess
+            every engagement against EU dual-use and export-control rules and applicable
+            sanctions regimes.
           </div>
         </section>
 
-        <!-- SENTINEL -->
+        <!-- SYSTEMS TILE WALL -->
+        <section id="capabilities">
+          <div class="def-section def-products-head">
+            <p class="def-kicker">/ 02 — Systems</p>
+            <h2>One stack. Six systems.</h2>
+            <p class="def-lede">
+              Focused software systems for intelligence, surveillance and decision support —
+              built by a product team that ships, not a services bench.
+            </p>
+          </div>
+
+          <div class="def-tiles">
+            <a class="def-tile v1" href="#sentinel">
+              <span class="def-tile-bg" aria-hidden="true"></span>
+              <span class="def-tile-sys" aria-hidden="true">SYS 01 — <b>ONLINE</b></span>
+              <div class="def-tile-body">
+                <h3>Sentinel</h3>
+                <p>GEOINT analysis console — imagery in, detections and briefings out.</p>
+                <span class="def-tile-link">Explore</span>
+              </div>
+            </a>
+            <a class="def-tile v2" href="#sentinel">
+              <span class="def-tile-bg" aria-hidden="true"></span>
+              <span class="def-tile-sys" aria-hidden="true">SYS 02 — <b>ONLINE</b></span>
+              <div class="def-tile-body">
+                <h3>Detection Core</h3>
+                <p>AI models resolving vehicles, structures, roads and vessels with per-object confidence.</p>
+                <span class="def-tile-link">Explore</span>
+              </div>
+            </a>
+            <a class="def-tile v3" href="#briefing">
+              <span class="def-tile-bg" aria-hidden="true"></span>
+              <span class="def-tile-sys" aria-hidden="true">SYS 03 — <b>ONLINE</b></span>
+              <div class="def-tile-body">
+                <h3>Command</h3>
+                <p>Operator-grade dashboards, live maps and track overlays for high-tempo operations.</p>
+                <span class="def-tile-link">Request briefing</span>
+              </div>
+            </a>
+            <a class="def-tile v4" href="#briefing">
+              <span class="def-tile-bg" aria-hidden="true"></span>
+              <span class="def-tile-sys" aria-hidden="true">SYS 04 — IN DEVELOPMENT</span>
+              <div class="def-tile-body">
+                <h3>Fusion</h3>
+                <p>Imagery, open-source and operational feeds fused into one queryable picture.</p>
+                <span class="def-tile-link">Request briefing</span>
+              </div>
+            </a>
+            <a class="def-tile v5" href="#briefing">
+              <span class="def-tile-bg" aria-hidden="true"></span>
+              <span class="def-tile-sys" aria-hidden="true">SYS 05 — <b>ONLINE</b></span>
+              <div class="def-tile-body">
+                <h3>Bastion</h3>
+                <p>EU-hosted secure infrastructure — least-privilege, audit-logged, air-gap deployable.</p>
+                <span class="def-tile-link">Request briefing</span>
+              </div>
+            </a>
+            <a class="def-tile v6" href="#briefing">
+              <span class="def-tile-bg" aria-hidden="true"></span>
+              <span class="def-tile-sys" aria-hidden="true">SYS 06 — <b>ONLINE</b></span>
+              <div class="def-tile-body">
+                <h3>Forge</h3>
+                <p>Rapid mission prototyping — operator-tested tooling in weeks, not years.</p>
+                <span class="def-tile-link">Request briefing</span>
+              </div>
+            </a>
+          </div>
+        </section>
+
+        <!-- BIG STATS -->
+        <section class="def-stats" aria-label="Rayl Defense at a glance">
+          <div><strong>2026</strong><span>Founded · Antwerp</span></div>
+          <div><strong>100%</strong><span>Software — no weapons</span></div>
+          <div><strong>EU</strong><span>Data residency</span></div>
+          <div><strong>6–8 wk</strong><span>Typical ship cadence</span></div>
+        </section>
+
+        <!-- SENTINEL FLAGSHIP -->
         <section class="def-section" id="sentinel">
-          <p class="def-kicker">/ 02 — Flagship</p>
+          <p class="def-kicker">/ 03 — Flagship</p>
           <h2>Rayl Sentinel.</h2>
           <p class="def-lede">
             Our GEOINT analysis console. Upload imagery, run AI detection, measure, and brief —
@@ -188,27 +231,6 @@
           </div>
         </section>
 
-        <!-- DOCTRINE -->
-        <section class="def-section" id="doctrine">
-          <p class="def-kicker">/ 03 — Doctrine</p>
-          <h2>Why we do this.</h2>
-          <p class="def-statement">
-            Europe's security depends on <em>software</em> as much as steel.
-          </p>
-          <p class="def-lede">
-            The decisive edge in modern security is the speed at which raw data becomes a
-            decision. Rayl Defense exists to compress that loop — bringing product-company
-            speed, modern AI and honest engineering to the institutions that protect open
-            societies.
-          </p>
-          <div class="def-callout">
-            <b>Software only.</b> Rayl Technologies BV develops software and analysis tooling.
-            We do not design, produce or trade weapons or weapon components, and we assess
-            every engagement against EU dual-use and export-control rules and applicable
-            sanctions regimes.
-          </div>
-        </section>
-
         <!-- WHO WE WORK WITH -->
         <section class="def-section" id="eligibility">
           <p class="def-kicker">/ 04 — Who we work with</p>
@@ -237,7 +259,7 @@
         </section>
 
         <!-- FINAL CTA -->
-        <section class="def-cta">
+        <section class="def-cta" id="briefing">
           <span class="def-corner tl"></span><span class="def-corner tr"></span>
           <span class="def-corner bl"></span><span class="def-corner br"></span>
           <h2>Request a briefing.</h2>
@@ -261,7 +283,7 @@
         <nav class="footer-links" aria-label="Footer navigation">
           <div>
             <h3>Division</h3>
-            <a href="#capabilities">Capabilities</a>
+            <a href="#capabilities">Systems</a>
             <a href="#sentinel">Rayl Sentinel</a>
             <a href="#doctrine">Doctrine</a>
           </div>
@@ -300,7 +322,7 @@
       </div>
     </aside>
 
-    <script src="script.js?v=20260613q"></script>
+    <script src="script.js?v=20260613r"></script>
       <script defer src="/_vercel/insights/script.js"></script>
   </body>
 </html>
