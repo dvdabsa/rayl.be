@@ -669,3 +669,20 @@ if (menuButton && mobileNav) {
     target.scrollIntoView({ behavior, block: "start" });
   });
 })();
+
+(function initPasswordToggles() {
+  // Eye button inside .auth-pw fields switches the input between
+  // password and text, and swaps the open/closed eye icon.
+  document.querySelectorAll("[data-pw-toggle]").forEach((btn) => {
+    const input = btn.closest(".auth-pw")?.querySelector("input");
+    if (!input) return;
+    btn.addEventListener("click", () => {
+      const show = input.type === "password";
+      input.type = show ? "text" : "password";
+      btn.classList.toggle("is-shown", show);
+      btn.setAttribute("aria-pressed", String(show));
+      btn.setAttribute("aria-label", show ? "Hide password" : "Show password");
+      input.focus({ preventScroll: true });
+    });
+  });
+})();

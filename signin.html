@@ -12,7 +12,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Fustat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="styles.css?v=20260613r" />
+    <link rel="stylesheet" href="styles.css?v=20260613s" />
   </head>
   <body>
     <main class="auth-split auth-split-reverse">
@@ -24,7 +24,20 @@
         <div class="auth-split-form-body">
           <div class="auth-split-form-inner">
             <h1>Welcome back.</h1>
-            <p class="auth-lede">Sign in to your Rayl account.</p>
+            <p class="auth-lede">Sign in to continue to your Rayl account.</p>
+
+            <div class="auth-sso-group">
+              <button type="button" class="auth-sso">
+                <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M23.5 12.27c0-.85-.08-1.66-.22-2.45H12v4.64h6.46a5.53 5.53 0 0 1-2.4 3.63v3h3.88c2.27-2.1 3.56-5.18 3.56-8.82z"/><path fill="#34A853" d="M12 24c3.24 0 5.96-1.07 7.94-2.91l-3.88-3c-1.08.72-2.45 1.15-4.06 1.15-3.12 0-5.77-2.1-6.71-4.94H1.28v3.1A12 12 0 0 0 12 24z"/><path fill="#FBBC05" d="M5.29 14.3a7.2 7.2 0 0 1 0-4.6v-3.1H1.28a12 12 0 0 0 0 10.8l4.01-3.1z"/><path fill="#EA4335" d="M12 4.76c1.76 0 3.34.6 4.59 1.8l3.44-3.44A11.97 11.97 0 0 0 12 0 12 12 0 0 0 1.28 6.6l4.01 3.1C6.23 6.86 8.88 4.76 12 4.76z"/></svg>
+                Continue with Google
+              </button>
+              <button type="button" class="auth-sso">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.36 12.94c-.03-2.62 2.14-3.88 2.24-3.94-1.22-1.79-3.12-2.03-3.8-2.06-1.61-.16-3.15.95-3.97.95-.82 0-2.09-.93-3.44-.9-1.77.03-3.4 1.03-4.31 2.61-1.84 3.19-.47 7.9 1.32 10.49.88 1.27 1.92 2.69 3.29 2.64 1.32-.05 1.82-.85 3.42-.85s2.05.85 3.44.82c1.42-.02 2.32-1.29 3.19-2.56 1-1.46 1.42-2.88 1.44-2.95-.03-.02-2.77-1.06-2.82-4.25zM13.74 5.24c.72-.88 1.21-2.1 1.08-3.31-1.04.04-2.3.69-3.05 1.57-.67.78-1.26 2.02-1.1 3.21 1.16.09 2.35-.59 3.07-1.47z"/></svg>
+                Continue with Apple
+              </button>
+            </div>
+
+            <div class="auth-divider">or continue with email</div>
 
             <form class="auth-form" method="post" action="#" novalidate>
               <div class="auth-field">
@@ -32,14 +45,26 @@
                 <input id="si-email" name="email" type="email" autocomplete="email" placeholder="you@domain.com" required />
               </div>
               <div class="auth-field">
-                <label for="si-password">Password</label>
-                <input id="si-password" name="password" type="password" autocomplete="current-password" placeholder="••••••••" required />
+                <div class="auth-label-row">
+                  <label for="si-password">Password</label>
+                  <a class="auth-forgot" href="#">Forgot password?</a>
+                </div>
+                <div class="auth-pw">
+                  <input id="si-password" name="password" type="password" autocomplete="current-password" placeholder="••••••••" required />
+                  <button type="button" class="auth-eye" data-pw-toggle aria-label="Show password" aria-pressed="false">
+                    <svg class="eye-open" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1.5 12S5.5 5 12 5s10.5 7 10.5 7-4 7-10.5 7S1.5 12 1.5 12z"/><circle cx="12" cy="12" r="3"/></svg>
+                    <svg class="eye-closed" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1.5 12S5.5 5 12 5c1.6 0 3 .4 4.3 1M22.5 12s-4 7-10.5 7c-1.6 0-3-.4-4.3-1"/><path d="m3 21 18-18"/></svg>
+                  </button>
+                </div>
               </div>
 
-              <a class="auth-forgot" href="#">Forgot password?</a>
-
-              <button class="auth-submit" type="submit">Sign in</button>
+              <button class="auth-submit" type="submit"><span>Sign in</span><i aria-hidden="true">→</i></button>
             </form>
+
+            <p class="auth-secure">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="4" y="10.5" width="16" height="10" rx="2"/><path d="M8 10.5V7a4 4 0 0 1 8 0v3.5"/></svg>
+              EU-hosted · GDPR-aligned · Encrypted in transit
+            </p>
           </div>
         </div>
       </section>
@@ -53,9 +78,15 @@
         <div class="auth-brand-headline">
           <h2>Good to see you. <em>Let&rsquo;s pick up.</em></h2>
           <p>
-            One account, both products. Sign in once and Rayl Payments and Rayl Marketplace
-            are both right there.
+            One account, every Rayl product. Sign in once and Rayl Payments and Rayl
+            Marketplace are both right there.
           </p>
+          <div class="auth-chips" aria-hidden="true">
+            <span>T+1 settlement</span>
+            <span>EU-hosted</span>
+            <span>GDPR</span>
+            <span>PSD2 · SCA</span>
+          </div>
           <ul class="auth-perks">
             <li><span><strong>Payouts on schedule.</strong>Tuesdays &amp; Fridays, Brussels time.</span></li>
             <li><span><strong>Funds in regulated hands.</strong>Licensed PSPs do the moving.</span></li>
@@ -81,7 +112,7 @@
       </div>
     </aside>
 
-    <script src="script.js?v=20260613r"></script>
+    <script src="script.js?v=20260613s"></script>
       <script defer src="/_vercel/insights/script.js"></script>
   </body>
 </html>
