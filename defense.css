@@ -119,13 +119,12 @@
   position: absolute;
   inset: -4%;
   background:
-    radial-gradient(120% 90% at 72% 8%, rgba(83, 140, 90, 0.13), transparent 60%),
-    radial-gradient(90% 80% at 14% 86%, rgba(70, 95, 130, 0.1), transparent 62%),
-    radial-gradient(50% 40% at 48% 42%, rgba(120, 150, 120, 0.06), transparent 70%),
+    radial-gradient(120% 90% at 78% 0%, rgba(66, 128, 82, 0.09), transparent 56%),
+    radial-gradient(95% 85% at 6% 94%, rgba(64, 90, 126, 0.065), transparent 60%),
     url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="620" height="620" viewBox="0 0 620 620"><g fill="none" stroke="%23000000" stroke-opacity="0.05"><path d="M130 310c0-95 82-158 185-158s185 63 185 158-82 158-185 158-185-63-185-158z"/><path d="M172 310c0-72 64-120 143-120s143 48 143 120-64 120-143 120-143-48-143-120z"/><path d="M215 310c0-50 44-84 100-84s100 34 100 84-44 84-100 84-100-34-100-84z"/><path d="M256 310c0-30 26-50 59-50s59 20 59 50-26 50-59 50-59-20-59-50z"/><path d="M40 120c46-34 104-48 172-34M560 60c-30 44-78 72-138 80M420 560c66-10 118-40 140-88M30 500c34 26 90 40 148 32"/></g></svg>') center / 760px auto repeat,
-    linear-gradient(rgba(0, 0, 0, 0.035) 1px, transparent 1px) 0 0 / 64px 64px,
-    linear-gradient(90deg, rgba(0, 0, 0, 0.035) 1px, transparent 1px) 0 0 / 64px 64px,
-    #fafbf9;
+    linear-gradient(rgba(0, 0, 0, 0.024) 1px, transparent 1px) 0 0 / 76px 76px,
+    linear-gradient(90deg, rgba(0, 0, 0, 0.024) 1px, transparent 1px) 0 0 / 76px 76px,
+    #fbfcfa;
   animation: defHeroDrift 26s ease-out both;
 }
 
@@ -361,73 +360,80 @@
   flex-direction: column;
   justify-content: flex-end;
   aspect-ratio: 16 / 9.5;
-  padding: clamp(20px, 2.6vw, 40px);
+  padding: clamp(22px, 2.6vw, 42px);
   overflow: hidden;
   color: inherit;
-  background: #f4f5f2;
+  background: #f7f8f5;
+  transition: background 420ms var(--ease-out);
 }
 
+.def-tile:hover {
+  background: #ffffff;
+}
+
+/* Faint grid texture; the tile's own bg shows through and brightens on hover */
 .def-tile-bg {
   position: absolute;
   inset: 0;
-  transition: transform 900ms var(--ease-out), filter 600ms ease;
+  transition: transform 950ms var(--ease-out);
   background:
-    linear-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px) 0 0 / 52px 52px,
-    linear-gradient(90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px) 0 0 / 52px 52px,
-    #f4f5f2;
+    linear-gradient(rgba(0, 0, 0, 0.02) 1px, transparent 1px) 0 0 / 54px 54px,
+    linear-gradient(90deg, rgba(0, 0, 0, 0.02) 1px, transparent 1px) 0 0 / 54px 54px;
 }
 
-/* Per-tile atmosphere (light graphite with faint hue drift) */
+/* A whisper of unique tint per tile — clean, not a colour wash */
 .def-tile.v1 .def-tile-bg { background-image:
-  radial-gradient(85% 70% at 70% 20%, rgba(96, 150, 104, 0.2), transparent 62%),
-  radial-gradient(60% 55% at 18% 85%, rgba(90, 110, 140, 0.16), transparent 65%),
-  url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="620" height="620" viewBox="0 0 620 620"><g fill="none" stroke="%23000000" stroke-opacity="0.05"><path d="M130 310c0-95 82-158 185-158s185 63 185 158-82 158-185 158-185-63-185-158z"/><path d="M172 310c0-72 64-120 143-120s143 48 143 120-64 120-143 120-143-48-143-120z"/><path d="M215 310c0-50 44-84 100-84s100 34 100 84-44 84-100 84-100-34-100-84z"/></g></svg>'),
-  linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px),
-  linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px);
-  background-size: 100% 100%, 100% 100%, 560px auto, 52px 52px, 52px 52px; }
+  radial-gradient(76% 66% at 76% 14%, rgba(58, 140, 78, 0.08), transparent 62%),
+  linear-gradient(rgba(0,0,0,0.02) 1px, transparent 1px),
+  linear-gradient(90deg, rgba(0,0,0,0.02) 1px, transparent 1px);
+  background-size: 100% 100%, 54px 54px, 54px 54px; }
 .def-tile.v2 .def-tile-bg { background-image:
-  radial-gradient(80% 70% at 24% 18%, rgba(84, 112, 150, 0.2), transparent 62%),
-  radial-gradient(55% 55% at 82% 80%, rgba(96, 130, 100, 0.16), transparent 65%),
-  linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px),
-  linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px);
-  background-size: 100% 100%, 100% 100%, 52px 52px, 52px 52px; }
+  radial-gradient(72% 62% at 22% 16%, rgba(62, 96, 142, 0.075), transparent 62%),
+  linear-gradient(rgba(0,0,0,0.02) 1px, transparent 1px),
+  linear-gradient(90deg, rgba(0,0,0,0.02) 1px, transparent 1px);
+  background-size: 100% 100%, 54px 54px, 54px 54px; }
 .def-tile.v3 .def-tile-bg { background-image:
-  radial-gradient(90% 80% at 80% 78%, rgba(104, 140, 96, 0.2), transparent 64%),
-  radial-gradient(50% 45% at 22% 22%, rgba(84, 104, 140, 0.15), transparent 66%),
-  linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px),
-  linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px);
-  background-size: 100% 100%, 100% 100%, 52px 52px, 52px 52px; }
+  radial-gradient(78% 66% at 82% 82%, rgba(66, 132, 82, 0.075), transparent 64%),
+  linear-gradient(rgba(0,0,0,0.02) 1px, transparent 1px),
+  linear-gradient(90deg, rgba(0,0,0,0.02) 1px, transparent 1px);
+  background-size: 100% 100%, 54px 54px, 54px 54px; }
 .def-tile.v4 .def-tile-bg { background-image:
-  radial-gradient(75% 65% at 30% 80%, rgba(88, 124, 132, 0.2), transparent 62%),
-  radial-gradient(55% 50% at 78% 16%, rgba(108, 124, 92, 0.15), transparent 64%),
-  url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="620" height="620" viewBox="0 0 620 620"><g fill="none" stroke="%23000000" stroke-opacity="0.045"><path d="M40 120c46-34 104-48 172-34M560 60c-30 44-78 72-138 80M420 560c66-10 118-40 140-88M30 500c34 26 90 40 148 32"/></g></svg>'),
-  linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px),
-  linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px);
-  background-size: 100% 100%, 100% 100%, 620px auto, 52px 52px, 52px 52px; }
+  radial-gradient(72% 60% at 26% 84%, rgba(58, 108, 122, 0.075), transparent 62%),
+  linear-gradient(rgba(0,0,0,0.02) 1px, transparent 1px),
+  linear-gradient(90deg, rgba(0,0,0,0.02) 1px, transparent 1px);
+  background-size: 100% 100%, 54px 54px, 54px 54px; }
 .def-tile.v5 .def-tile-bg { background-image:
-  radial-gradient(85% 75% at 74% 60%, rgba(88, 116, 98, 0.2), transparent 64%),
-  radial-gradient(45% 45% at 16% 20%, rgba(92, 108, 140, 0.15), transparent 62%),
-  linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px),
-  linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px);
-  background-size: 100% 100%, 100% 100%, 52px 52px, 52px 52px; }
+  radial-gradient(76% 64% at 78% 56%, rgba(64, 120, 84, 0.075), transparent 64%),
+  linear-gradient(rgba(0,0,0,0.02) 1px, transparent 1px),
+  linear-gradient(90deg, rgba(0,0,0,0.02) 1px, transparent 1px);
+  background-size: 100% 100%, 54px 54px, 54px 54px; }
 .def-tile.v6 .def-tile-bg { background-image:
-  radial-gradient(80% 70% at 20% 55%, rgba(106, 128, 96, 0.2), transparent 63%),
-  radial-gradient(50% 45% at 84% 24%, rgba(84, 110, 140, 0.15), transparent 64%),
-  linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px),
-  linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px);
-  background-size: 100% 100%, 100% 100%, 52px 52px, 52px 52px; }
+  radial-gradient(74% 62% at 18% 58%, rgba(86, 116, 70, 0.075), transparent 63%),
+  linear-gradient(rgba(0,0,0,0.02) 1px, transparent 1px),
+  linear-gradient(90deg, rgba(0,0,0,0.02) 1px, transparent 1px);
+  background-size: 100% 100%, 54px 54px, 54px 54px; }
 
-/* Legibility ramp inside each tile — keep the text zone clean */
+/* Thin accent that wipes across the top edge on hover */
 .def-tile::after {
   content: "";
   position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background: linear-gradient(to top, rgba(244, 245, 242, 0.94), transparent 58%);
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--d-green);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 480ms var(--ease-out);
+  z-index: 3;
+}
+
+.def-tile:hover::after {
+  transform: scaleX(1);
 }
 
 .def-tile:hover .def-tile-bg {
-  transform: scale(1.045);
+  transform: scale(1.05);
 }
 
 .def-tile-sys {
@@ -445,6 +451,18 @@
 .def-tile-sys b {
   color: var(--d-green);
   font-weight: 600;
+}
+
+.def-tile-sys b::before {
+  content: "";
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  margin-right: 6px;
+  border-radius: 50%;
+  background: var(--d-green);
+  box-shadow: 0 0 0 3px rgba(43, 143, 18, 0.14);
+  vertical-align: middle;
 }
 
 .def-tile-body {
