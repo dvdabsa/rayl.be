@@ -1203,20 +1203,19 @@ body::after {
 }
 
 .trust-logos-track img {
-  max-height: 40px;
-  max-width: 160px;
+  height: 30px;
+  max-width: 150px;
   width: auto;
-  height: auto;
   object-fit: contain;
   flex-shrink: 0;
-  filter: grayscale(1) brightness(1.6) contrast(0.9);
-  opacity: 0.6;
-  transition: opacity 240ms ease, filter 240ms ease, transform 240ms ease;
+  /* Uniform white silhouette — one cohesive marquee. */
+  filter: brightness(0) invert(1);
+  opacity: 0.4;
+  transition: opacity 240ms ease, transform 240ms ease;
 }
 
 .trust-logos-track img:hover {
-  opacity: 1;
-  filter: grayscale(0) brightness(1.05) contrast(1);
+  opacity: 0.85;
   transform: translateY(-2px);
 }
 
@@ -2599,19 +2598,19 @@ h1 {
 }
 
 .hero-trust-logos img {
-  max-height: 26px;
-  max-width: 90px;
+  height: 22px;
+  max-width: 116px;
   width: auto;
-  height: auto;
   object-fit: contain;
-  filter: grayscale(1) brightness(1.6) contrast(0.9);
-  opacity: 0.7;
-  transition: opacity 200ms ease, filter 200ms ease;
+  /* Flatten every partner logo to a single white silhouette so the row
+     reads as one cohesive set regardless of the source artwork. */
+  filter: brightness(0) invert(1);
+  opacity: 0.5;
+  transition: opacity 200ms ease;
 }
 
 .hero-trust-logos img:hover {
-  opacity: 1;
-  filter: grayscale(0) brightness(1.05);
+  opacity: 0.9;
 }
 
 .hero-trust-plus {
@@ -5557,4 +5556,29 @@ html {
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.65);
+}
+
+/* ============================================================
+ * Homepage hero — two-column at desktop so the product shot
+ * fills the space beside the copy instead of dropping below.
+ * Announcement spans the top; copy left, dashboard right.
+ * Below 900px it falls back to the stacked single-column layout.
+ * ============================================================ */
+@media (min-width: 900px) {
+  .hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1.06fr) minmax(0, 0.94fr);
+    grid-template-areas:
+      "ann    ann"
+      "copy   visual";
+    column-gap: clamp(40px, 5vw, 76px);
+    align-items: center;
+  }
+  .hero > .announcement { grid-area: ann; justify-self: start; }
+  .hero > .hero-copy { grid-area: copy; min-width: 0; }
+  .hero > .hero-visual { grid-area: visual; min-width: 0; margin-top: 0; }
+
+  /* Scale the headline to sit comfortably in the narrower column. */
+  .hero-copy h1 { font-size: clamp(40px, 4.6vw, 66px); }
+  .hero-copy p { width: min(520px, 100%); }
 }
