@@ -30,15 +30,6 @@ if (menuButton && mobileNav) {
     ".contact-copy",
     ".contact-form",
     ".final-cta > *",
-    ".def-mission > *",
-    ".def-band",
-    ".def-section > .def-kicker",
-    ".def-section > h2",
-    ".def-section > .def-lede",
-    ".def-section .def-statement",
-    ".def-section .def-callout",
-    ".def-split > div",
-    ".def-cta > *",
   ].join(",");
 
   // Containers whose direct children reveal in a staggered sequence.
@@ -53,9 +44,6 @@ if (menuButton && mobileNav) {
     ".pf-quotes-grid",
     ".pf-links-grid",
     ".pf-metrics",
-    ".def-tiles",
-    ".def-stats",
-    ".def-rows",
   ];
 
   const blocks = Array.from(document.querySelectorAll(blockSelector));
